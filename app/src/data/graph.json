@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "description": "Данные для force-directed графа связей между конкурентами, площадками и аудиториями",
+    "graphEngine": "3d-force-graph"
+  },
+  "nodes": [
+    {
+      "id": "weekend-billiard",
+      "name": "Weekend Бильярд",
+      "type": "self",
+      "color": "#0157a4",
+      "size": 80,
+      "rating": 4.5,
+      "price": 900,
+      "group": 0
+    },
+    {
+      "id": "pool-hall-pro",
+      "name": "Pool Hall Pro",
+      "type": "direct",
+      "color": "#A855F7",
+      "size": 60,
+      "rating": 4.7,
+      "price": 800,
+      "group": 1
+    },
+    {
+      "id": "billiard-city",
+      "name": "Бильярд-Сити",
+      "type": "direct",
+      "color": "#A855F7",
+      "size": 55,
+      "rating": 4.3,
+      "price": 700,
+      "group": 1
+    },
+    {
+      "id": "lucky-shot",
+      "name": "Lucky Shot",
+      "type": "indirect",
+      "color": "#06B6D4",
+      "size": 40,
+      "rating": 4.1,
+      "price": 450,
+      "group": 2
+    },
+    {
+      "id": "shark-lounge",
+      "name": "Shark Lounge",
+      "type": "direct",
+      "color": "#A855F7",
+      "size": 55,
+      "rating": 4.6,
+      "price": 1400,
+      "group": 1
+    },
+    {
+      "id": "kiy-club",
+      "name": "Кий-Клуб «Динамо»",
+      "type": "potential",
+      "color": "#F97316",
+      "size": 50,
+      "rating": 4.0,
+      "price": 600,
+      "group": 3
+    },
+    {
+      "id": "platform-google-maps",
+      "name": "Google Maps",
+      "type": "platform",
+      "color": "#8E8E93",
+      "size": 35,
+      "group": 4
+    },
+    {
+      "id": "platform-2gis",
+      "name": "2GIS",
+      "type": "platform",
+      "color": "#8E8E93",
+      "size": 35,
+      "group": 4
+    },
+    {
+      "id": "platform-yandex",
+      "name": "Yandex Maps",
+      "type": "platform",
+      "color": "#8E8E93",
+      "size": 35,
+      "group": 4
+    },
+    {
+      "id": "platform-instagram",
+      "name": "Instagram",
+      "type": "platform",
+      "color": "#8E8E93",
+      "size": 35,
+      "group": 4
+    },
+    {
+      "id": "audience-corporate",
+      "name": "Корпоративные клиенты",
+      "type": "audience",
+      "color": "#06B6D4",
+      "size": 30,
+      "group": 5
+    },
+    {
+      "id": "audience-students",
+      "name": "Студенты",
+      "type": "audience",
+      "color": "#06B6D4",
+      "size": 30,
+      "group": 5
+    },
+    {
+      "id": "audience-premium",
+      "name": "VIP / Premium",
+      "type": "audience",
+      "color": "#06B6D4",
+      "size": 30,
+      "group": 5
+    },
+    {
+      "id": "audience-regular",
+      "name": "Регулярные игроки",
+      "type": "audience",
+      "color": "#06B6D4",
+      "size": 30,
+      "group": 5
+    }
+  ],
+  "links": [
+    { "source": "weekend-billiard", "target": "pool-hall-pro", "type": "price_competition", "strength": 0.9, "label": "Ценовая конкуренция" },
+    { "source": "weekend-billiard", "target": "billiard-city", "type": "shared_audience", "strength": 0.6, "label": "Общая аудитория" },
+    { "source": "weekend-billiard", "target": "shark-lounge", "type": "direct_substitution", "strength": 0.7, "label": "Прямое замещение (premium)" },
+    { "source": "weekend-billiard", "target": "kiy-club", "type": "price_competition", "strength": 0.5, "label": "Ценовое давление (промо)" },
+    { "source": "pool-hall-pro", "target": "billiard-city", "type": "shared_audience", "strength": 0.7, "label": "Общая аудитория" },
+    { "source": "pool-hall-pro", "target": "kiy-club", "type": "price_competition", "strength": 0.8, "label": "Ценовая конкуренция" },
+    { "source": "shark-lounge", "target": "pool-hall-pro", "type": "shared_audience", "strength": 0.3, "label": "Частичное пересечение" },
+    { "source": "lucky-shot", "target": "kiy-club", "type": "shared_audience", "strength": 0.5, "label": "Пересечение (бюджетный сегмент)" },
+    { "source": "weekend-billiard", "target": "platform-google-maps", "type": "shared_platform", "strength": 0.4 },
+    { "source": "weekend-billiard", "target": "platform-2gis", "type": "shared_platform", "strength": 0.4 },
+    { "source": "weekend-billiard", "target": "platform-yandex", "type": "shared_platform", "strength": 0.3 },
+    { "source": "weekend-billiard", "target": "platform-instagram", "type": "shared_platform", "strength": 0.3 },
+    { "source": "pool-hall-pro", "target": "platform-google-maps", "type": "shared_platform", "strength": 0.5 },
+    { "source": "pool-hall-pro", "target": "platform-2gis", "type": "shared_platform", "strength": 0.4 },
+    { "source": "pool-hall-pro", "target": "platform-instagram", "type": "shared_platform", "strength": 0.5 },
+    { "source": "billiard-city", "target": "platform-google-maps", "type": "shared_platform", "strength": 0.4 },
+    { "source": "billiard-city", "target": "platform-2gis", "type": "shared_platform", "strength": 0.3 },
+    { "source": "shark-lounge", "target": "platform-google-maps", "type": "shared_platform", "strength": 0.4 },
+    { "source": "shark-lounge", "target": "platform-instagram", "type": "shared_platform", "strength": 0.6 },
+    { "source": "kiy-club", "target": "platform-google-maps", "type": "shared_platform", "strength": 0.3 },
+    { "source": "kiy-club", "target": "platform-instagram", "type": "shared_platform", "strength": 0.5 },
+    { "source": "lucky-shot", "target": "platform-2gis", "type": "shared_platform", "strength": 0.3 },
+    { "source": "weekend-billiard", "target": "audience-corporate", "type": "audience_segment", "strength": 0.6 },
+    { "source": "weekend-billiard", "target": "audience-regular", "type": "audience_segment", "strength": 0.8 },
+    { "source": "pool-hall-pro", "target": "audience-regular", "type": "audience_segment", "strength": 0.7 },
+    { "source": "pool-hall-pro", "target": "audience-students", "type": "audience_segment", "strength": 0.5 },
+    { "source": "shark-lounge", "target": "audience-premium", "type": "audience_segment", "strength": 0.9 },
+    { "source": "shark-lounge", "target": "audience-corporate", "type": "audience_segment", "strength": 0.7 },
+    { "source": "lucky-shot", "target": "audience-students", "type": "audience_segment", "strength": 0.9 },
+    { "source": "billiard-city", "target": "audience-regular", "type": "audience_segment", "strength": 0.6 },
+    { "source": "kiy-club", "target": "audience-regular", "type": "audience_segment", "strength": 0.4 },
+    { "source": "kiy-club", "target": "audience-students", "type": "audience_segment", "strength": 0.6 }
+  ]
+}
