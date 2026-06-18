@@ -1,0 +1,165 @@
+{
+  "competitorId": "kiy-club",
+  "ratings": {
+    "overall": 4.0,
+    "trend": "+0.5",
+    "trendDirection": "up",
+    "totalReviews": 34,
+    "newReviewsThisMonth": 14,
+    "platforms": {
+      "googleMaps": { "rating": 4.1, "reviews": 18, "trend": "+0.5" },
+      "twogis": { "rating": 3.9, "reviews": 12, "trend": "+0.4" },
+      "yandexMaps": { "rating": 3.8, "reviews": 4, "trend": "+0.3" }
+    },
+    "distribution": {
+      "5": 35,
+      "4": 30,
+      "3": 20,
+      "2": 10,
+      "1": 5
+    },
+    "sentimentScore": 55,
+    "sentimentTrend": "+12"
+  },
+  "pricing": {
+    "currency": "RUB",
+    "pricePerHour": {
+      "current": 600,
+      "previous": 700,
+      "delta": -14.3,
+      "deltaDirection": "down",
+      "lastChanged": "2026-06-10"
+    },
+    "priceSegments": {
+      "morning": { "label": "Утро (11:00–14:00)", "price": 400, "previous": 500 },
+      "afternoon": { "label": "День (14:00–19:00)", "price": 500, "previous": 600 },
+      "evening": { "label": "Вечер (19:00–00:00)", "price": 600, "previous": 700 },
+      "night": { "label": "Ночь (00:00–01:00)", "price": 500, "previous": 600 },
+      "weekend": { "label": "Выходные", "price": 700, "previous": 800 }
+    },
+    "priceHistory": [
+      { "month": "2026-04", "evening": 750 },
+      { "month": "2026-05", "evening": 700 },
+      { "month": "2026-06", "evening": 600 }
+    ],
+    "priceIndex": 0.66,
+    "priceIndexLabel": "Ниже рынка (промо-цены)",
+    "promotions": [
+      {
+        "id": "promo-kc-01",
+        "title": "Открытие! Первый час бесплатно",
+        "description": "Для новых клиентов — первый час бесплатно при регистрации в приложении",
+        "startDate": "2026-04-15",
+        "endDate": "2026-07-15",
+        "discount": 100,
+        "status": "active"
+      },
+      {
+        "id": "promo-kc-02",
+        "title": "Приведи друга — скидка 50%",
+        "description": "Приведи друга и получи скидку 50% на обоих",
+        "startDate": "2026-05-01",
+        "endDate": "2026-08-01",
+        "discount": 50,
+        "status": "active"
+      },
+      {
+        "id": "promo-kc-03",
+        "title": "Турнир открытия — призовой фонд 100K",
+        "description": "Открытый турнир по русскому бильярду с призовым фондом 100 000 ₽",
+        "startDate": "2026-06-28",
+        "endDate": "2026-06-29",
+        "discount": 0,
+        "status": "upcoming"
+      }
+    ]
+  },
+  "activity": {
+    "level": "very-high",
+    "levelLabel": "Очень высокая",
+    "score": 92,
+    "socialMedia": {
+      "instagram": {
+        "followers": 3100,
+        "followersGrowth": "+1200",
+        "postsThisMonth": 22,
+        "avgEngagement": 6.5,
+        "lastPost": "2026-06-18"
+      },
+      "vk": {
+        "members": 1800,
+        "membersGrowth": "+800",
+        "postsThisMonth": 16,
+        "avgEngagement": 4.2,
+        "lastPost": "2026-06-18"
+      }
+    },
+    "advertising": {
+      "activeCampaigns": 4,
+      "estimatedBudget": 200000,
+      "platforms": ["Instagram Ads", "VK Ads", "Yandex Direct", "Telegram Ads"],
+      "lastDetected": "2026-06-18"
+    },
+    "websiteUpdates": {
+      "lastUpdate": "2026-06-18",
+      "updatesThisMonth": 8,
+      "changesDetected": [
+        "Запуск сайта",
+        "Онлайн-бронирование",
+        "Страница турниров",
+        "Прокат оборудования — каталог",
+        "Обновлён прайс (снижение)",
+        "Блог — первые статьи"
+      ]
+    },
+    "activityHeatmap": {
+      "2026-W22": { "Mon": 3, "Tue": 4, "Wed": 3, "Thu": 3, "Fri": 4, "Sat": 5, "Sun": 4 },
+      "2026-W23": { "Mon": 4, "Tue": 3, "Wed": 4, "Thu": 4, "Fri": 3, "Sat": 5, "Sun": 5 },
+      "2026-W24": { "Mon": 3, "Tue": 5, "Wed": 3, "Thu": 4, "Fri": 4, "Sat": 6, "Sun": 4 },
+      "2026-W25": { "Mon": 4, "Tue": 4, "Wed": 5, "Thu": 3, "Fri": 5, "Sat": 6, "Sun": 5 }
+    }
+  },
+  "marketPosition": {
+    "qualityScore": 5.5,
+    "priceLevel": 4.5,
+    "marketShareEstimate": 3,
+    "quadrant": "mid-quality-low-price"
+  },
+  "radarMetrics": {
+    "price": 8.0,
+    "quality": 5.5,
+    "service": 6.0,
+    "location": 7.5,
+    "assortment": 7.0,
+    "atmosphere": 6.5,
+    "marketing": 9.5,
+    "loyalty": 4.0
+  },
+  "swot": {
+    "strengths": [
+      "Максимальный маркетинговый бюджет на рынке",
+      "Агрессивные промо-акции",
+      "Современное оборудование (всё новое)",
+      "Хорошая локация у метро",
+      "Широкий набор услуг с первого дня"
+    ],
+    "weaknesses": [
+      "Нет истории и репутации",
+      "Мало отзывов",
+      "Команда не отработана",
+      "Промо-цены = убыток",
+      "Непроверенная бизнес-модель"
+    ],
+    "opportunities": [
+      "Быстрый набор аудитории через промо",
+      "Партнёрство со спортивными федерациями",
+      "Турнирная площадка"
+    ],
+    "threats": [
+      "Быстрое сжигание бюджета",
+      "Провал после окончания промо",
+      "Негативные отзывы от неопытной команды",
+      "Переоценка спроса в районе"
+    ]
+  }
+}

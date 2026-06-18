@@ -1,0 +1,188 @@
+# CompetitorIQ — Project Rules
+# Эти правила обязательны для каждой сессии разработки.
+# Нарушение = баг. Без исключений.
+
+## === ПРОЕКТ ===
+
+name: CompetitorIQ
+type: Next.js 15 Web Application (App Router)
+language: TypeScript
+company: Weekend Billiard
+brand_color: "#0157a4"
+target_resolution: 1920x1080+
+adaptive: false (desktop only)
+deploy: local (npm run dev)
+users: 2-3 человека
+
+## === ТЕХНИЧЕСКИЙ СТЕК (ФИКСИРОВАН) ===
+
+- Framework: Next.js 15 (App Router, TypeScript)
+- Styles: Vanilla CSS (CSS Modules), НЕ Tailwind
+- 3D: `3d-force-graph` + Three.js (только для 3D force graph)
+- 2D Charts: D3.js v7 (ВСЕ 2D-визуализации без исключений)
+- Icons: Кастомные монохромные SVG (stroke 1.5-2px, rounded corners)
+- Fonts: Inter (UI) + IBM Plex Mono (данные/цифры)
+- Animations: Framer Motion (page transitions) + CSS transitions (micro)
+- Storage: Google Sheets API + JSON конфиги
+- No emoji в UI. Только кастомные SVG-иконки.
+
+## === ДИЗАЙН-СИСТЕМА ===
+
+### Тема
+- Dark mode по умолчанию (не brutalist, не glassmorphism-heavy)
+- Premium тёмный UI с глубиной и контрастом
+- Background: #0A0F1C → #111827 (градиент)
+- Surfaces: rgba(255,255,255,0.03) → rgba(255,255,255,0.08)
+- Accent primary: #5046E5 (индиго)
+- Brand Weekend: #0157a4 (только узел на графе + логотип)
+
+### Цвета видов анализа
+- Финансовый: #FF3B30 (красный)
+- Маркетинговый: #A855F7 (фиолетовый)
+- Активность: #06B6D4 (циан)
+- Динамика: #00E676 (зелёный)
+- Ассортиментный: #FB923C (оранжевый)
+
+### Логотип и шапка
+- В шапке (Header) используется знак логотипа из файла `logo_icon.svg`
+- Путь: `public/logo_icon.svg` (или `src/assets/logo_icon.svg`)
+- Логотип рендерится как `<img src="/logo_icon.svg" />` или через `next/image`
+- Цвет логотипа: фирменный `#0157a4` (Weekend Billiard brand color)
+- Размер в шапке: 32px height, пропорциональная ширина
+- Рядом с логотипом — название приложения: **CompetitorIQ** (Inter 600, 18px)
+
+### Типография
+- Заголовки: Inter, 600-700 weight
+- Данные/цифры: IBM Plex Mono
+- Метки/подписи: Inter, 400 weight, reduced opacity
+
+### Borders & Radius
+- Card radius: 12px
+- Button radius: 8px
+- Input radius: 8px
+- Border color: rgba(255,255,255,0.08)
+
+## === АРХИТЕКТУРА ФАЙЛОВ ===
+
+```
+src/
+├── app/                     # Next.js App Router pages
+│   ├── layout.tsx           # Root layout (sidebar + header)
+│   ├── page.tsx             # Overview (главный дашборд)
+│   ├── graph/page.tsx       # Граф связей
+│   ├── observatory/page.tsx # Обсерватория
+│   ├── insights/page.tsx    # AI Инсайты
+│   ├── competitor/[id]/     # Профиль конкурента
+│   ├── reports/page.tsx     # Отчёты
+│   ├── settings/page.tsx    # Настройки
+│   └── api/                 # API routes
+├── components/
+│   ├── layout/              # Sidebar, Header, RightPanel
+│   ├── dashboard/           # ForceGraph3D, KPICard, etc.
+│   ├── charts/              # D3.js charts (all 2D viz here)
+│   ├── ui/                  # Base components (Card, Badge, etc.)
+│   └── icons/               # Custom SVG icon components
+├── hooks/                   # Custom React hooks
+├── lib/                     # Utils, API clients, analysis logic
+├── styles/                  # CSS Modules
+│   ├── globals.css          # Design tokens, :root
+│   └── components/          # Per-component CSS modules
+├── types/                   # TypeScript type definitions
+└── data/
+    ├── mock/                # Моковые данные (JSON)
+    └── config.json          # Конфигурация портала
+```
+
+## === ПРАВИЛА ПРИМЕНЕНИЯ СКИЛЛОВ ===
+
+### Визуализация (UI)
+- ВСЕ 2D-графики → `claude-d3js-skill` (D3.js v7)
+- 3D force graph → `3d-force-graph` lib (НЕ D3)
+- Иконки → кастомные SVG, единый стиль
+- Никогда не использовать Chart.js, Recharts, или другие chart-библиотеки
+
+### Design Quality Gate
+- Каждый компонент проходит через `design-spells`:
+  - Hover: не generic, а с "personality" (magnetic, glow, scale)
+  - Transitions: smooth, 60fps, GPU-accelerated
+  - Loading states: skeleton shimmer, не spinner
+  - Empty states: иллюстрация + текст, не "Нет данных"
+
+### KPI Layout
+- Применять паттерны из `kpi-dashboard-design`:
+  - Max 5-7 KPI на экран
+  - Каждая KPI-карточка: значение + тренд + сравнение
+  - Hierarchy: Strategic (Overview) → Tactical (Профиль) → Operational (Обсерватория)
+
+### Сбор данных (Фаза 4)
+- Приоритет скиллов для скрапинга:
+  1. `apify-competitor-intelligence` → соцсети, Google Maps
+  2. `apify-ecommerce` → маркетплейсы
+  3. `apify-ultimate-scraper` → fallback для всего остального
+  4. `web-scraper` → статические сайты конкурентов
+- Prerequisites: `.env` с `APIFY_TOKEN`, Node.js 20.6+
+
+### Пайплайн данных (Фаза 4)
+- Проектировать по `data-engineer`:
+  - Ingestion → Transform → Validate → Store
+  - Data quality checks обязательны
+  - Абстракция хранения (IDataStore interface)
+
+### Отчёты (Фаза 5)
+- `python-pptx-generator` → генерация Python-скрипта для PPTX
+- `pptx` → QA через thumbnail.py + markitdown
+- Всегда проводить visual QA перед выдачей
+
+### Бизнес-логика
+- Фреймворки из `business-analyst` и `competitive-landscape`
+- 5 видов анализа: Финансовый, Маркетинговый, Активность, Динамика, Ассортиментный
+- Каждый вид имеет свой цвет, иконку, и набор метрик
+
+## === CODING STANDARDS ===
+
+### TypeScript
+- strict mode: true
+- Все компоненты: функциональные (FC)
+- Props: явные интерфейсы, не inline types
+- Нет `any` — только конкретные типы
+
+### CSS
+- CSS Modules для компонентов (*.module.css)
+- globals.css для дизайн-токенов (:root)
+- Нет inline styles (кроме динамических значений от D3/Three.js)
+- Custom Properties для всего: цвета, размеры, shadows
+
+### Components
+- Один компонент = один файл
+- Каждый компонент имеет уникальный id для тестирования
+- Все интерактивные элементы: keyboard accessible (tab, enter, escape)
+
+### Data Flow
+- Server Components по умолчанию
+- "use client" только где нужны интеракции (графы, кнопки, формы)
+- Данные загружаются через Server Components → передаются в Client
+
+## === КОНКУРЕНТЫ (ЗАГЛУШКИ) ===
+
+10 заглушек: Конкурент 01 — Конкурент 10
+Реальные данные подключаются на Фазе 4.
+Моковые данные должны быть реалистичными и разнообразными.
+
+## === ЗАПРЕЩЕНО ===
+
+- ❌ Tailwind CSS
+- ❌ Chart.js, Recharts, Nivo, Victory (только D3.js для 2D)
+- ❌ Emoji в интерфейсе (только SVG-иконки)
+- ❌ Мобильная адаптивность (только desktop 1920+)
+- ❌ Telegram-бот (отложен)
+- ❌ Industrial Brutalist стиль
+- ❌ Placeholder-изображения без генерации
+- ❌ `any` в TypeScript
+- ❌ Inline styles (кроме D3/Three.js)
+- ❌ Generic hover effects (transform: scale(1.05) без контекста)
+
+## === СКИЛЛЫ: НЕ ИСПОЛЬЗУЮТСЯ ===
+
+- `industrial-brutalist-ui` — стилистически не подходит
+- `telegram-automation` — отложен (решение из ревью)
+- `blueprint` — применяется только по запросу для декомпозиции крупных фаз

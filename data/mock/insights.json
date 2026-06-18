@@ -1,0 +1,165 @@
+{
+  "period": "2026-06",
+  "insights": [
+    {
+      "id": "insight-001",
+      "type": "threat",
+      "severity": "critical",
+      "title": "Ценовое давление усиливается",
+      "description": "Pool Hall Pro и Кий-Клуб снизили цены на 14-16%. Ваша позиция под давлением в сегменте «вечерние часы» — вы стали на 12% дороже Pool Hall Pro.",
+      "affectedCompetitors": ["pool-hall-pro", "kiy-club"],
+      "impact": "high",
+      "confidence": 87,
+      "recommendations": [
+        "Акцент на premium-сегмент и качество сервиса",
+        "Программа лояльности для удержания клиентов",
+        "Добавление доп. ценности (events, leagues, bar menu)"
+      ],
+      "createdAt": "2026-06-18T10:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-002",
+      "type": "opportunity",
+      "severity": "info",
+      "title": "Ниша корпоративных мероприятий свободна",
+      "description": "Анализ конкурентов показывает: только Shark Lounge предлагает корпоративные мероприятия, но по premium-ценам (от 50K₽). Сегмент mid-market (15-30K₽) полностью свободен.",
+      "affectedCompetitors": ["shark-lounge"],
+      "impact": "medium",
+      "confidence": 72,
+      "recommendations": [
+        "Запустить пакет «Корпоратив Weekend» (15-30K₽)",
+        "Включить: аренда зала + бар + закуски + инструктор",
+        "Таргетировать HR-менеджеров через LinkedIn/VK"
+      ],
+      "createdAt": "2026-06-17T14:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-003",
+      "type": "trend",
+      "severity": "warning",
+      "title": "Рост онлайн-бронирования у конкурентов",
+      "description": "Shark Lounge и Кий-Клуб запустили онлайн-бронирование. Pool Hall Pro тоже планирует (обнаружена вакансия разработчика). У вас этой функции нет — это становится стандартом рынка.",
+      "affectedCompetitors": ["shark-lounge", "kiy-club", "pool-hall-pro"],
+      "impact": "high",
+      "confidence": 81,
+      "recommendations": [
+        "Срочно внедрить онлайн-бронирование (Yclients, Dikidi, или кастом)",
+        "Интеграция с Google Maps Reserve",
+        "Бонус за первое онлайн-бронирование"
+      ],
+      "createdAt": "2026-06-16T09:00:00Z",
+      "acknowledged": true
+    },
+    {
+      "id": "insight-004",
+      "type": "recommendation",
+      "severity": "info",
+      "title": "Усильте контент-маркетинг",
+      "description": "Ваша активность в соцсетях (8 постов/мес) — ниже среднего по рынку (12 постов/мес). Pool Hall Pro публикует 18 постов, Кий-Клуб — 22. Engagement у них выше на 30-50%.",
+      "affectedCompetitors": ["pool-hall-pro", "kiy-club"],
+      "impact": "medium",
+      "confidence": 90,
+      "recommendations": [
+        "Увеличить частоту публикаций до 12-15 в месяц",
+        "Видео-контент (Reels/Shorts) с турнирами и обучением",
+        "Коллаборации с бильярдными блогерами"
+      ],
+      "createdAt": "2026-06-15T11:00:00Z",
+      "acknowledged": true
+    },
+    {
+      "id": "insight-005",
+      "type": "forecast",
+      "severity": "warning",
+      "title": "Прогноз: потеря 8-12% клиентов в вечернем сегменте",
+      "description": "При сохранении текущих трендов (демпинг Pool Hall Pro + промо Кий-Клуба) модель прогнозирует потерю 8-12% клиентов вечернего сегмента за следующие 2-3 месяца.",
+      "affectedCompetitors": ["pool-hall-pro", "kiy-club"],
+      "impact": "high",
+      "confidence": 65,
+      "recommendations": [
+        "Не вступать в ценовую войну — демпинг убьёт маржу",
+        "Дифференциация через качество и уникальный опыт",
+        "Программа лояльности: абонементы со скидкой 10-15%"
+      ],
+      "createdAt": "2026-06-14T16:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-006",
+      "type": "comparison",
+      "severity": "info",
+      "title": "Ваш рейтинг растёт быстрее рынка",
+      "description": "Ваш рейтинг вырос на +0.3 за месяц (с 4.2 до 4.5), что выше среднего роста по рынку (+0.1). Sentiment score тоже позитивный (+5). Это сильная позиция для удержания клиентов.",
+      "affectedCompetitors": [],
+      "impact": "low",
+      "confidence": 95,
+      "recommendations": [
+        "Продолжать работу над качеством сервиса",
+        "Запустить программу сбора отзывов (QR-код на столах)",
+        "Отвечать на все отзывы в течение 24 часов"
+      ],
+      "createdAt": "2026-06-13T10:00:00Z",
+      "acknowledged": true
+    }
+  ],
+  "reports": [
+    {
+      "id": "report-001",
+      "title": "Ежемесячный конкурентный отчёт",
+      "subtitle": "Июнь 2026",
+      "type": "monthly",
+      "generatedAt": "2026-06-15T00:00:00Z",
+      "generatedBy": "auto",
+      "formats": ["pdf", "pptx"],
+      "sections": ["Ценовой анализ", "Рейтинги и отзывы", "Активность в соцсетях", "AI-рекомендации"]
+    },
+    {
+      "id": "report-002",
+      "title": "SWOT-анализ: Pool Hall Pro",
+      "subtitle": "Создан вручную",
+      "type": "swot",
+      "generatedAt": "2026-06-10T00:00:00Z",
+      "generatedBy": "manual",
+      "formats": ["pdf", "pptx"],
+      "sections": ["Сильные стороны", "Слабые стороны", "Возможности", "Угрозы"]
+    },
+    {
+      "id": "report-003",
+      "title": "Ценовой анализ рынка Q2 2026",
+      "subtitle": "Автоматический",
+      "type": "pricing",
+      "generatedAt": "2026-06-01T00:00:00Z",
+      "generatedBy": "auto",
+      "formats": ["pdf"],
+      "sections": ["Сравнение цен", "Динамика", "Прогноз"]
+    }
+  ],
+  "chatHistory": [
+    {
+      "id": "msg-001",
+      "role": "user",
+      "content": "Какие главные угрозы от Pool Hall Pro в следующем квартале?",
+      "timestamp": "2026-06-18T14:32:00Z"
+    },
+    {
+      "id": "msg-002",
+      "role": "assistant",
+      "content": "На основе анализа данных за последние 90 дней выделяю 3 ключевые угрозы:\n\n**1. Ценовой демпинг (-15.8%)**\nPool Hall Pro снизил стоимость вечерних часов до 800₽. Это ниже вашей цены на 12%.\n\n**2. Рекламная экспансия**\nЗапущено 3 новых таргетированных кампании в Instagram с бюджетом ~150K₽/мес.\n\n**3. Рост рейтинга (+0.2 за месяц)**\nОтмечена программа сбора отзывов — +12 отзывов на Google Maps.\n\n**Рекомендации:**\n- Акцент на premium-сегмент\n- Программа лояльности\n- Доп. услуги (bar, events, leagues)",
+      "timestamp": "2026-06-18T14:33:00Z"
+    },
+    {
+      "id": "msg-003",
+      "role": "user",
+      "content": "Сравни наши цены по всем категориям с топ-3 конкурентами",
+      "timestamp": "2026-06-18T14:35:00Z"
+    },
+    {
+      "id": "msg-004",
+      "role": "assistant",
+      "content": "Сравнение цен Weekend Бильярд vs топ-3 конкурентов (вечерний тариф):\n\n| Клуб | Вечер | Δ vs Вы | Позиция |\n|---|---|---|---|\n| **Weekend Бильярд** | 900₽ | — | Базовый |\n| Pool Hall Pro | 800₽ | -11.1% | Дешевле |\n| Shark Lounge | 1400₽ | +55.6% | Дороже |\n| Бильярд-Сити | 700₽ | -22.2% | Дешевле |\n\n**Вывод:** Вы находитесь в mid-premium сегменте. Pool Hall Pro и Бильярд-Сити давят снизу, Shark Lounge — единственный выше. Ваша цена оправдана при условии сохранения качества сервиса выше конкурентов.",
+      "timestamp": "2026-06-18T14:36:00Z"
+    }
+  ]
+}

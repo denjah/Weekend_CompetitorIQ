@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-06-18T21:00:00Z",
+    "dataSource": "mock",
+    "ourBusiness": {
+      "id": "weekend-billiard",
+      "name": "Weekend Бильярд",
+      "slug": "weekend-billiard",
+      "brandColor": "#0157a4",
+      "type": "self",
+      "monitoringSince": "2026-01-01"
+    }
+  },
+  "competitors": [
+    {
+      "id": "pool-hall-pro",
+      "name": "Pool Hall Pro",
+      "slug": "pool-hall-pro",
+      "shortName": "PH Pro",
+      "type": "direct",
+      "topicColor": "#A855F7",
+      "threatLevel": "critical",
+      "monitoringSince": "2026-01-15",
+      "description": "Агрессивный лидер рынка. Демпингует цены, активно рекламируется, быстро растёт по рейтингу. Основная угроза.",
+      "location": {
+        "city": "Москва",
+        "district": "ЦАО",
+        "address": "ул. Большая Полянка, 42",
+        "coordinates": { "lat": 55.7366, "lng": 37.6185 }
+      },
+      "contacts": {
+        "phone": "+7 (495) 123-45-67",
+        "website": "https://poolhallpro.ru",
+        "instagram": "@poolhallpro",
+        "vk": "vk.com/poolhallpro"
+      },
+      "businessInfo": {
+        "foundedYear": 2019,
+        "tablesCount": 18,
+        "tableTypes": { "russian": 8, "pool": 6, "snooker": 4 },
+        "area_sqm": 650,
+        "workingHours": "10:00–02:00",
+        "hasBar": true,
+        "hasKitchen": true,
+        "hasParking": true,
+        "hasWifi": true,
+        "additionalServices": ["бар", "кухня", "караоке", "приставки", "турниры", "обучение"],
+        "employeeCount": 22
+      }
+    },
+    {
+      "id": "billiard-city",
+      "name": "Бильярд-Сити",
+      "slug": "billiard-city",
+      "shortName": "Б-Сити",
+      "type": "direct",
+      "topicColor": "#A855F7",
+      "threatLevel": "warning",
+      "monitoringSince": "2026-02-01",
+      "description": "Стабильный mid-market игрок. Средние цены, умеренная активность. Старается расти, но медленно. Угроза средняя.",
+      "location": {
+        "city": "Москва",
+        "district": "ЮЗАО",
+        "address": "ул. Профсоюзная, 118",
+        "coordinates": { "lat": 55.6439, "lng": 37.5271 }
+      },
+      "contacts": {
+        "phone": "+7 (495) 987-65-43",
+        "website": "https://billiard-city.ru",
+        "instagram": "@billiard_city_msk",
+        "vk": "vk.com/billiardcity"
+      },
+      "businessInfo": {
+        "foundedYear": 2021,
+        "tablesCount": 12,
+        "tableTypes": { "russian": 6, "pool": 4, "snooker": 2 },
+        "area_sqm": 400,
+        "workingHours": "12:00–00:00",
+        "hasBar": true,
+        "hasKitchen": false,
+        "hasParking": true,
+        "hasWifi": true,
+        "additionalServices": ["бар", "турниры", "дартс"],
+        "employeeCount": 14
+      }
+    },
+    {
+      "id": "lucky-shot",
+      "name": "Lucky Shot",
+      "slug": "lucky-shot",
+      "shortName": "Lucky",
+      "type": "indirect",
+      "topicColor": "#06B6D4",
+      "threatLevel": "normal",
+      "monitoringSince": "2026-03-01",
+      "description": "Бюджетный клуб, ориентированный на студентов и молодёжь. Низкие цены, базовый сервис. Не угрожает напрямую, но забирает нижний сегмент.",
+      "location": {
+        "city": "Москва",
+        "district": "СВАО",
+        "address": "пр-т Мира, 211",
+        "coordinates": { "lat": 55.8375, "lng": 37.6442 }
+      },
+      "contacts": {
+        "phone": "+7 (495) 555-12-34",
+        "website": null,
+        "instagram": "@luckyshot_billiards",
+        "vk": "vk.com/luckyshot"
+      },
+      "businessInfo": {
+        "foundedYear": 2023,
+        "tablesCount": 8,
+        "tableTypes": { "russian": 4, "pool": 4, "snooker": 0 },
+        "area_sqm": 220,
+        "workingHours": "14:00–23:00",
+        "hasBar": false,
+        "hasKitchen": false,
+        "hasParking": false,
+        "hasWifi": true,
+        "additionalServices": ["турниры для студентов"],
+        "employeeCount": 6
+      }
+    },
+    {
+      "id": "shark-lounge",
+      "name": "Shark Lounge",
+      "slug": "shark-lounge",
+      "shortName": "Shark",
+      "type": "direct",
+      "topicColor": "#A855F7",
+      "threatLevel": "warning",
+      "monitoringSince": "2026-01-20",
+      "description": "Premium-клуб для VIP-сегмента. Высокие цены, luxury интерьер, закрытые мероприятия. Растёт быстро, таргетирует нашу аудиторию.",
+      "location": {
+        "city": "Москва",
+        "district": "Пресненский",
+        "address": "Краснопресненская наб., 14, стр. 2",
+        "coordinates": { "lat": 55.7548, "lng": 37.5524 }
+      },
+      "contacts": {
+        "phone": "+7 (495) 777-88-99",
+        "website": "https://sharklounge.ru",
+        "instagram": "@shark_lounge_msk",
+        "vk": null
+      },
+      "businessInfo": {
+        "foundedYear": 2024,
+        "tablesCount": 10,
+        "tableTypes": { "russian": 3, "pool": 4, "snooker": 3 },
+        "area_sqm": 500,
+        "workingHours": "16:00–04:00",
+        "hasBar": true,
+        "hasKitchen": true,
+        "hasParking": true,
+        "hasWifi": true,
+        "additionalServices": ["VIP-комнаты", "сигарная комната", "бар premium", "закрытые вечеринки", "poker"],
+        "employeeCount": 18
+      }
+    },
+    {
+      "id": "kiy-club",
+      "name": "Кий-Клуб «Динамо»",
+      "slug": "kiy-club",
+      "shortName": "Кий",
+      "type": "potential",
+      "topicColor": "#F97316",
+      "threatLevel": "normal",
+      "monitoringSince": "2026-04-01",
+      "description": "Новый потенциальный конкурент. Только открылся, активно набирает аудиторию через агрессивную рекламу и промо-акции. Данных мало, но динамика заметная.",
+      "location": {
+        "city": "Москва",
+        "district": "САО",
+        "address": "Ленинградский пр-т, 36",
+        "coordinates": { "lat": 55.7922, "lng": 37.5571 }
+      },
+      "contacts": {
+        "phone": "+7 (495) 222-33-44",
+        "website": "https://kiy-club.ru",
+        "instagram": "@kiy_club_dynamo",
+        "vk": "vk.com/kiyclub"
+      },
+      "businessInfo": {
+        "foundedYear": 2026,
+        "tablesCount": 14,
+        "tableTypes": { "russian": 7, "pool": 5, "snooker": 2 },
+        "area_sqm": 480,
+        "workingHours": "11:00–01:00",
+        "hasBar": true,
+        "hasKitchen": true,
+        "hasParking": false,
+        "hasWifi": true,
+        "additionalServices": ["бар", "кухня", "турниры", "обучение", "прокат оборудования"],
+        "employeeCount": 16
+      }
+    }
+  ]
+}

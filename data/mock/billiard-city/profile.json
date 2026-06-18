@@ -1,0 +1,139 @@
+{
+  "competitorId": "billiard-city",
+  "ratings": {
+    "overall": 4.3,
+    "trend": "+0.1",
+    "trendDirection": "up",
+    "totalReviews": 186,
+    "newReviewsThisMonth": 9,
+    "platforms": {
+      "googleMaps": { "rating": 4.4, "reviews": 98, "trend": "+0.1" },
+      "twogis": { "rating": 4.2, "reviews": 62, "trend": "0" },
+      "yandexMaps": { "rating": 4.1, "reviews": 26, "trend": "-0.1" }
+    },
+    "distribution": {
+      "5": 38,
+      "4": 32,
+      "3": 18,
+      "2": 8,
+      "1": 4
+    },
+    "sentimentScore": 61,
+    "sentimentTrend": "+1"
+  },
+  "pricing": {
+    "currency": "RUB",
+    "pricePerHour": {
+      "current": 700,
+      "previous": 650,
+      "delta": 7.7,
+      "deltaDirection": "up",
+      "lastChanged": "2026-06-05"
+    },
+    "priceSegments": {
+      "morning": { "label": "Утро (12:00–15:00)", "price": 450, "previous": 400 },
+      "afternoon": { "label": "День (15:00–19:00)", "price": 550, "previous": 500 },
+      "evening": { "label": "Вечер (19:00–23:00)", "price": 700, "previous": 650 },
+      "night": { "label": "Ночь (23:00–00:00)", "price": 600, "previous": 550 },
+      "weekend": { "label": "Выходные", "price": 750, "previous": 700 }
+    },
+    "priceHistory": [
+      { "month": "2026-01", "evening": 600 },
+      { "month": "2026-02", "evening": 600 },
+      { "month": "2026-03", "evening": 620 },
+      { "month": "2026-04", "evening": 640 },
+      { "month": "2026-05", "evening": 650 },
+      { "month": "2026-06", "evening": 700 }
+    ],
+    "priceIndex": 0.77,
+    "priceIndexLabel": "Ниже рынка",
+    "promotions": [
+      {
+        "id": "promo-bc-01",
+        "title": "3-й час бесплатно",
+        "description": "При аренде стола на 2+ часа третий час в подарок",
+        "startDate": "2026-06-10",
+        "endDate": "2026-07-10",
+        "discount": 33,
+        "status": "active"
+      }
+    ]
+  },
+  "activity": {
+    "level": "medium",
+    "levelLabel": "Средняя",
+    "score": 52,
+    "socialMedia": {
+      "instagram": {
+        "followers": 4200,
+        "followersGrowth": "+85",
+        "postsThisMonth": 6,
+        "avgEngagement": 2.1,
+        "lastPost": "2026-06-14"
+      },
+      "vk": {
+        "members": 3100,
+        "membersGrowth": "+45",
+        "postsThisMonth": 4,
+        "avgEngagement": 1.8,
+        "lastPost": "2026-06-12"
+      }
+    },
+    "advertising": {
+      "activeCampaigns": 1,
+      "estimatedBudget": 35000,
+      "platforms": ["VK Ads"],
+      "lastDetected": "2026-06-10"
+    },
+    "websiteUpdates": {
+      "lastUpdate": "2026-05-28",
+      "updatesThisMonth": 1,
+      "changesDetected": ["Обновлён раздел «Акции»"]
+    },
+    "activityHeatmap": {
+      "2026-W22": { "Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 2, "Sun": 1 },
+      "2026-W23": { "Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 1, "Sun": 0 },
+      "2026-W24": { "Mon": 1, "Tue": 1, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 2, "Sun": 1 },
+      "2026-W25": { "Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0 }
+    }
+  },
+  "marketPosition": {
+    "qualityScore": 6.5,
+    "priceLevel": 5.5,
+    "marketShareEstimate": 14,
+    "quadrant": "mid-quality-mid-price"
+  },
+  "radarMetrics": {
+    "price": 6.0,
+    "quality": 6.5,
+    "service": 6.0,
+    "location": 7.0,
+    "assortment": 5.5,
+    "atmosphere": 5.8,
+    "marketing": 4.5,
+    "loyalty": 5.0
+  },
+  "swot": {
+    "strengths": [
+      "Стабильная клиентская база",
+      "Хорошая парковка",
+      "Доступные цены"
+    ],
+    "weaknesses": [
+      "Слабый маркетинг",
+      "Мало дополнительных услуг",
+      "Устаревающий интерьер",
+      "Нет кухни"
+    ],
+    "opportunities": [
+      "Реновация интерьера",
+      "Запуск кухни",
+      "Программа лояльности"
+    ],
+    "threats": [
+      "Ценовое давление от Pool Hall Pro",
+      "Потеря аудитории без маркетинга",
+      "Рост арендной платы"
+    ]
+  }
+}

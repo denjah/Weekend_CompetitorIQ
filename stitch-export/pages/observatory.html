@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html><html class="dark" lang="ru"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Industrial Intel Matrix - Обсерватория</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#00e1ab",
+                      "surface-bright": "#323b37",
+                      "on-secondary-fixed": "#271900",
+                      "surface-container-high": "#232c28",
+                      "on-surface": "#dbe5de",
+                      "on-secondary-fixed-variant": "#5e4200",
+                      "error-container": "#93000a",
+                      "outline": "#83958c",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-highest": "#2d3732",
+                      "inverse-on-surface": "#29322e",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#ffba20",
+                      "on-tertiary-fixed": "#001f25",
+                      "on-tertiary-fixed-variant": "#004e5a",
+                      "primary": "#fbfffa",
+                      "outline-variant": "#3a4a43",
+                      "on-primary-container": "#007255",
+                      "tertiary-container": "#9fedff",
+                      "tertiary": "#fcfeff",
+                      "primary-fixed-dim": "#00e1ab",
+                      "on-primary-fixed": "#002116",
+                      "inverse-primary": "#006c50",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#b9cbc1",
+                      "tertiary-fixed-dim": "#00daf8",
+                      "on-tertiary": "#00363f",
+                      "on-background": "#dbe5de",
+                      "surface-variant": "#2d3732",
+                      "primary-container": "#00ffc2",
+                      "secondary-fixed": "#ffdea8",
+                      "surface": "#0c1511",
+                      "on-secondary": "#412d00",
+                      "surface-container-lowest": "#07100c",
+                      "tertiary-fixed": "#a5eeff",
+                      "surface-container-low": "#141d19",
+                      "on-tertiary-container": "#006e7e",
+                      "surface-dim": "#0c1511",
+                      "on-primary-fixed-variant": "#00513c",
+                      "secondary": "#ffdb9d",
+                      "primary-fixed": "#36ffc4",
+                      "on-secondary-container": "#6b4b00",
+                      "surface-container": "#18221d",
+                      "secondary-container": "#feb700",
+                      "on-primary": "#003828",
+                      "inverse-surface": "#dbe5de",
+                      "background": "#0c1511"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "component-gap": "8px",
+                      "unit": "4px",
+                      "panel-padding": "16px",
+                      "gutter": "16px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Fira Sans"],
+                      "data-sm": ["JetBrains Mono"],
+                      "display-md": ["Fira Sans"],
+                      "data-lg": ["JetBrains Mono"],
+                      "headline-sm": ["Fira Sans"],
+                      "data-md": ["JetBrains Mono"],
+                      "body-md": ["Fira Sans"],
+                      "label-caps": ["Fira Sans"]
+              },
+              "fontSize": {
+                      "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                      "display-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "data-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                      "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                      "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                      "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                      "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 20px; /* Base size */
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .fill-icon { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom scrollbar for density */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3a4a43; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #83958c; }
+    </style>
+<link rel="stylesheet" href="../assets/local-shell.css">
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden flex h-screen">
+<!-- JSON Component: SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 border-r border-outline-variant bg-surface-container flex flex-col py-panel-padding z-50">
+<div class="px-6 mb-8">
+<h1 class="font-display-md text-display-md font-bold tracking-tight text-primary">INTEL_MATRIX</h1>
+<p class="font-data-sm text-data-sm text-on-surface-variant mt-1">ID: ADM-992-QX</p>
+</div>
+<ul class="flex-1 overflow-y-auto space-y-1">
+<!-- Inactive -->
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">dashboard</span><span class="font-label-caps text-label-caps">Overview</span></a></li>
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">hub</span><span class="font-label-caps text-label-caps">Graph/Knot</span></a></li>
+<!-- Active (Observatory matched to Обсерватория) -->
+<li class="border-l-4 border-surface-tint bg-surface-container-high transition-all"><a class="flex items-center gap-3 text-primary-fixed-dim font-bold border-l-2 border-surface-tint pl-4 py-2" href="#"><span class="material-symbols-outlined fill-icon">visibility</span><span class="font-label-caps text-label-caps">Observatory</span></a></li>
+<!-- Inactive -->
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">psychology</span><span class="font-label-caps text-label-caps">Insights</span></a></li>
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">assessment</span><span class="font-label-caps text-label-caps">Reports</span></a></li>
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">person</span><span class="font-label-caps text-label-caps">Direct</span></a></li>
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">group</span><span class="font-label-caps text-label-caps">Indirect</span></a></li>
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">storefront</span><span class="font-label-caps text-label-caps">Marketplaces</span></a></li>
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">router</span><span class="font-label-caps text-label-caps">Channels</span></a></li>
+<li><a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">settings</span><span class="font-label-caps text-label-caps">Settings</span></a></li>
+</ul>
+<div class="mt-auto px-4 border-t border-outline-variant pt-4 space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">security</span><span class="font-label-caps text-label-caps">Security</span></a>
+<a class="flex items-center gap-3 text-on-surface-variant font-normal pl-4 py-2 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#"><span class="material-symbols-outlined">help</span><span class="font-label-caps text-label-caps">Support</span></a>
+</div>
+</nav>
+<!-- JSON Component: TopAppBar -->
+<header class="fixed top-0 right-0 left-64 flex justify-between items-center h-16 px-container-padding z-40 border-b border-outline-variant bg-surface-container-high">
+<div class="flex items-center gap-6">
+<div class="font-display-md text-display-md font-black text-surface-tint uppercase tracking-widest">MATRIX_CORE</div>
+<nav class="hidden md:flex gap-6 ml-8">
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps hover:text-primary hover:bg-surface-container-highest transition-all px-2 py-1 rounded" href="#">Period</a>
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps hover:text-primary hover:bg-surface-container-highest transition-all px-2 py-1 rounded" href="#">Source</a>
+<a class="text-primary font-bold border-b-2 border-surface-tint pb-1 font-label-caps text-label-caps" href="#">Intelligence_Level</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">notifications_active</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">sensors</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined">terminal</span></button>
+</div>
+<div class="w-px h-6 bg-outline-variant"></div>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary">EXPORT</button>
+<button class="font-label-caps text-label-caps bg-surface-tint text-surface border border-surface-tint px-3 py-1 rounded hover:bg-primary transition-colors">CMD_RUN</button>
+<img alt="Operator Avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover ml-2" data-alt="A small, high-contrast, black and white portrait of a stern-looking operator or data analyst in a dark control room setting, dimly lit by monitor glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF4J0swmFineA2N37TlhxcDtf83OrgYbr2hHebBcy7LAiRFWNU4hBooYniPm64Bu6bYoB0OnFA92RbaKY84LWdEYHMCoAMNqG0sm7GW6_dS48xfvzpguwsBOSe_RsKXo-BSocbxehIeJM47KSqeGMLNh7wEuyo_uVsJURm6qu8tQXSM3pb_gexuEl4vVQUdi8XORKDcCioKiYUwJav6G3AEwlF9InetFrxtjo1yhpxD5H7RFmzy74-SU9WVYy6-mNSzp1IwkpwAww">
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 mt-16 mb-8 w-full h-[calc(100vh-6rem)] overflow-y-auto bg-surface relative flex flex-col">
+<!-- Canvas Context Tooling (Requested UI mixed with JSON shell) -->
+<div class="px-container-padding py-4 border-b border-outline-variant bg-surface/90 backdrop-blur sticky top-0 z-30 flex items-center justify-between">
+<div class="flex-1 max-w-xl relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded pl-10 pr-4 py-1.5 font-data-sm text-data-sm text-on-surface focus:ring-1 focus:ring-surface-tint focus:border-surface-tint focus:outline-none placeholder:text-outline" placeholder="Поиск события, конкурента или источника" type="text">
+</div>
+<div class="flex items-center gap-6 ml-6">
+<div class="flex items-center gap-2 bg-error/10 border border-error/30 px-3 py-1 rounded">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<span class="font-label-caps text-label-caps text-error tracking-widest">LIVE / 12 новых сигналов</span>
+</div>
+<div class="flex items-center gap-2 border border-outline-variant rounded p-1 bg-surface-container">
+<button class="px-2 py-0.5 font-data-sm text-data-sm text-on-surface-variant hover:text-primary">7д</button>
+<button class="px-2 py-0.5 font-data-sm text-data-sm bg-surface-bright text-primary rounded shadow-sm">30д</button>
+<button class="px-2 py-0.5 font-data-sm text-data-sm text-on-surface-variant hover:text-primary">90д</button>
+<button class="px-2 py-0.5 font-data-sm text-data-sm text-on-surface-variant hover:text-primary">1г</button>
+</div>
+<div class="relative group">
+<button class="flex items-center gap-2 font-data-sm text-data-sm border border-outline-variant rounded px-3 py-1.5 bg-surface-container hover:border-outline">
+                        Все источники <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Page Content -->
+<div class="flex-1 p-container-padding flex flex-col gap-6">
+<!-- Header section -->
+<header class="flex flex-col gap-2">
+<h2 class="font-display-lg text-display-lg text-primary tracking-tight">Обсерватория</h2>
+<p class="font-body-md text-on-surface-variant">Журнал конкурентных сигналов относительно Weekend Бильярд</p>
+<!-- Status Strip -->
+<div class="flex flex-wrap items-center gap-4 mt-2">
+<div class="flex items-center gap-2 border border-outline-variant bg-surface-container px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">radar</span>
+<span class="font-data-md text-data-md text-on-surface">Покрытие источников <span class="text-tertiary-fixed-dim">84%</span></span>
+</div>
+<div class="flex items-center gap-2 border border-outline-variant bg-surface-container px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+<span class="font-data-md text-data-md text-on-surface">Последнее обновление <span class="text-on-surface-variant">4 мин назад</span></span>
+</div>
+<div class="flex items-center gap-2 border border-outline-variant bg-surface-container px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+<span class="font-data-md text-data-md text-on-surface">Критичных сигналов <span class="text-error font-bold">7</span></span>
+</div>
+<div class="flex items-center gap-2 border border-outline-variant bg-surface-container px-3 py-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-surface-tint">check_circle</span>
+<span class="font-data-md text-data-md text-on-surface">Средняя уверенность <span class="text-surface-tint">0.82</span></span>
+</div>
+</div>
+</header>
+<!-- Filter Cockpit -->
+<section class="border border-outline-variant bg-surface-container-low p-4 rounded-lg flex flex-col gap-4">
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-3 py-1 rounded-full border border-surface-tint bg-surface-tint/10 font-label-caps text-label-caps text-surface-tint">Все</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Цены</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Ozon</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Telegram</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Сайты</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Реклама</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Новости</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Финансы</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant hover:border-outline font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Отзывы</button>
+</div>
+<div class="flex items-center gap-4 pt-4 border-t border-outline-variant/50">
+<div class="flex gap-3 flex-1">
+<!-- Pseudo Dropdowns -->
+<div class="border border-outline-variant bg-surface px-3 py-1.5 rounded flex items-center justify-between w-40 cursor-pointer hover:border-outline">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Конкурент</span><span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+<div class="border border-outline-variant bg-surface px-3 py-1.5 rounded flex items-center justify-between w-40 cursor-pointer hover:border-outline">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Важность</span><span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+<div class="border border-outline-variant bg-surface px-3 py-1.5 rounded flex items-center justify-between w-40 cursor-pointer hover:border-outline">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Источник</span><span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+<div class="border border-outline-variant bg-surface px-3 py-1.5 rounded flex items-center justify-between w-40 cursor-pointer hover:border-outline">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Уверенность</span><span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+<div class="border border-outline-variant bg-surface px-3 py-1.5 rounded flex items-center justify-between w-40 cursor-pointer hover:border-outline">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Период</span><span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-caps text-label-caps text-outline hover:text-on-surface transition-colors">Сбросить</button>
+<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded bg-surface hover:bg-surface-bright transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">refresh</span></button>
+</div>
+</div>
+</section>
+<!-- 55/45 Split Layout -->
+<div class="grid lg:grid-cols-[55%_1fr] gap-6 items-start">
+<!-- Left Column: Evidence Ledger -->
+<div class="flex flex-col gap-unit">
+<!-- Card 1: Highlighted / Critical -->
+<div class="border border-error/80 ring-1 ring-error/30 bg-error/5 rounded-lg p-4 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error">place</span>
+<span class="font-label-caps text-label-caps text-on-surface">Pool Hall Pro <span class="text-outline mx-1">•</span> 2ГИС</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline">12:04</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Снижение базовой цены</h3>
+<div class="font-data-lg text-data-lg text-on-surface mb-3 flex items-center gap-3">
+<span class="line-through text-outline">950 ₽</span>
+<span class="material-symbols-outlined text-error">arrow_right_alt</span>
+<span class="text-error">800 ₽</span>
+<span class="font-data-sm text-data-sm text-error bg-error/20 px-2 py-0.5 rounded border border-error/30 ml-2">на 12% ниже нас</span>
+</div>
+<div class="flex justify-between items-end mt-4 pt-3 border-t border-error/20">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-error/20 border border-error text-error font-label-caps text-label-caps rounded">CRITICAL</span>
+<span class="px-2 py-1 bg-surface border border-outline-variant text-on-surface-variant font-label-caps text-label-caps rounded">CONF: 0.95</span>
+</div>
+<div class="flex gap-2 opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="font-label-caps text-label-caps text-on-surface hover:text-surface-tint">Детали</button>
+<button class="font-label-caps text-label-caps text-on-surface hover:text-surface-tint">Источник</button>
+<button class="font-label-caps text-label-caps text-on-surface hover:text-surface-tint">Закрепить</button>
+<button class="font-label-caps text-label-caps bg-surface-bright border border-outline-variant px-3 py-1 rounded hover:border-surface-tint text-on-surface">В отчет</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="border border-outline-variant bg-surface-container-lowest hover:bg-surface-container transition-colors rounded-lg p-4 group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">send</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Бильярд-Сити <span class="text-outline mx-1">•</span> Telegram</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline">10:45</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Запуск новой акции: "Часы пик"</h3>
+<p class="font-body-md text-on-surface-variant mb-3 line-clamp-2">Анонс в официальном канале: скидка 20% на аренду столов с 18:00 до 20:00 по будням. Охват поста: 2.4k.</p>
+<div class="flex justify-between items-end mt-4 pt-3 border-t border-outline-variant/50">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface border border-outline-variant text-on-surface-variant font-label-caps text-label-caps rounded">ПРОМО</span>
+<span class="px-2 py-1 bg-surface border border-outline-variant text-tertiary-fixed-dim font-label-caps text-label-caps rounded">CONF: 0.78</span>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary">Детали</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary">В отчет</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="border border-outline-variant bg-surface-container-lowest hover:bg-surface-container transition-colors rounded-lg p-4 group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">language</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Клуб 8 Шаров <span class="text-outline mx-1">•</span> Сайт</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline">Вчера</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Обновление страницы "Корпоративы"</h3>
+<p class="font-body-md text-on-surface-variant mb-3 line-clamp-1">Изменение структуры цен для групп от 10 человек. Добавлен пакет "Турнир".</p>
+<div class="flex justify-between items-end mt-4 pt-3 border-t border-outline-variant/50">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface border border-outline-variant text-on-surface-variant font-label-caps text-label-caps rounded">ПРОДУКТ</span>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary">Детали</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="border border-outline-variant bg-surface-container-lowest hover:bg-surface-container transition-colors rounded-lg p-4 group border-l-2 border-l-secondary-fixed-dim">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed-dim">shopping_cart</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Lucky Shot <span class="text-outline mx-1">•</span> Ozon</span>
+</div>
+<span class="font-data-sm text-data-sm text-outline">Вчера</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Рост поисковой выдачи</h3>
+<div class="font-data-md text-data-md text-on-surface mb-3 flex items-center gap-2">
+<span>Ранг:</span> <span class="text-outline">14</span> <span class="material-symbols-outlined text-surface-tint">arrow_upward</span> <span class="text-surface-tint">5</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Analytical Stack (Sticky) -->
+<div class="sticky top-24 space-y-6">
+<!-- Chart 1: Line Chart -->
+<div class="border border-outline-variant bg-surface-container rounded-lg p-4">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-caps text-label-caps text-on-surface">Динамика цен против нас</h3>
+<span class="material-symbols-outlined text-outline text-[18px]">more_horiz</span>
+</div>
+<div class="h-32 relative border-b border-l border-outline-variant/50 ml-6 mb-4 flex items-end">
+<!-- Y Axis labels -->
+<div class="absolute -left-8 top-0 font-data-sm text-data-sm text-outline text-right w-6">1k</div>
+<div class="absolute -left-8 bottom-0 font-data-sm text-data-sm text-outline text-right w-6">500</div>
+<!-- Fake lines using borders -->
+<div class="absolute inset-0 w-full h-full">
+<!-- Мы (Teal) -->
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path d="M0,50 L20,50 L40,48 L60,45 L80,45 L100,45" fill="none" stroke="#00e1ab" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<!-- Competitor (Amber) -->
+<path d="M0,40 L20,42 L40,55 L60,60 L80,70 L100,75" fill="none" stroke="#ffba20" stroke-dasharray="4" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+<!-- Competitor (Red) -->
+<path d="M0,20 L50,20 L60,80 L100,80" fill="none" stroke="#ffb4ab" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- X Axis -->
+<div class="flex justify-between ml-6 font-data-sm text-data-sm text-outline">
+<span>Пн</span><span>Ср</span><span>Пт</span><span>Вс</span>
+</div>
+</div>
+<!-- Heatmap & Radar grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Heatmap -->
+<div class="border border-outline-variant bg-surface-container rounded-lg p-4">
+<h3 class="font-label-caps text-label-caps text-on-surface mb-3">Активность по источникам</h3>
+<div class="grid grid-cols-7 gap-1">
+<!-- 28 days fake data -->
+<div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-tertiary-fixed-dim/20 rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-tertiary-fixed-dim/60 rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div>
+<div class="aspect-square bg-tertiary-fixed-dim/40 rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-tertiary-fixed-dim/80 rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-tertiary-fixed-dim/20 rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div>
+<div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-tertiary-fixed-dim/30 rounded-sm"></div><div class="aspect-square bg-tertiary-fixed-dim/90 rounded-sm border border-tertiary-fixed"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div>
+<div class="aspect-square bg-tertiary-fixed-dim/50 rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div><div class="aspect-square bg-surface-bright rounded-sm"></div>
+</div>
+</div>
+<!-- Radar -->
+<div class="border border-outline-variant bg-surface-container rounded-lg p-4">
+<h3 class="font-label-caps text-label-caps text-on-surface mb-3">Радар угроз</h3>
+<div class="aspect-square bg-surface-container-lowest border border-outline-variant/50 relative overflow-hidden">
+<!-- Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-10 pointer-events-none"><div class="h-px bg-white"></div><div class="h-px bg-white"></div><div class="h-px bg-white"></div><div class="h-px bg-white"></div></div>
+<div class="absolute inset-0 flex justify-between opacity-10 pointer-events-none"><div class="w-px bg-white"></div><div class="w-px bg-white"></div><div class="w-px bg-white"></div><div class="w-px bg-white"></div></div>
+<!-- Bubbles -->
+<div class="absolute w-3 h-3 rounded-full bg-secondary-fixed-dim top-1/4 left-1/3 shadow-[0_0_8px_#ffba20]"></div>
+<div class="absolute w-4 h-4 rounded-full bg-error top-[15%] right-[20%] shadow-[0_0_12px_#ffb4ab]"></div>
+<div class="absolute w-2 h-2 rounded-full bg-tertiary-fixed-dim bottom-1/3 left-1/2"></div>
+<div class="absolute w-2.5 h-2.5 rounded-full bg-surface-tint bottom-[20%] right-[40%]"></div>
+</div>
+</div>
+</div>
+<!-- Table: Sources -->
+<div class="border border-outline-variant bg-surface-container rounded-lg overflow-hidden">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-high">
+<h3 class="font-label-caps text-label-caps text-on-surface">Надежность источников</h3>
+</div>
+<div class="w-full">
+<div class="grid grid-cols-4 border-b border-outline-variant/50 bg-surface-container py-2 px-4 font-label-caps text-label-caps text-outline">
+<div class="col-span-1">Источник</div>
+<div class="text-right">Свежесть</div>
+<div class="text-right">Уверенность</div>
+<div class="text-right">Охват</div>
+</div>
+<div class="grid grid-cols-4 border-b border-outline-variant/30 py-2 px-4 font-data-sm text-data-sm hover:bg-surface-container-highest transition-colors">
+<div class="text-on-surface">2ГИС</div>
+<div class="text-right text-surface-tint">Live</div>
+<div class="text-right text-on-surface-variant">0.95</div>
+<div class="text-right text-on-surface-variant">Высокий</div>
+</div>
+<div class="grid grid-cols-4 border-b border-outline-variant/30 py-2 px-4 font-data-sm text-data-sm hover:bg-surface-container-highest transition-colors">
+<div class="text-on-surface">Telegram</div>
+<div class="text-right text-outline">15м</div>
+<div class="text-right text-on-surface-variant">0.78</div>
+<div class="text-right text-on-surface-variant">Средний</div>
+</div>
+<div class="grid grid-cols-4 py-2 px-4 font-data-sm text-data-sm hover:bg-surface-container-highest transition-colors">
+<div class="text-on-surface">Сайты</div>
+<div class="text-right text-outline">24ч</div>
+<div class="text-right text-on-surface-variant">0.99</div>
+<div class="text-right text-on-surface-variant">Полный</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- JSON Component: Footer -->
+<footer class="fixed bottom-0 right-0 left-64 flex justify-between items-center h-8 px-panel-padding z-40 border-t border-outline-variant bg-surface-container-lowest">
+<div class="font-data-sm text-data-sm text-tertiary-fixed-dim">SYS_STATUS: OPTIMAL | CONF_SCORE: 0.98 | LATENCY: 12ms</div>
+<div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant">
+<a class="hover:text-tertiary hover:underline decoration-tertiary-fixed-dim transition-colors" href="#">AI_QUERY_CONTEXT</a>
+<a class="hover:text-tertiary hover:underline decoration-tertiary-fixed-dim transition-colors" href="#">SYSTEM_LOGS</a>
+<a class="hover:text-tertiary hover:underline decoration-tertiary-fixed-dim transition-colors" href="#">LEGAL_CLEARANCE</a>
+</div>
+</footer>
+<script defer src="../assets/local-shell.js"></script>
+</body></html>

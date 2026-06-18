@@ -1,0 +1,51 @@
+{
+  "description": "Конфигурация портала CompetitorIQ — группы, навигация, AI-промпты, фильтры",
+  "appName": "CompetitorIQ",
+  "appSubtitle": "Competitor Intelligence",
+  "businessName": "Weekend Бильярд",
+  "period": "Июнь 2026",
+  "navigation": [
+    { "id": "overview", "label": "Overview", "path": "/", "icon": "chart-bar" },
+    { "id": "graph", "label": "Граф связей", "path": "/graph", "icon": "network" },
+    { "id": "observatory", "label": "Обсерватория", "path": "/observatory", "icon": "telescope" },
+    { "id": "insights", "label": "Инсайты", "path": "/insights", "icon": "sparkles" }
+  ],
+  "competitorGroups": [
+    { "id": "direct", "label": "Прямые конкуренты", "color": "#A855F7", "count": 3 },
+    { "id": "indirect", "label": "Косвенные", "color": "#06B6D4", "count": 1 },
+    { "id": "potential", "label": "Потенциальные", "color": "#F97316", "count": 1 }
+  ],
+  "recentReports": [
+    { "id": "report-001", "title": "Q2 2026 — Бильярдный рынок Москвы", "date": "2026-06-15" },
+    { "id": "report-002", "title": "Июнь — Ценовой анализ", "date": "2026-06-01" }
+  ],
+  "analysisTypes": [
+    { "id": "financial", "label": "Финансовый", "color": "#FF3B30", "icon": "dollar-sign" },
+    { "id": "marketing", "label": "Маркетинговый", "color": "#A855F7", "icon": "megaphone" },
+    { "id": "activity", "label": "Активность", "color": "#06B6D4", "icon": "activity" },
+    { "id": "dynamics", "label": "Динамика", "color": "#00E676", "icon": "trending-up" },
+    { "id": "assortment", "label": "Ассортиментный", "color": "#FB923C", "icon": "grid" }
+  ],
+  "aiPromptSuggestions": [
+    "Сравни цены с конкурентами",
+    "Прогноз на Q3 2026",
+    "SWOT-анализ Pool Hall Pro",
+    "Кто мой главный конкурент?",
+    "Как изменились цены за месяц?",
+    "Создай ежемесячный отчёт"
+  ],
+  "filterOptions": {
+    "eventTypes": ["Все", "Цены", "Контент", "Реклама", "Отзывы", "Структурные", "HR"],
+    "threatLevels": ["Все", "Критично", "Внимание", "Норма"],
+    "timePeriods": ["7д", "30д", "90д", "1г"],
+    "competitorTypes": ["Все", "Прямые", "Косвенные", "Потенциальные"]
+  },
+  "dataSourcesStatus": {
+    "googleMaps": { "label": "Google Maps", "status": "active", "lastSync": "2026-06-18T20:00:00Z" },
+    "twogis": { "label": "2GIS", "status": "active", "lastSync": "2026-06-18T18:00:00Z" },
+    "yandexMaps": { "label": "Yandex Maps", "status": "active", "lastSync": "2026-06-18T19:00:00Z" },
+    "instagram": { "label": "Instagram", "status": "active", "lastSync": "2026-06-18T21:00:00Z" },
+    "vk": { "label": "VKontakte", "status": "active", "lastSync": "2026-06-18T17:00:00Z" },
+    "websites": { "label": "Сайты конкурентов", "status": "active", "lastSync": "2026-06-18T12:00:00Z" }
+  }
+}

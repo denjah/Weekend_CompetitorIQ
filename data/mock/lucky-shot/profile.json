@@ -1,0 +1,127 @@
+{
+  "competitorId": "lucky-shot",
+  "ratings": {
+    "overall": 4.1,
+    "trend": "-0.1",
+    "trendDirection": "down",
+    "totalReviews": 73,
+    "newReviewsThisMonth": 3,
+    "platforms": {
+      "googleMaps": { "rating": 4.2, "reviews": 38, "trend": "0" },
+      "twogis": { "rating": 4.0, "reviews": 28, "trend": "-0.2" },
+      "yandexMaps": { "rating": 3.9, "reviews": 7, "trend": "0" }
+    },
+    "distribution": {
+      "5": 30,
+      "4": 34,
+      "3": 22,
+      "2": 10,
+      "1": 4
+    },
+    "sentimentScore": 48,
+    "sentimentTrend": "-3"
+  },
+  "pricing": {
+    "currency": "RUB",
+    "pricePerHour": {
+      "current": 450,
+      "previous": 450,
+      "delta": 0,
+      "deltaDirection": "stable",
+      "lastChanged": "2026-01-15"
+    },
+    "priceSegments": {
+      "afternoon": { "label": "День (14:00–18:00)", "price": 350, "previous": 350 },
+      "evening": { "label": "Вечер (18:00–23:00)", "price": 450, "previous": 450 },
+      "weekend": { "label": "Выходные", "price": 500, "previous": 500 }
+    },
+    "priceHistory": [
+      { "month": "2026-01", "evening": 450 },
+      { "month": "2026-02", "evening": 450 },
+      { "month": "2026-03", "evening": 450 },
+      { "month": "2026-04", "evening": 450 },
+      { "month": "2026-05", "evening": 450 },
+      { "month": "2026-06", "evening": 450 }
+    ],
+    "priceIndex": 0.50,
+    "priceIndexLabel": "Значительно ниже рынка",
+    "promotions": []
+  },
+  "activity": {
+    "level": "low",
+    "levelLabel": "Низкая",
+    "score": 18,
+    "socialMedia": {
+      "instagram": {
+        "followers": 890,
+        "followersGrowth": "+12",
+        "postsThisMonth": 2,
+        "avgEngagement": 1.1,
+        "lastPost": "2026-06-08"
+      },
+      "vk": {
+        "members": 520,
+        "membersGrowth": "+5",
+        "postsThisMonth": 1,
+        "avgEngagement": 0.8,
+        "lastPost": "2026-06-02"
+      }
+    },
+    "advertising": {
+      "activeCampaigns": 0,
+      "estimatedBudget": 0,
+      "platforms": [],
+      "lastDetected": null
+    },
+    "websiteUpdates": {
+      "lastUpdate": null,
+      "updatesThisMonth": 0,
+      "changesDetected": []
+    },
+    "activityHeatmap": {
+      "2026-W22": { "Mon": 0, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 0 },
+      "2026-W23": { "Mon": 0, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 1, "Sun": 0 },
+      "2026-W24": { "Mon": 0, "Tue": 1, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 0, "Sun": 0 },
+      "2026-W25": { "Mon": 0, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 1, "Sun": 0 }
+    }
+  },
+  "marketPosition": {
+    "qualityScore": 4.5,
+    "priceLevel": 3.0,
+    "marketShareEstimate": 5,
+    "quadrant": "low-quality-low-price"
+  },
+  "radarMetrics": {
+    "price": 9.0,
+    "quality": 4.5,
+    "service": 4.0,
+    "location": 5.0,
+    "assortment": 3.0,
+    "atmosphere": 3.5,
+    "marketing": 1.5,
+    "loyalty": 3.0
+  },
+  "swot": {
+    "strengths": [
+      "Самые низкие цены на рынке",
+      "Стабильная студенческая аудитория"
+    ],
+    "weaknesses": [
+      "Минимальный маркетинг",
+      "Нет сайта",
+      "Нет дополнительных услуг",
+      "Устаревшее оборудование",
+      "Маленькая площадь",
+      "Нет бара и кухни"
+    ],
+    "opportunities": [
+      "Партнёрства с учебными заведениями",
+      "Создание сайта и онлайн-бронирования"
+    ],
+    "threats": [
+      "Вытеснение более качественными клубами",
+      "Рост аренды при низкой марже",
+      "Падение рейтинга"
+    ]
+  }
+}

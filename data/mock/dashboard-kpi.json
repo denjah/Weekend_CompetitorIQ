@@ -1,0 +1,113 @@
+{
+  "period": "2026-06",
+  "generatedAt": "2026-06-18T21:00:00Z",
+  "kpi": {
+    "totalCompetitors": {
+      "value": 5,
+      "delta": "+2",
+      "deltaDirection": "up",
+      "deltaLabel": "за месяц",
+      "description": "Конкуренты в мониторинге"
+    },
+    "avgPriceIndex": {
+      "value": 1.0,
+      "delta": "-0.08",
+      "deltaDirection": "down",
+      "deltaLabel": "vs прошлый месяц",
+      "description": "Средний ценовой индекс",
+      "formatted": "1.00×"
+    },
+    "activeThreats": {
+      "value": 3,
+      "delta": "+1",
+      "deltaDirection": "up",
+      "deltaLabel": "новых",
+      "description": "Активные угрозы",
+      "items": [
+        { "id": "pool-hall-pro", "level": "critical", "reason": "Ценовой демпинг -15.8%" },
+        { "id": "kiy-club", "level": "warning", "reason": "Агрессивный новый игрок" },
+        { "id": "shark-lounge", "level": "warning", "reason": "Premium-экспансия" }
+      ]
+    },
+    "sentimentScore": {
+      "value": 68,
+      "delta": "+5",
+      "deltaDirection": "up",
+      "deltaLabel": "за месяц",
+      "description": "Sentiment Score",
+      "scale": "0–100"
+    }
+  },
+  "marketOverview": {
+    "totalMarketPlayers": 15,
+    "avgMarketPrice": 900,
+    "priceRange": { "min": 350, "max": 3000 },
+    "avgRating": 4.24,
+    "ourPosition": {
+      "pricePercentile": 65,
+      "ratingPercentile": 72,
+      "marketShareRank": 2
+    }
+  },
+  "competitorsSummary": [
+    {
+      "id": "pool-hall-pro",
+      "name": "Pool Hall Pro",
+      "type": "direct",
+      "rating": 4.7,
+      "price": 800,
+      "priceDelta": -15.8,
+      "activityLevel": "high",
+      "threatLevel": "critical"
+    },
+    {
+      "id": "billiard-city",
+      "name": "Бильярд-Сити",
+      "type": "direct",
+      "rating": 4.3,
+      "price": 700,
+      "priceDelta": 7.7,
+      "activityLevel": "medium",
+      "threatLevel": "warning"
+    },
+    {
+      "id": "lucky-shot",
+      "name": "Lucky Shot",
+      "type": "indirect",
+      "rating": 4.1,
+      "price": 450,
+      "priceDelta": 0,
+      "activityLevel": "low",
+      "threatLevel": "normal"
+    },
+    {
+      "id": "shark-lounge",
+      "name": "Shark Lounge",
+      "type": "direct",
+      "rating": 4.6,
+      "price": 1400,
+      "priceDelta": 16.7,
+      "activityLevel": "high",
+      "threatLevel": "warning"
+    },
+    {
+      "id": "kiy-club",
+      "name": "Кий-Клуб «Динамо»",
+      "type": "potential",
+      "rating": 4.0,
+      "price": 600,
+      "priceDelta": -14.3,
+      "activityLevel": "very-high",
+      "threatLevel": "warning"
+    }
+  ],
+  "activityTimeline": {
+    "labels": ["18 Мая", "25 Мая", "1 Июн", "8 Июн", "15 Июн"],
+    "series": {
+      "socialPosts": [12, 15, 18, 22, 28],
+      "websiteUpdates": [3, 2, 5, 4, 6],
+      "adCampaigns": [2, 3, 4, 5, 7],
+      "promotions": [1, 2, 3, 3, 5]
+    }
+  }
+}

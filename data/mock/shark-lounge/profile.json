@@ -1,0 +1,150 @@
+{
+  "competitorId": "shark-lounge",
+  "ratings": {
+    "overall": 4.6,
+    "trend": "+0.3",
+    "trendDirection": "up",
+    "totalReviews": 142,
+    "newReviewsThisMonth": 18,
+    "platforms": {
+      "googleMaps": { "rating": 4.7, "reviews": 82, "trend": "+0.3" },
+      "twogis": { "rating": 4.5, "reviews": 41, "trend": "+0.2" },
+      "yandexMaps": { "rating": 4.4, "reviews": 19, "trend": "+0.2" }
+    },
+    "distribution": {
+      "5": 55,
+      "4": 25,
+      "3": 12,
+      "2": 5,
+      "1": 3
+    },
+    "sentimentScore": 78,
+    "sentimentTrend": "+7"
+  },
+  "pricing": {
+    "currency": "RUB",
+    "pricePerHour": {
+      "current": 1400,
+      "previous": 1200,
+      "delta": 16.7,
+      "deltaDirection": "up",
+      "lastChanged": "2026-06-01"
+    },
+    "priceSegments": {
+      "afternoon": { "label": "День (16:00–19:00)", "price": 1000, "previous": 900 },
+      "evening": { "label": "Вечер (19:00–00:00)", "price": 1400, "previous": 1200 },
+      "night": { "label": "Ночь (00:00–04:00)", "price": 1200, "previous": 1100 },
+      "weekend": { "label": "Выходные", "price": 1600, "previous": 1400 },
+      "vip_room": { "label": "VIP-комната", "price": 3000, "previous": 2500 }
+    },
+    "priceHistory": [
+      { "month": "2026-01", "evening": 1000 },
+      { "month": "2026-02", "evening": 1050 },
+      { "month": "2026-03", "evening": 1100 },
+      { "month": "2026-04", "evening": 1150 },
+      { "month": "2026-05", "evening": 1200 },
+      { "month": "2026-06", "evening": 1400 }
+    ],
+    "priceIndex": 1.55,
+    "priceIndexLabel": "Значительно выше рынка",
+    "promotions": [
+      {
+        "id": "promo-sl-01",
+        "title": "Grand Opening Party",
+        "description": "Закрытая вечеринка: бесплатный вход для первых 50 гостей + welcome drink",
+        "startDate": "2026-06-20",
+        "endDate": "2026-06-20",
+        "discount": 0,
+        "status": "upcoming"
+      },
+      {
+        "id": "promo-sl-02",
+        "title": "VIP-карта Shark Elite",
+        "description": "Абонемент на 10 часов + доступ в сигарную комнату",
+        "startDate": "2026-05-01",
+        "endDate": null,
+        "discount": 15,
+        "status": "active"
+      }
+    ]
+  },
+  "activity": {
+    "level": "high",
+    "levelLabel": "Высокая",
+    "score": 79,
+    "socialMedia": {
+      "instagram": {
+        "followers": 8700,
+        "followersGrowth": "+620",
+        "postsThisMonth": 14,
+        "avgEngagement": 5.8,
+        "lastPost": "2026-06-18"
+      },
+      "vk": {
+        "members": null,
+        "membersGrowth": null,
+        "postsThisMonth": null,
+        "avgEngagement": null,
+        "lastPost": null
+      }
+    },
+    "advertising": {
+      "activeCampaigns": 2,
+      "estimatedBudget": 120000,
+      "platforms": ["Instagram Ads", "Google Ads"],
+      "lastDetected": "2026-06-17"
+    },
+    "websiteUpdates": {
+      "lastUpdate": "2026-06-15",
+      "updatesThisMonth": 3,
+      "changesDetected": ["Запуск онлайн-бронирования", "Новая фотогалерея VIP-зоны", "Обновлён прайс"]
+    },
+    "activityHeatmap": {
+      "2026-W22": { "Mon": 1, "Tue": 2, "Wed": 2, "Thu": 1, "Fri": 3, "Sat": 4, "Sun": 2 },
+      "2026-W23": { "Mon": 2, "Tue": 1, "Wed": 3, "Thu": 2, "Fri": 2, "Sat": 5, "Sun": 3 },
+      "2026-W24": { "Mon": 1, "Tue": 3, "Wed": 1, "Thu": 2, "Fri": 3, "Sat": 4, "Sun": 2 },
+      "2026-W25": { "Mon": 2, "Tue": 2, "Wed": 2, "Thu": 3, "Fri": 2, "Sat": 5, "Sun": 4 }
+    }
+  },
+  "marketPosition": {
+    "qualityScore": 9.0,
+    "priceLevel": 9.5,
+    "marketShareEstimate": 12,
+    "quadrant": "high-quality-high-price"
+  },
+  "radarMetrics": {
+    "price": 3.0,
+    "quality": 9.0,
+    "service": 9.2,
+    "location": 9.5,
+    "assortment": 7.5,
+    "atmosphere": 9.5,
+    "marketing": 8.5,
+    "loyalty": 7.0
+  },
+  "swot": {
+    "strengths": [
+      "Premium-позиционирование",
+      "Исключительная атмосфера и интерьер",
+      "Высокий engagement в Instagram",
+      "VIP-услуги и закрытые мероприятия",
+      "Сильное сарафанное радио"
+    ],
+    "weaknesses": [
+      "Очень высокие цены отсекают массовый рынок",
+      "Зависимость от Instagram (нет VK)",
+      "Маленький стаж работы",
+      "Ограниченная аудитория"
+    ],
+    "opportunities": [
+      "Корпоративные мероприятия",
+      "Партнёрства с luxury-брендами",
+      "Poker-турниры с premium buy-in"
+    ],
+    "threats": [
+      "Узкий рынок premium-сегмента",
+      "Экономический спад → падение спроса на luxury",
+      "Высокие операционные расходы"
+    ]
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "period": "2026-06",
+  "events": [
+    {
+      "id": "evt-001",
+      "competitorId": "pool-hall-pro",
+      "type": "price",
+      "severity": "critical",
+      "title": "Снижение цены на вечерние часы",
+      "description": "Стоимость аренды стола (19:00–23:00) снижена с 950₽ до 800₽/час (-15.8%). Это агрессивный демпинг, направленный на привлечение нашей аудитории вечернего сегмента.",
+      "details": {
+        "was": 950,
+        "now": 800,
+        "delta": -15.8,
+        "currency": "RUB",
+        "unit": "₽/час"
+      },
+      "source": "2GIS",
+      "sourceUrl": "https://2gis.ru/moscow/firm/pool-hall-pro",
+      "timestamp": "2026-06-16T14:30:00Z",
+      "isRead": false,
+      "isPinned": true
+    },
+    {
+      "id": "evt-002",
+      "competitorId": "shark-lounge",
+      "type": "content",
+      "severity": "warning",
+      "title": "Запуск системы онлайн-бронирования",
+      "description": "Shark Lounge интегрировал онлайн-бронирование столов через сайт. Клиенты могут выбрать стол, время и сразу оплатить. Это серьёзное конкурентное преимущество.",
+      "details": {
+        "feature": "Онлайн-бронирование",
+        "platform": "Собственный сайт"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://sharklounge.ru/booking",
+      "timestamp": "2026-06-15T10:00:00Z",
+      "isRead": false,
+      "isPinned": false
+    },
+    {
+      "id": "evt-003",
+      "competitorId": "pool-hall-pro",
+      "type": "advertising",
+      "severity": "warning",
+      "title": "Новая таргетированная кампания в Instagram",
+      "description": "Обнаружена новая рекламная кампания Pool Hall Pro в Instagram: видео-ролик «Лучшие вечера — у нас» с акцентом на низкие цены. Таргет: мужчины 25-45, Москва ЦАО/ЮЗАО.",
+      "details": {
+        "platform": "Instagram Ads",
+        "format": "Video Reel",
+        "targeting": "М 25-45, Москва ЦАО/ЮЗАО",
+        "estimatedBudget": 45000
+      },
+      "source": "Instagram Ad Library",
+      "sourceUrl": null,
+      "timestamp": "2026-06-15T08:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-004",
+      "competitorId": "kiy-club",
+      "type": "structural",
+      "severity": "info",
+      "title": "Открытие нового клуба «Кий-Клуб Динамо»",
+      "description": "На Ленинградском проспекте открылся новый бильярдный клуб с 14 столами. Агрессивная промо-кампания: первый час бесплатно. Оценочный маркетинговый бюджет — 200K₽/мес.",
+      "details": {
+        "tables": 14,
+        "area": 480,
+        "promoOffer": "Первый час бесплатно"
+      },
+      "source": "Instagram",
+      "sourceUrl": "https://instagram.com/kiy_club_dynamo",
+      "timestamp": "2026-06-14T12:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-005",
+      "competitorId": "billiard-city",
+      "type": "price",
+      "severity": "info",
+      "title": "Повышение цен на вечерние часы +7.7%",
+      "description": "Бильярд-Сити повысил цены на вечерний тариф с 650₽ до 700₽/час. Вероятная причина — рост операционных расходов. Снижает их конкурентоспособность по цене.",
+      "details": {
+        "was": 650,
+        "now": 700,
+        "delta": 7.7,
+        "currency": "RUB",
+        "unit": "₽/час"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://billiard-city.ru/prices",
+      "timestamp": "2026-06-13T16:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-006",
+      "competitorId": "shark-lounge",
+      "type": "price",
+      "severity": "warning",
+      "title": "Повышение цен на вечерние часы +16.7%",
+      "description": "Shark Lounge повысил цены с 1200₽ до 1400₽/час. Уверенное движение в premium-сегмент. Создаёт ещё больший разрыв с рынком — позиционирование как luxury-клуб.",
+      "details": {
+        "was": 1200,
+        "now": 1400,
+        "delta": 16.7,
+        "currency": "RUB",
+        "unit": "₽/час"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://sharklounge.ru/prices",
+      "timestamp": "2026-06-12T11:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-007",
+      "competitorId": "pool-hall-pro",
+      "type": "reviews",
+      "severity": "warning",
+      "title": "Рейтинг вырос до 4.8 на Google Maps",
+      "description": "+12 новых отзывов за 2 недели, средняя оценка 4.9. Подозрение на программу стимулирования отзывов (скидка за отзыв). Рейтинг растёт быстрее органического.",
+      "details": {
+        "platform": "Google Maps",
+        "newRating": 4.8,
+        "previousRating": 4.7,
+        "newReviews": 12,
+        "avgNewRating": 4.9
+      },
+      "source": "Google Maps",
+      "sourceUrl": null,
+      "timestamp": "2026-06-11T09:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-008",
+      "competitorId": "kiy-club",
+      "type": "advertising",
+      "severity": "info",
+      "title": "Реклама в Telegram — 4 канала",
+      "description": "Кий-Клуб запустил рекламу в 4 Telegram-каналах: «Москва Афиша», «Куда пойти МСК», «Спорт Москва», «Бильярд и кий». Агрессивная стратегия набора первых клиентов.",
+      "details": {
+        "platform": "Telegram Ads",
+        "channels": 4,
+        "estimatedBudget": 60000
+      },
+      "source": "Telegram",
+      "sourceUrl": null,
+      "timestamp": "2026-06-10T18:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-009",
+      "competitorId": "shark-lounge",
+      "type": "content",
+      "severity": "info",
+      "title": "Публикация фотогалереи VIP-зоны",
+      "description": "Профессиональная фотосессия VIP-комнат и сигарной комнаты. 24 фото, высокое качество. Сильный визуальный контент для привлечения premium-аудитории.",
+      "details": {
+        "contentType": "Фотогалерея",
+        "photos": 24,
+        "quality": "Профессиональная"
+      },
+      "source": "Instagram",
+      "sourceUrl": "https://instagram.com/shark_lounge_msk",
+      "timestamp": "2026-06-09T15:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-010",
+      "competitorId": "kiy-club",
+      "type": "price",
+      "severity": "critical",
+      "title": "Промо: первый час бесплатно + 50% на второго",
+      "description": "Кий-Клуб запустил агрессивную промо-акцию: первый час бесплатно для новых клиентов + скидка 50% при приведении друга. Фактически — работа в убыток для набора базы.",
+      "details": {
+        "promoType": "Free trial + referral",
+        "discount": 100,
+        "referralDiscount": 50,
+        "estimatedLoss": "Работает в минус"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://kiy-club.ru/promo",
+      "timestamp": "2026-06-08T10:00:00Z",
+      "isRead": true,
+      "isPinned": true
+    },
+    {
+      "id": "evt-011",
+      "competitorId": "billiard-city",
+      "type": "content",
+      "severity": "info",
+      "title": "Обновлён раздел «Акции» на сайте",
+      "description": "Бильярд-Сити добавил акцию «3-й час бесплатно» на свой сайт. Умеренная промо-активность.",
+      "details": {
+        "contentType": "Обновление сайта",
+        "section": "Акции"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://billiard-city.ru/promo",
+      "timestamp": "2026-06-07T14:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-012",
+      "competitorId": "pool-hall-pro",
+      "type": "content",
+      "severity": "info",
+      "title": "Запущена страница турниров",
+      "description": "Pool Hall Pro создал отдельный раздел турниров на сайте. Еженедельные турниры по пулу и русскому бильярду с призовыми.",
+      "details": {
+        "contentType": "Новый раздел сайта",
+        "feature": "Турниры",
+        "frequency": "Еженедельно"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://poolhallpro.ru/tournaments",
+      "timestamp": "2026-06-05T12:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-013",
+      "competitorId": "lucky-shot",
+      "type": "reviews",
+      "severity": "info",
+      "title": "Рейтинг на 2GIS снизился до 4.0",
+      "description": "Lucky Shot получил 3 негативных отзыва: жалобы на состояние столов и некомфортную атмосферу. Рейтинг упал с 4.2 до 4.0.",
+      "details": {
+        "platform": "2GIS",
+        "newRating": 4.0,
+        "previousRating": 4.2,
+        "negativeReviews": 3,
+        "complaints": ["Состояние столов", "Атмосфера", "Освещение"]
+      },
+      "source": "2GIS",
+      "sourceUrl": null,
+      "timestamp": "2026-06-03T11:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-014",
+      "competitorId": "pool-hall-pro",
+      "type": "hr",
+      "severity": "info",
+      "title": "Вакансия: Управляющий клубом",
+      "description": "Pool Hall Pro ищет опытного управляющего с опытом в HoReCa. Зарплата от 120 000₽. Возможный признак расширения или кадровых проблем.",
+      "details": {
+        "position": "Управляющий клубом",
+        "salary": "от 120 000 ₽",
+        "platform": "hh.ru"
+      },
+      "source": "hh.ru",
+      "sourceUrl": null,
+      "timestamp": "2026-06-01T09:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-015",
+      "competitorId": "shark-lounge",
+      "type": "advertising",
+      "severity": "warning",
+      "title": "Запуск Google Ads кампании",
+      "description": "Shark Lounge запустил рекламу в Google Ads по ключевым запросам: «бильярд москва», «vip бильярд», «premium бильярдный клуб». Оценочный бюджет — 75K₽/мес.",
+      "details": {
+        "platform": "Google Ads",
+        "keywords": ["бильярд москва", "vip бильярд", "premium бильярдный клуб"],
+        "estimatedBudget": 75000
+      },
+      "source": "Google Ads Transparency",
+      "sourceUrl": null,
+      "timestamp": "2026-05-30T10:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    }
+  ]
+}

@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html><html class="dark" lang="ru"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AI Инсайты | INTEL_MATRIX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#0c1511",
+                        "outline-variant": "#3a4a43",
+                        "on-surface-variant": "#b9cbc1",
+                        "on-background": "#dbe5de",
+                        "tertiary-container": "#9fedff",
+                        "surface-container-high": "#232c28",
+                        "secondary-container": "#feb700",
+                        "on-tertiary-fixed": "#001f25",
+                        "tertiary-fixed-dim": "#00daf8",
+                        "primary": "#fbfffa",
+                        "primary-fixed-dim": "#00e1ab",
+                        "on-primary-fixed": "#002116",
+                        "surface-dim": "#0c1511",
+                        "secondary": "#ffdb9d",
+                        "surface-tint": "#00e1ab",
+                        "on-primary": "#003828",
+                        "on-tertiary-container": "#006e7e",
+                        "surface-variant": "#2d3732",
+                        "inverse-primary": "#006c50",
+                        "secondary-fixed": "#ffdea8",
+                        "on-secondary-fixed-variant": "#5e4200",
+                        "inverse-on-surface": "#29322e",
+                        "on-secondary-fixed": "#271900",
+                        "on-secondary-container": "#6b4b00",
+                        "primary-fixed": "#36ffc4",
+                        "on-surface": "#dbe5de",
+                        "tertiary-fixed": "#a5eeff",
+                        "tertiary": "#fcfeff",
+                        "on-tertiary": "#00363f",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "surface-container": "#18221d",
+                        "inverse-surface": "#dbe5de",
+                        "surface-container-lowest": "#07100c",
+                        "primary-container": "#00ffc2",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#00513c",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#2d3732",
+                        "on-primary-container": "#007255",
+                        "secondary-fixed-dim": "#ffba20",
+                        "outline": "#83958c",
+                        "surface-container-low": "#141d19",
+                        "on-secondary": "#412d00",
+                        "error-container": "#93000a",
+                        "surface-bright": "#323b37",
+                        "background": "#0c1511"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "panel-padding": "16px",
+                        "unit": "4px",
+                        "component-gap": "8px",
+                        "gutter": "16px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "display-md": ["Fira Sans"],
+                        "display-lg": ["Fira Sans"],
+                        "headline-sm": ["Fira Sans"],
+                        "label-caps": ["Fira Sans"],
+                        "data-sm": ["JetBrains Mono"],
+                        "data-md": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "body-md": ["Fira Sans"]
+                    },
+                    "fontSize": {
+                        "display-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "data-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Scrollbar for dense UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2A2A; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a4a43; 
+        }
+
+        /* Glitch effect for active elements */
+        @keyframes subtle-pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; box-shadow: 0 0 8px rgba(0, 225, 171, 0.4); }
+            100% { opacity: 0.8; }
+        }
+        .live-glow {
+            animation: subtle-pulse 3s infinite alternate;
+            border-color: #00e1ab !important;
+        }
+    </style>
+<link rel="stylesheet" href="../assets/local-shell.css">
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden antialiased selection:bg-surface-tint selection:text-on-primary">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 border-r border-outline-variant bg-surface-container flex flex-col py-panel-padding z-50">
+<div class="px-panel-padding mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-DEFAULT bg-surface-variant border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="System Administrator Profile" class="w-full h-full object-cover" data-alt="A highly detailed avatar portrait of a system administrator in a futuristic, clinical command center setting, illuminated by teal console lights, cinematic styling, ultra realistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS1nTrOY3wHvTOeY91JSewnmoW1YzMzah8SomsQK5EPlHm961mztIbkZXyI16Wr4yUiR8tknGYDJubnLB2nzuvmXJYKS5knCYk3lAmr7e9Sft-WhYcH0FwJyxWet4p0q446i8NjsoA9j7-Cv0xtxZNuFKXRw1IQFs1BBJHRIzy-akFxrWiGmHC5aNJMaoZZZ0yMctRAOfGeAStV1WHWO98VcP5xNN2pvuRztzsMrYQtyxkgSbLSfwkPvEgeJn2Ui5Ewm5v0ug1bog">
+</div>
+<div>
+<h1 class="font-display-md text-display-md font-bold tracking-tight text-primary uppercase text-[16px] leading-tight">INTEL_MATRIX</h1>
+<p class="font-data-sm text-data-sm text-on-surface-variant">ID: ADM-992-QX</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps uppercase">Обзор</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="hub">hub</span>
+<span class="font-label-caps text-label-caps uppercase">Граф связей</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+<span class="font-label-caps text-label-caps uppercase">Обсерватория</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-primary-fixed-dim font-bold border-l-2 border-surface-tint pl-4 bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] symbol-filled text-surface-tint" data-icon="psychology">psychology</span>
+<span class="font-label-caps text-label-caps uppercase">Инсайты</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="assessment">assessment</span>
+<span class="font-label-caps text-label-caps uppercase">Отчеты</span>
+</a>
+</li>
+<li class="pt-4 pb-1 pl-4">
+<span class="font-label-caps text-label-caps text-outline-variant">КОНКУРЕНТЫ</span>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps uppercase">Прямые</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps uppercase">Косвенные</span>
+</a>
+</li>
+<li class="pt-4 pb-1 pl-4">
+<span class="font-label-caps text-label-caps text-outline-variant">ИСТОЧНИКИ</span>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-label-caps uppercase">Маркетплейсы</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="router">router</span>
+<span class="font-label-caps text-label-caps uppercase">Каналы</span>
+</a>
+</li>
+<li class="pt-4 pb-1 pl-4">
+<span class="font-label-caps text-label-caps text-outline-variant">СИСТЕМА</span>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps uppercase">Настройки</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="mt-auto px-panel-padding pt-4 border-t border-outline-variant">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="security">security</span>
+<span class="font-label-caps text-label-caps uppercase">Security</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-2 text-on-surface-variant font-normal pl-4 hover:bg-surface-container-highest hover:text-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span class="font-label-caps text-label-caps uppercase">Support</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 flex justify-between items-center h-16 px-container-padding z-40 border-b border-outline-variant bg-surface-container-high text-primary-fixed-dim">
+<div class="flex items-center gap-6 flex-1">
+<div class="font-display-md text-display-md font-black text-surface-tint uppercase tracking-widest text-[18px]">
+                MATRIX_CORE
+            </div>
+<div class="flex-1 max-w-xl relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-surface-tint transition-colors">search</span>
+<input class="w-full bg-[#0A0A0A] border border-outline-variant rounded-DEFAULT py-2 pl-10 pr-4 text-body-md text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-surface-tint focus:border-surface-tint transition-all" placeholder="Спросить, найти инсайт или отчет..." type="text">
+<div class="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 border border-outline-variant rounded text-[10px] text-outline-variant font-data-sm bg-surface-variant">⌘K</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 border-r border-outline-variant pr-4">
+<button class="flex items-center gap-2 px-3 py-1.5 bg-[#0A0A0A] border border-outline-variant rounded-DEFAULT hover:bg-surface-container-highest hover:text-primary hover:border-surface-tint transition-all group">
+<span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-surface-tint">calendar_month</span>
+<span class="font-label-caps text-label-caps">ИЮНЬ 2026</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-[#0A0A0A] border border-outline-variant rounded-DEFAULT hover:bg-surface-container-highest hover:text-primary hover:border-surface-tint transition-all group">
+<span class="material-symbols-outlined text-[18px] text-outline-variant group-hover:text-surface-tint">filter_alt</span>
+<span class="font-label-caps text-label-caps">ВСЕ ИСТОЧНИКИ</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all">СОХРАНИТЬ</button>
+<button class="font-label-caps text-label-caps px-4 py-2 border border-surface-tint text-surface-tint hover:bg-surface-tint/10 rounded-DEFAULT transition-all">В ОТЧЕТ</button>
+<div class="flex items-center gap-2 ml-2">
+<button class="p-1.5 text-outline-variant hover:text-primary hover:bg-surface-container-highest rounded-DEFAULT transition-all"><span class="material-symbols-outlined text-[20px]">notifications_active</span></button>
+<button class="p-1.5 text-outline-variant hover:text-primary hover:bg-surface-container-highest rounded-DEFAULT transition-all"><span class="material-symbols-outlined text-[20px]">sensors</span></button>
+<button class="p-1.5 text-outline-variant hover:text-primary hover:bg-surface-container-highest rounded-DEFAULT transition-all"><span class="material-symbols-outlined text-[20px]">terminal</span></button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="fixed top-16 left-64 right-0 bottom-8 overflow-hidden bg-background flex flex-col md:flex-row">
+<!-- Left Column: AI Chat Panel (40%) -->
+<section class="w-full md:w-[40%] h-full flex flex-col border-r border-outline-variant bg-[#121212] z-10 relative">
+<!-- AI Header -->
+<div class="p-panel-padding border-b border-outline-variant bg-surface-container-low shrink-0 flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-tint opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-surface-tint"></span>
+</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">AI-аналитик</h2>
+</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">memory</span>
+                        Контекст: Weekend Бильярд + 8 конкурентов + 12 источников
+                    </div>
+</div>
+</div>
+<!-- Context Chips -->
+<div class="px-panel-padding py-3 border-b border-outline-variant bg-[#0A0A0A] shrink-0 flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-variant border border-surface-tint/30 text-surface-tint font-data-sm text-data-sm rounded-DEFAULT flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">apartment</span> Weekend Бильярд
+                 </span>
+<span class="px-2 py-1 bg-surface-variant border border-outline-variant text-on-surface-variant font-data-sm text-data-sm rounded-DEFAULT flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">person</span> Pool Hall Pro
+                 </span>
+<span class="px-2 py-1 bg-surface-variant border border-outline-variant text-on-surface-variant font-data-sm text-data-sm rounded-DEFAULT flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">storefront</span> Ozon
+                 </span>
+<span class="px-2 py-1 bg-surface-variant border border-outline-variant text-on-surface-variant font-data-sm text-data-sm rounded-DEFAULT flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">send</span> Telegram
+                 </span>
+</div>
+<!-- Chat Area -->
+<div class="flex-1 overflow-y-auto p-panel-padding flex flex-col gap-6 bg-[#0A0A0A]">
+<!-- User Message -->
+<div class="flex flex-col items-end gap-1">
+<div class="bg-surface-variant border border-outline-variant p-3 rounded-l-xl rounded-tr-xl max-w-[85%] relative">
+<p class="font-body-md text-on-surface">Где мы сейчас отстаем сильнее всего?</p>
+<div class="absolute -bottom-4 right-0 font-data-sm text-data-sm text-outline-variant text-[10px]">10:42:15 :: OP_REQ</div>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex flex-col items-start gap-1">
+<div class="bg-[#121212] border border-surface-tint/40 p-4 rounded-r-xl rounded-tl-xl max-w-[95%] relative live-glow">
+<div class="flex items-center gap-2 mb-2 pb-2 border-b border-outline-variant/50">
+<span class="material-symbols-outlined text-surface-tint text-[16px]">psychology</span>
+<span class="font-label-caps text-label-caps text-surface-tint">SYS_ANALYSIS_COMPLETE</span>
+</div>
+<p class="font-body-md text-on-background mb-3 leading-relaxed">
+                            Анализ 18 сигналов показывает критические точки:
+                        </p>
+<ul class="space-y-3 font-data-sm text-data-md text-on-surface-variant mb-4">
+<li class="flex items-start gap-2">
+<span class="text-error font-bold mt-0.5">1.</span>
+<div><strong class="text-error">Ценовое давление:</strong> Pool Hall Pro на 12% ниже нас вечером.</div>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-secondary font-bold mt-0.5">2.</span>
+<div><strong class="text-secondary">Telegram-активность</strong> конкурентов выше на 34%.</div>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-on-surface font-bold mt-0.5">3.</span>
+<div><strong class="text-on-surface">Отзывы:</strong> наш sentiment стабильнее, но прирост медленнее.</div>
+</li>
+</ul>
+<div class="flex justify-between items-center pt-3 border-t border-outline-variant/50">
+<div class="font-data-sm text-data-sm text-outline-variant">Уверенность: <span class="text-primary font-bold">0.86</span></div>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-variant rounded border border-transparent hover:border-outline-variant transition-colors" title="Копировать"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="p-1 hover:bg-surface-variant rounded border border-transparent hover:border-outline-variant transition-colors" title="В отчет"><span class="material-symbols-outlined text-[14px]">add_task</span></button>
+</div>
+</div>
+<div class="absolute -bottom-4 left-0 font-data-sm text-data-sm text-outline-variant text-[10px]">10:42:18 :: AI_RES</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-panel-padding border-t border-outline-variant bg-[#121212] shrink-0">
+<div class="flex flex-wrap gap-2 mb-3">
+<button class="px-2 py-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint font-label-caps text-label-caps rounded transition-colors text-[9px]">SWOT</button>
+<button class="px-2 py-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint font-label-caps text-label-caps rounded transition-colors text-[9px]">ЦЕНЫ ПРОТИВ НАС</button>
+<button class="px-2 py-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint font-label-caps text-label-caps rounded transition-colors text-[9px]">ПРОГНОЗ НА МЕСЯЦ</button>
+<button class="px-2 py-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint font-label-caps text-label-caps rounded transition-colors text-[9px]">OZON-СВОДКА</button>
+<button class="px-2 py-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint font-label-caps text-label-caps rounded transition-colors text-[9px]">TELEGRAM-РИСКИ</button>
+</div>
+<div class="relative flex items-center">
+<textarea class="w-full bg-[#0A0A0A] border border-outline-variant rounded-DEFAULT py-3 pl-3 pr-12 text-body-md text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-surface-tint focus:border-surface-tint resize-none h-14" placeholder="Спросить про @конкурента, @источник или @метрику…"></textarea>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-surface-variant hover:bg-surface-tint text-on-surface-variant hover:text-on-primary rounded border border-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Column: Workspace (60%) -->
+<section class="w-full md:w-[60%] h-full flex flex-col bg-[#0A0A0A] overflow-y-auto">
+<div class="p-gutter flex flex-col gap-gutter">
+<!-- Top Row Summary Cards -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-unit">
+<div class="bg-[#121212] border border-error/30 p-3 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-error/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="font-label-caps text-label-caps text-error mb-2 block uppercase">Главная угроза</span>
+<span class="font-data-md text-data-md text-on-surface">Ценовой демпинг</span>
+<div class="absolute bottom-1 right-2 font-data-sm text-[9px] text-outline-variant">SYS_WARN</div>
+</div>
+<div class="bg-[#121212] border border-surface-tint/30 p-3 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-tint/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="font-label-caps text-label-caps text-surface-tint mb-2 block uppercase">Главная возможность</span>
+<span class="font-data-md text-data-md text-on-surface">Премиум-сегмент</span>
+<div class="absolute bottom-1 right-2 font-data-sm text-[9px] text-outline-variant">OP_DETECT</div>
+</div>
+<div class="bg-[#121212] border border-secondary/30 p-3 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="font-label-caps text-label-caps text-secondary mb-2 block uppercase">Рост активности</span>
+<span class="font-data-md text-data-md text-on-surface">Telegram +34%</span>
+<div class="absolute bottom-1 right-2 font-data-sm text-[9px] text-outline-variant">TRND_UP</div>
+</div>
+<div class="bg-[#121212] border border-outline-variant p-3 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-on-surface/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Надежность данных</span>
+<span class="font-data-md text-data-md text-primary">0.82</span>
+<div class="absolute bottom-1 right-2 font-data-sm text-[9px] text-outline-variant">CONF_SCORE</div>
+</div>
+</div>
+<!-- Insight Grid (6 cards) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-unit">
+<!-- Card 1 -->
+<div class="bg-[#121212] border border-outline-variant p-4 flex flex-col gap-3 hover:border-outline transition-colors relative">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[18px]">warning</span>
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase">Критичная угроза</h3>
+</div>
+<span class="px-1.5 py-0.5 bg-error/10 border border-error/50 text-error font-data-sm text-[10px] rounded">DUMPING</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Конкурент снижает цены на вечерние сеансы, перехватывая 15% трафика.</p>
+<div class="grid grid-cols-3 gap-2 mt-auto pt-3 border-t border-outline-variant/50">
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">IMPACT</div>
+<div class="font-data-sm text-data-sm text-error">HIGH</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">CONF</div>
+<div class="font-data-sm text-data-sm text-primary">0.92</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">EVIDENCE</div>
+<div class="font-data-sm text-data-sm text-on-surface">12 items</div>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Подробнее</button>
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Обсудить</button>
+<button class="p-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint rounded transition-colors" title="В отчет"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-[#121212] border border-outline-variant p-4 flex flex-col gap-3 hover:border-surface-tint transition-colors relative">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint text-[18px]">lightbulb</span>
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase">Возможность</h3>
+</div>
+<span class="px-1.5 py-0.5 bg-surface-tint/10 border border-surface-tint/50 text-surface-tint font-data-sm text-[10px] rounded">CORP_PACK</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Высокий неудовлетворенный спрос на корпоративные пакеты в будние дни.</p>
+<div class="grid grid-cols-3 gap-2 mt-auto pt-3 border-t border-outline-variant/50">
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">IMPACT</div>
+<div class="font-data-sm text-data-sm text-secondary">MED</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">CONF</div>
+<div class="font-data-sm text-data-sm text-primary">0.78</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">EVIDENCE</div>
+<div class="font-data-sm text-data-sm text-on-surface">8 items</div>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Подробнее</button>
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Обсудить</button>
+<button class="p-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint rounded transition-colors" title="В отчет"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-[#121212] border border-outline-variant p-4 flex flex-col gap-3 hover:border-outline transition-colors relative">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">trending_up</span>
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase">Тренд</h3>
+</div>
+<span class="px-1.5 py-0.5 bg-secondary/10 border border-secondary/50 text-secondary font-data-sm text-[10px] rounded">TG_PROMO</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Массовый переход аудитории в закрытые Telegram-каналы конкурентов за промокодами.</p>
+<div class="grid grid-cols-3 gap-2 mt-auto pt-3 border-t border-outline-variant/50">
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">IMPACT</div>
+<div class="font-data-sm text-data-sm text-error">HIGH</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">CONF</div>
+<div class="font-data-sm text-data-sm text-primary">0.89</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">EVIDENCE</div>
+<div class="font-data-sm text-data-sm text-on-surface">24 items</div>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Подробнее</button>
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Обсудить</button>
+<button class="p-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint rounded transition-colors" title="В отчет"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-[#121212] border border-outline-variant p-4 flex flex-col gap-3 hover:border-outline transition-colors relative">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">shopping_cart</span>
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase">Маркетплейс</h3>
+</div>
+<span class="px-1.5 py-0.5 bg-outline-variant/30 border border-outline-variant text-on-surface-variant font-data-sm text-[10px] rounded">OZON_RANK</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm line-clamp-2">Падение органической выдачи аксессуаров на Ozon из-за изменения алгоритмов.</p>
+<div class="grid grid-cols-3 gap-2 mt-auto pt-3 border-t border-outline-variant/50">
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">IMPACT</div>
+<div class="font-data-sm text-data-sm text-secondary">MED</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">CONF</div>
+<div class="font-data-sm text-data-sm text-primary">0.95</div>
+</div>
+<div>
+<div class="font-data-sm text-[10px] text-outline-variant mb-1">EVIDENCE</div>
+<div class="font-data-sm text-data-sm text-on-surface">3 items</div>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Подробнее</button>
+<button class="flex-1 px-2 py-1 bg-surface-variant border border-outline-variant hover:bg-surface-container-highest text-on-surface text-[11px] font-label-caps rounded transition-colors uppercase">Обсудить</button>
+<button class="p-1 bg-[#0A0A0A] border border-outline-variant hover:border-surface-tint text-on-surface-variant hover:text-surface-tint rounded transition-colors" title="В отчет"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+</div>
+</div>
+<!-- Comparison Panel -->
+<div class="bg-[#121212] border border-outline-variant mt-2 flex flex-col">
+<div class="p-3 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-headline-sm text-[16px] text-on-surface">Где мы отстаем / где лидируем</h3>
+<div class="font-data-sm text-data-sm text-outline-variant flex items-center gap-2">
+                            BASELINE: <span class="text-surface-tint px-2 border border-surface-tint/30 bg-surface-tint/10 rounded">МЫ</span> / <span class="text-on-surface-variant px-2 border border-outline-variant bg-[#0A0A0A] rounded">Weekend Бильярд</span>
+</div>
+</div>
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+<!-- Divider line -->
+<div class="hidden md:block absolute left-1/2 top-4 bottom-4 w-px bg-outline-variant/50 -translate-x-1/2"></div>
+<!-- Отстаем (Behind) -->
+<div>
+<h4 class="font-label-caps text-label-caps text-error mb-4 border-b border-error/30 pb-1 uppercase">Отстаем</h4>
+<div class="space-y-4 font-data-sm text-[13px]">
+<div>
+<div class="flex justify-between text-on-surface mb-1">
+<span>Цена вечером</span>
+<span class="text-error">-12%</span>
+</div>
+<div class="w-full bg-[#0A0A0A] h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-error w-[40%] h-full ml-auto"></div>
+<div class="w-[60%] h-full border-l border-outline-variant"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-on-surface mb-1">
+<span>Telegram-активность</span>
+<span class="text-error">-34%</span>
+</div>
+<div class="w-full bg-[#0A0A0A] h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-error w-[70%] h-full ml-auto"></div>
+<div class="w-[30%] h-full border-l border-outline-variant"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-on-surface mb-1">
+<span>Скорость акций</span>
+<span class="text-secondary">-8%</span>
+</div>
+<div class="w-full bg-[#0A0A0A] h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary w-[25%] h-full ml-auto"></div>
+<div class="w-[75%] h-full border-l border-outline-variant"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Лидируем (Ahead) -->
+<div>
+<h4 class="font-label-caps text-label-caps text-surface-tint mb-4 border-b border-surface-tint/30 pb-1 uppercase">Лидируем</h4>
+<div class="space-y-4 font-data-sm text-[13px]">
+<div>
+<div class="flex justify-between text-on-surface mb-1">
+<span>Рейтинг сервиса</span>
+<span class="text-surface-tint">+0.4 pt</span>
+</div>
+<div class="w-full bg-[#0A0A0A] h-1.5 rounded-full overflow-hidden flex">
+<div class="w-[50%] h-full border-r border-outline-variant"></div>
+<div class="bg-surface-tint w-[30%] h-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-on-surface mb-1">
+<span>Стабильность отзывов</span>
+<span class="text-surface-tint">+18%</span>
+</div>
+<div class="w-full bg-[#0A0A0A] h-1.5 rounded-full overflow-hidden flex">
+<div class="w-[50%] h-full border-r border-outline-variant"></div>
+<div class="bg-surface-tint w-[45%] h-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-on-surface mb-1">
+<span>Премиум-пакеты</span>
+<span class="text-surface-tint">+22%</span>
+</div>
+<div class="w-full bg-[#0A0A0A] h-1.5 rounded-full overflow-hidden flex">
+<div class="w-[50%] h-full border-r border-outline-variant"></div>
+<div class="bg-surface-tint w-[60%] h-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Panel: Рекомендованные действия -->
+<div class="bg-[#121212] border border-outline-variant mt-2 mb-4">
+<div class="p-3 border-b border-outline-variant bg-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
+<h3 class="font-headline-sm text-[14px] text-on-surface uppercase">Рекомендованные действия</h3>
+</div>
+<div class="p-3">
+<ul class="space-y-2">
+<li class="flex items-center gap-3 p-2 hover:bg-surface-variant/50 rounded border border-transparent hover:border-outline-variant transition-colors group">
+<input class="w-4 h-4 bg-[#0A0A0A] border-outline-variant text-surface-tint focus:ring-surface-tint focus:ring-offset-[#121212] rounded-sm cursor-pointer" type="checkbox">
+<span class="font-body-md text-on-surface flex-1">Скорректировать вечернее ценообразование (цель: -10%)</span>
+<span class="font-data-sm text-[10px] px-2 py-0.5 border border-error/50 text-error rounded opacity-0 group-hover:opacity-100 transition-opacity">URGENT</span>
+</li>
+<li class="flex items-center gap-3 p-2 hover:bg-surface-variant/50 rounded border border-transparent hover:border-outline-variant transition-colors group">
+<input class="w-4 h-4 bg-[#0A0A0A] border-outline-variant text-surface-tint focus:ring-surface-tint focus:ring-offset-[#121212] rounded-sm cursor-pointer" type="checkbox">
+<span class="font-body-md text-on-surface flex-1">Запустить контр-кампанию в Telegram с промокодами</span>
+<span class="font-data-sm text-[10px] px-2 py-0.5 border border-secondary/50 text-secondary rounded opacity-0 group-hover:opacity-100 transition-opacity">MARKETING</span>
+</li>
+<li class="flex items-center gap-3 p-2 hover:bg-surface-variant/50 rounded border border-transparent hover:border-outline-variant transition-colors group">
+<input class="w-4 h-4 bg-[#0A0A0A] border-outline-variant text-surface-tint focus:ring-surface-tint focus:ring-offset-[#121212] rounded-sm cursor-pointer" type="checkbox">
+<span class="font-body-md text-on-surface flex-1">Анонсировать новые корпоративные пакеты для b2b</span>
+<span class="font-data-sm text-[10px] px-2 py-0.5 border border-surface-tint/50 text-surface-tint rounded opacity-0 group-hover:opacity-100 transition-opacity">PRODUCT</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 left-64 flex justify-between items-center h-8 px-panel-padding z-40 border-t border-outline-variant bg-surface-container-lowest text-tertiary-fixed-dim">
+<div class="font-data-sm text-data-sm text-on-surface-variant uppercase tracking-wider text-[10px]">
+            SYS_STATUS: OPTIMAL | CONF_SCORE: 0.98 | LATENCY: 12ms
+        </div>
+<div class="flex gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary hover:underline decoration-tertiary-fixed-dim transition-colors text-[10px]" href="#">AI_QUERY_CONTEXT</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary hover:underline decoration-tertiary-fixed-dim transition-colors text-[10px]" href="#">SYSTEM_LOGS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary hover:underline decoration-tertiary-fixed-dim transition-colors text-[10px]" href="#">LEGAL_CLEARANCE</a>
+</div>
+</footer>
+<script defer src="../assets/local-shell.js"></script>
+</body></html>
