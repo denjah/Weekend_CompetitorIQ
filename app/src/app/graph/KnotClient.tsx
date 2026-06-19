@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styles from '@/styles/layout.module.css';
 import knotStyles from '@/styles/knot.module.css';
 import KnotGraph from '@/components/KnotGraph';
+import DatabaseTelemetry from '@/components/ui/DatabaseTelemetry';
 import {
   IconChartBar,
   IconNetwork,
@@ -24,9 +25,9 @@ const navItems = [
 ];
 
 const groups = [
-  { label: 'Прямые конкуренты', count: 3, color: '#A855F7' },
-  { label: 'Косвенные', count: 1, color: '#06B6D4' },
-  { label: 'Потенциальные', count: 1, color: '#F97316' },
+  { label: 'Прямые конкуренты', count: 8, color: '#A855F7' },
+  { label: 'Косвенные', count: 6, color: '#06B6D4' },
+  { label: 'Нишевые', count: 7, color: '#F97316' },
 ];
 
 export default function KnotClient({ graphData }: { graphData: any }) {
@@ -36,7 +37,7 @@ export default function KnotClient({ graphData }: { graphData: any }) {
     switch (type) {
       case 'direct': return 'Прямой конкурент';
       case 'indirect': return 'Косвенный конкурент';
-      case 'potential': return 'Потенциальный конкурент';
+      case 'niche': return 'Нишевой конкурент';
       case 'self': return 'Ваш бизнес';
       case 'audience': return 'Аудитория';
       case 'platform': return 'Платформа';
@@ -55,9 +56,7 @@ export default function KnotClient({ graphData }: { graphData: any }) {
         </div>
         <div className={styles.logoSubtitle}>Competitor Intelligence</div>
 
-        <button className={styles.newReportBtn} id="btn-new-report">
-          <IconPlus size={16} /> Новый отчёт
-        </button>
+        <DatabaseTelemetry />
 
         <div className={styles.sectionLabel}>Навигация</div>
         <nav className={styles.navList} id="nav-main">
@@ -133,7 +132,7 @@ export default function KnotClient({ graphData }: { graphData: any }) {
                     <IconSparkles size={16} color="var(--accent-primary)" /> AI Инсайт
                   </div>
                   <div className={knotStyles.aiInsightText}>
-                    Обнаружена сильная ценовая конкуренция с <strong>Pool Hall Pro</strong>. Рекомендуется обратить внимание на аудиторию студентов, где активность <strong>Lucky Shot</strong> растёт быстрее обычного.
+                    <strong>Billiard-Group</strong> (26/40) — абсолютный лидер рынка. 15K SKU, 8–10 салонов. <strong>Ф-ка Старт</strong> — лучший конфигуратор. <strong>Luza.ru</strong> — медиа-доминирование (37.9K YouTube). Weekend (12/40) — в нижней трети.
                   </div>
                 </div>
               </div>
@@ -154,47 +153,38 @@ export default function KnotClient({ graphData }: { graphData: any }) {
                   </button>
                 )}
 
-                {selectedNode.rating && (
+                {selectedNode.auditScore != null && (
                   <div className={knotStyles.sentimentBlock}>
-                    <div className={knotStyles.sentimentTitle}>Sentiment Rate</div>
+                    <div className={knotStyles.sentimentTitle}>Аудит-балл</div>
                     <div className={knotStyles.sentimentBar}>
-                      <div className={knotStyles.sentimentFill} style={{ width: `${(selectedNode.rating / 5) * 100}%` }} />
+                      <div className={knotStyles.sentimentFill} style={{ width: `${(selectedNode.auditScore / 40) * 100}%` }} />
                     </div>
                     <div className={knotStyles.sentimentStats}>
-                      <span>{selectedNode.rating} / 5.0</span>
-                      <span className={knotStyles.sentimentPositive}>↑ +4%</span>
+                      <span>{selectedNode.auditScore} / 40</span>
                     </div>
                   </div>
                 )}
 
-                {(selectedNode.rating || selectedNode.price) && (
+                {selectedNode.auditScore != null && (
                   <div className={knotStyles.kpiGrid}>
                     <div className={knotStyles.kpiCard}>
-                      <div className={knotStyles.kpiLabel}>Рейтинг</div>
-                      <div className={knotStyles.kpiValue}>{selectedNode.rating || '—'} ⭐</div>
-                      <div className={knotStyles.kpiDelta + ' ' + knotStyles.positive}>
-                        <IconArrowUp size={12} /> +0.2
-                      </div>
+                      <div className={knotStyles.kpiLabel}>Группа</div>
+                      <div className={knotStyles.kpiValue}>{selectedNode.group ?? '—'}</div>
                     </div>
                     <div className={knotStyles.kpiCard}>
-                      <div className={knotStyles.kpiLabel}>Цена/час</div>
-                      <div className={knotStyles.kpiValue}>{selectedNode.price ? `${selectedNode.price} ₽` : '—'}</div>
-                      <div className={knotStyles.kpiDelta + ' ' + knotStyles.negative}>
-                        <IconArrowDown size={12} /> -15%
-                      </div>
+                      <div className={knotStyles.kpiLabel}>Размер</div>
+                      <div className={knotStyles.kpiValue}>{selectedNode.size ?? '—'}</div>
                     </div>
                   </div>
                 )}
 
-                {selectedNode.id === 'pool-hall-pro' && (
+                {selectedNode.id === 'billiard-group' && (
                   <div className={knotStyles.aiInsight}>
                     <div className={knotStyles.aiInsightTitle}>
                       <IconSparkles size={16} color="var(--accent-primary)" /> AI Инсайт
                     </div>
                     <div className={knotStyles.aiInsightText}>
-                      Pool Hall Pro активно демпингует: -15% за месяц. При сохранении тренда потеря 8-12% клиентов в сегменте «вечерние часы».
-                      <br/><br/>
-                      Рекомендация: Акцент на premium-сегмент и доп. услуги (bar, events).
+                      Billiard-Group — лидер рынка (26/40). 15K SKU, 300 брендов. Уязвимость: устаревший дизайн. Weekend может атаковать через современный UX.
                     </div>
                   </div>
                 )}

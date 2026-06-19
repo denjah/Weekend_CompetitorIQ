@@ -182,7 +182,7 @@
 /* Main Grid */
 .mainGrid {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: 1fr 1fr;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
 }
@@ -226,7 +226,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1;
-  max-width: 320px;
+  max-width: 100%;
   margin: 0 auto var(--spacing-md);
 }
 

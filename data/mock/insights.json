@@ -5,100 +5,135 @@
       "id": "insight-001",
       "type": "threat",
       "severity": "critical",
-      "title": "Ценовое давление усиливается",
-      "description": "Pool Hall Pro и Кий-Клуб снизили цены на 14-16%. Ваша позиция под давлением в сегменте «вечерние часы» — вы стали на 12% дороже Pool Hall Pro.",
-      "affectedCompetitors": ["pool-hall-pro", "kiy-club"],
+      "title": "Billiard-Group — абсолютный лидер рынка",
+      "description": "Billiard-Group набрал 26/40 в аудите — лидер рынка. 15 000 SKU, 300 брендов, 8–10 салонов в 7 городах + СНГ, гарантия до 25 лет, рассрочка. Weekend (12/40) отстаёт в 2 раза. Устаревший дизайн — единственное слабое место.",
+      "affectedCompetitors": ["billiard-group"],
       "impact": "high",
-      "confidence": 87,
+      "confidence": 95,
       "recommendations": [
-        "Акцент на premium-сегмент и качество сервиса",
-        "Программа лояльности для удержания клиентов",
-        "Добавление доп. ценности (events, leagues, bar menu)"
+        "Масштабировать ассортимент: 2000 SKU → 5000+",
+        "Открыть рассрочку через банк-партнёр",
+        "Атаковать слабый дизайн: показать современный UX как конкурентное преимущество"
       ],
-      "createdAt": "2026-06-18T10:00:00Z",
+      "createdAt": "2026-06-19T10:00:00Z",
       "acknowledged": false
     },
     {
       "id": "insight-002",
       "type": "opportunity",
       "severity": "info",
-      "title": "Ниша корпоративных мероприятий свободна",
-      "description": "Анализ конкурентов показывает: только Shark Lounge предлагает корпоративные мероприятия, но по premium-ценам (от 50K₽). Сегмент mid-market (15-30K₽) полностью свободен.",
-      "affectedCompetitors": ["shark-lounge"],
-      "impact": "medium",
-      "confidence": 72,
+      "title": "Рассрочка — конкурентный разрыв",
+      "description": "Только 4 из 22 компаний предлагают рассрочку: Ф-ка «Старт» (Сплит), Бильярд №1 (0-0-6), Billiard-Prof (Халва/Tinkoff), Billiard-Group. Weekend её НЕ предлагает. При среднем чеке 40–500K₽ это критически важная фича.",
+      "affectedCompetitors": ["fabrika-start", "billiard-1", "billiard-prof", "billiard-group"],
+      "impact": "high",
+      "confidence": 100,
       "recommendations": [
-        "Запустить пакет «Корпоратив Weekend» (15-30K₽)",
-        "Включить: аренда зала + бар + закуски + инструктор",
-        "Таргетировать HR-менеджеров через LinkedIn/VK"
+        "Подключить Тинькофф Рассрочку или Сбер Сплит",
+        "Добавить баннер «Рассрочка 0-0-6» на главную и карточки товаров",
+        "Это даст преимущество над 18 из 22 конкурентов"
       ],
-      "createdAt": "2026-06-17T14:00:00Z",
+      "createdAt": "2026-06-19T09:00:00Z",
       "acknowledged": false
     },
     {
       "id": "insight-003",
+      "type": "threat",
+      "severity": "warning",
+      "title": "SEO-катастрофа Weekend: 4 страницы 404",
+      "description": "У Weekend 4 ключевых страницы возвращают 404: /kontakty/, /dostavka/, /oplata/, /garantiya/. Canonical отсутствует, robots.txt блокирует пагинацию каталога. JSON-LD Schema отсутствует. Но 10+ конкурентов имеют аналогичные или худшие SEO-проблемы.",
+      "affectedCompetitors": [],
+      "impact": "high",
+      "confidence": 100,
+      "recommendations": [
+        "Срочно восстановить /kontakty/, /dostavka/, /oplata/, /garantiya/",
+        "Добавить canonical на все страницы каталога",
+        "Внедрить JSON-LD Schema (Product, Organization, BreadcrumbList)",
+        "Убрать блокировку ?-URL из robots.txt"
+      ],
+      "createdAt": "2026-06-18T14:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-004",
+      "type": "opportunity",
+      "severity": "info",
+      "title": "Онлайн-чат — стандарт рынка, но у Weekend его нет",
+      "description": "8 конкурентов уже используют онлайн-чат (JivoSite, Яндекс, Bitrix24). У Weekend чата нет. Это стандартный инструмент конверсии, особенно при высоком чеке. Установка JivoSite — 15 минут.",
+      "affectedCompetitors": ["fabrika-start", "billiard-1", "billiard-group", "8futov", "billiard-prof"],
+      "impact": "medium",
+      "confidence": 95,
+      "recommendations": [
+        "Установить JivoSite или Яндекс.Чат — бесплатно на старте",
+        "Настроить автоответ для нерабочего времени",
+        "Интегрировать чат с WhatsApp и Telegram"
+      ],
+      "createdAt": "2026-06-17T11:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-005",
       "type": "trend",
       "severity": "warning",
-      "title": "Рост онлайн-бронирования у конкурентов",
-      "description": "Shark Lounge и Кий-Клуб запустили онлайн-бронирование. Pool Hall Pro тоже планирует (обнаружена вакансия разработчика). У вас этой функции нет — это становится стандартом рынка.",
-      "affectedCompetitors": ["shark-lounge", "kiy-club", "pool-hall-pro"],
-      "impact": "high",
-      "confidence": 81,
+      "title": "3D-конфигуратор стола — набирающий тренд",
+      "description": "Ф-ка «Старт» запустила лучший конфигуратор на рынке. Billiard-Prof, БС 1991 и TablePlay тоже имеют 3D-конфигураторы. Это мощный инструмент конверсии для премиум-столов. Weekend отстаёт.",
+      "affectedCompetitors": ["fabrika-start", "billiard-prof", "bs1991", "tableplay"],
+      "impact": "medium",
+      "confidence": 88,
       "recommendations": [
-        "Срочно внедрить онлайн-бронирование (Yclients, Dikidi, или кастом)",
-        "Интеграция с Google Maps Reserve",
-        "Бонус за первое онлайн-бронирование"
+        "Запланировать разработку 3D-конфигуратора для линейки Weekend",
+        "На первом этапе: интерактивный выбор цвета/сукна/размера с фото",
+        "Изучить конфигуратор Ф-ки Старт как benchmark"
       ],
       "createdAt": "2026-06-16T09:00:00Z",
       "acknowledged": true
     },
     {
-      "id": "insight-004",
-      "type": "recommendation",
+      "id": "insight-006",
+      "type": "comparison",
       "severity": "info",
-      "title": "Усильте контент-маркетинг",
-      "description": "Ваша активность в соцсетях (8 постов/мес) — ниже среднего по рынку (12 постов/мес). Pool Hall Pro публикует 18 постов, Кий-Клуб — 22. Engagement у них выше на 30-50%.",
-      "affectedCompetitors": ["pool-hall-pro", "kiy-club"],
+      "title": "Weekend vs рынок: UX 4/10, дизайн 4/10 — ниже среднего",
+      "description": "Средний UX рынка: 4.9/10. Средний дизайн: 5.1/10. Weekend: UX 4/10, дизайн 4/10. Лидеры UX: Billiard-Group (8), Ф-ка Старт (8), Бильярд.ру (7), 1000Cues (7). Лидеры дизайна: Billiard-Group (7), Бильярд.ру (7), Ф-ка Игра (7).",
+      "affectedCompetitors": ["billiard-group", "fabrika-start", "billiard-ru", "1000cues"],
       "impact": "medium",
-      "confidence": 90,
+      "confidence": 92,
       "recommendations": [
-        "Увеличить частоту публикаций до 12-15 в месяц",
-        "Видео-контент (Reels/Shorts) с турнирами и обучением",
-        "Коллаборации с бильярдными блогерами"
+        "Провести UX-аудит сайта Weekend с фокусом на каталог и карточку товара",
+        "Бенчмарк: изучить UX Billiard-Group и Ф-ки Старт",
+        "Добавить «Купить в 1 клик» и кросс-селл блоки"
       ],
-      "createdAt": "2026-06-15T11:00:00Z",
+      "createdAt": "2026-06-15T10:00:00Z",
       "acknowledged": true
     },
     {
-      "id": "insight-005",
-      "type": "forecast",
-      "severity": "warning",
-      "title": "Прогноз: потеря 8-12% клиентов в вечернем сегменте",
-      "description": "При сохранении текущих трендов (демпинг Pool Hall Pro + промо Кий-Клуба) модель прогнозирует потерю 8-12% клиентов вечернего сегмента за следующие 2-3 месяца.",
-      "affectedCompetitors": ["pool-hall-pro", "kiy-club"],
-      "impact": "high",
-      "confidence": 65,
+      "id": "insight-007",
+      "type": "opportunity",
+      "severity": "info",
+      "title": "Luza.ru — медиа-гигант с уязвимостями",
+      "description": "Luza.ru доминирует в видеоконтенте (37.9K YouTube, 670+ видео). Но: фейковый Schema-рейтинг (OutOfStock + поддельная оценка), HTML 947 КБ, зависимость от фабрик. Weekend может перехватить выдачу, исправив свой Schema.",
+      "affectedCompetitors": ["luza"],
+      "impact": "medium",
+      "confidence": 82,
       "recommendations": [
-        "Не вступать в ценовую войну — демпинг убьёт маржу",
-        "Дифференциация через качество и уникальный опыт",
-        "Программа лояльности: абонементы со скидкой 10-15%"
+        "Запустить видеоконтент-конвейер на YouTube (обзоры столов Weekend)",
+        "Внедрить правильный JSON-LD Schema до того, как Google накажет Luza за фейк",
+        "Использовать баги Schema Luza для перехвата выдачи"
       ],
       "createdAt": "2026-06-14T16:00:00Z",
       "acknowledged": false
     },
     {
-      "id": "insight-006",
-      "type": "comparison",
-      "severity": "info",
-      "title": "Ваш рейтинг растёт быстрее рынка",
-      "description": "Ваш рейтинг вырос на +0.3 за месяц (с 4.2 до 4.5), что выше среднего роста по рынку (+0.1). Sentiment score тоже позитивный (+5). Это сильная позиция для удержания клиентов.",
-      "affectedCompetitors": [],
-      "impact": "low",
-      "confidence": 95,
+      "id": "insight-008",
+      "type": "recommendation",
+      "severity": "warning",
+      "title": "Дефицит видеоконтента — главная слабость Weekend",
+      "description": "Weekend: 93 ролика, 655 подписчиков YouTube. Ф-ка Старт: 516 роликов, 3590 подписчиков. Luza: 670+ роликов, 37900 подписчиков. Видеообзоры есть в карточках только у 4 конкурентов (Старт, Billiard-Group, 8futov, Billiard-Prof).",
+      "affectedCompetitors": ["luza", "fabrika-start"],
+      "impact": "high",
+      "confidence": 90,
       "recommendations": [
-        "Продолжать работу над качеством сервиса",
-        "Запустить программу сбора отзывов (QR-код на столах)",
-        "Отвечать на все отзывы в течение 24 часов"
+        "Увеличить производство видео до 5+ роликов в месяц",
+        "Добавить видеообзоры в карточки товаров на сайте",
+        "Фокус: обзоры столов Weekend, инструкции по установке, перетяжка сукна"
       ],
       "createdAt": "2026-06-13T10:00:00Z",
       "acknowledged": true
@@ -107,59 +142,59 @@
   "reports": [
     {
       "id": "report-001",
-      "title": "Ежемесячный конкурентный отчёт",
+      "title": "Аудит 22 конкурентов — 69 параметров",
       "subtitle": "Июнь 2026",
       "type": "monthly",
-      "generatedAt": "2026-06-15T00:00:00Z",
-      "generatedBy": "auto",
-      "formats": ["pdf", "pptx"],
-      "sections": ["Ценовой анализ", "Рейтинги и отзывы", "Активность в соцсетях", "AI-рекомендации"]
+      "generatedAt": "2026-06-19T00:00:00Z",
+      "generatedBy": "manual",
+      "formats": ["csv", "pdf"],
+      "sections": ["Базовые параметры", "Цифровое присутствие", "SEO-проблемы", "UX и конверсия", "Силы и уязвимости"]
     },
     {
       "id": "report-002",
-      "title": "SWOT-анализ: Pool Hall Pro",
-      "subtitle": "Создан вручную",
+      "title": "SWOT: Billiard-Group (лидер рынка)",
+      "subtitle": "Автоматический",
       "type": "swot",
-      "generatedAt": "2026-06-10T00:00:00Z",
-      "generatedBy": "manual",
+      "generatedAt": "2026-06-18T00:00:00Z",
+      "generatedBy": "auto",
       "formats": ["pdf", "pptx"],
       "sections": ["Сильные стороны", "Слабые стороны", "Возможности", "Угрозы"]
     },
     {
       "id": "report-003",
-      "title": "Ценовой анализ рынка Q2 2026",
+      "title": "SEO-проблемы рынка бильярдного оборудования",
       "subtitle": "Автоматический",
       "type": "pricing",
-      "generatedAt": "2026-06-01T00:00:00Z",
+      "generatedAt": "2026-06-15T00:00:00Z",
       "generatedBy": "auto",
       "formats": ["pdf"],
-      "sections": ["Сравнение цен", "Динамика", "Прогноз"]
+      "sections": ["Canonical", "Schema.org", "404 ошибки", "HTML вес", "Критические баги"]
     }
   ],
   "chatHistory": [
     {
       "id": "msg-001",
       "role": "user",
-      "content": "Какие главные угрозы от Pool Hall Pro в следующем квартале?",
-      "timestamp": "2026-06-18T14:32:00Z"
+      "content": "Кто главный конкурент Weekend по ассортименту и охвату?",
+      "timestamp": "2026-06-19T14:32:00Z"
     },
     {
       "id": "msg-002",
       "role": "assistant",
-      "content": "На основе анализа данных за последние 90 дней выделяю 3 ключевые угрозы:\n\n**1. Ценовой демпинг (-15.8%)**\nPool Hall Pro снизил стоимость вечерних часов до 800₽. Это ниже вашей цены на 12%.\n\n**2. Рекламная экспансия**\nЗапущено 3 новых таргетированных кампании в Instagram с бюджетом ~150K₽/мес.\n\n**3. Рост рейтинга (+0.2 за месяц)**\nОтмечена программа сбора отзывов — +12 отзывов на Google Maps.\n\n**Рекомендации:**\n- Акцент на premium-сегмент\n- Программа лояльности\n- Доп. услуги (bar, events, leagues)",
-      "timestamp": "2026-06-18T14:33:00Z"
+      "content": "На основе анализа 69 параметров выделяю **Billiard-Group** как главного конкурента:\n\n**1. Масштаб (лидер рынка)**\n15 000 SKU vs 2 000 у Weekend. 8–10 салонов в 7 городах vs 2 у Weekend.\n\n**2. Аудит-балл: 26/40 (лучший)**\nWeekend набрал 12/40 — отставание в 2 раза.\n\n**3. Уязвимости Billiard-Group:**\n- Устаревший дизайн (7/10, но можно лучше)\n- Перегруженный каталог\n- Слабое видео\n\n**Рекомендации:**\n- Атаковать через современный UX и дизайн\n- Подключить рассрочку (у Billiard-Group есть)\n- Развивать видеоконтент",
+      "timestamp": "2026-06-19T14:33:00Z"
     },
     {
       "id": "msg-003",
       "role": "user",
-      "content": "Сравни наши цены по всем категориям с топ-3 конкурентами",
-      "timestamp": "2026-06-18T14:35:00Z"
+      "content": "Какие фичи сайта есть у конкурентов, но нет у Weekend?",
+      "timestamp": "2026-06-19T14:35:00Z"
     },
     {
       "id": "msg-004",
       "role": "assistant",
-      "content": "Сравнение цен Weekend Бильярд vs топ-3 конкурентов (вечерний тариф):\n\n| Клуб | Вечер | Δ vs Вы | Позиция |\n|---|---|---|---|\n| **Weekend Бильярд** | 900₽ | — | Базовый |\n| Pool Hall Pro | 800₽ | -11.1% | Дешевле |\n| Shark Lounge | 1400₽ | +55.6% | Дороже |\n| Бильярд-Сити | 700₽ | -22.2% | Дешевле |\n\n**Вывод:** Вы находитесь в mid-premium сегменте. Pool Hall Pro и Бильярд-Сити давят снизу, Shark Lounge — единственный выше. Ваша цена оправдана при условии сохранения качества сервиса выше конкурентов.",
-      "timestamp": "2026-06-18T14:36:00Z"
+      "content": "**Фичи, которых нет у Weekend, но есть у конкурентов:**\n\n| Фича | Есть у | Weekend |\n|---|---|---|\n| Рассрочка/кредит | Старт, Б.№1, Б-Проф, Б-Group | ❌ |\n| Онлайн-чат | 8 конкурентов (Jivo, Яндекс) | ❌ |\n| Видеообзоры в карточках | Старт, Б-Group, 8futов, Б-Проф | ❌ |\n| 3D-конфигуратор | Старт, Б-Проф, БС91, TablePlay | ❌ |\n| «Купить в 1 клик» | 7 конкурентов | ❌ |\n| Кросс-селл в карточке | Старт (лучший), 6 других | ❌ |\n| Лид-магнит / квиз | Б-Проф, БС91, TablePlay, Start-Line | ❌ |\n| Программа лояльности | Дом Спорта (бонусы) | ❌ |\n\n**Приоритет внедрения:** Рассрочка → Чат → «Купить в 1 клик» → Кросс-селл",
+      "timestamp": "2026-06-19T14:36:00Z"
     }
   ]
 }

@@ -3,6 +3,8 @@
 import React from 'react';
 import styles from '@/styles/layout.module.css';
 import ins from '@/styles/insights.module.css';
+import StyleSwitcher from '@/components/ui/StyleSwitcher';
+import DatabaseTelemetry from '@/components/ui/DatabaseTelemetry';
 import {
   IconChartBar,
   IconNetwork,
@@ -29,7 +31,7 @@ import {
 } from '@/components/icons';
 
 /* ============================================================
-   NAV & GROUPS (same as other pages)
+   NAV & GROUPS (реальные данные)
    ============================================================ */
 
 const navItems = [
@@ -40,13 +42,13 @@ const navItems = [
 ];
 
 const groups = [
-  { label: 'Прямые конкуренты', count: 3, color: '#A855F7' },
-  { label: 'Косвенные', count: 1, color: '#06B6D4' },
-  { label: 'Потенциальные', count: 1, color: '#F97316' },
+  { label: 'Прямые конкуренты', count: 8, color: '#A855F7' },
+  { label: 'Косвенные', count: 6, color: '#06B6D4' },
+  { label: 'Нишевые', count: 7, color: '#F97316' },
 ];
 
 /* ============================================================
-   MOCK DATA — AI Chat Messages
+   REAL DATA — AI Chat Messages
    ============================================================ */
 
 interface ChatMessage {
@@ -61,40 +63,40 @@ const initialMessages: ChatMessage[] = [
   {
     id: 'msg-1',
     role: 'user',
-    text: 'Какие главные угрозы от Pool Hall Pro в следующем квартале?',
+    text: 'Кто главный конкурент Weekend по ассортименту и охвату?',
     time: '14:32',
   },
   {
     id: 'msg-2',
     role: 'ai',
-    text: 'На основе анализа данных за последние 90 дней выделяю <strong>3 ключевые угрозы</strong>:\n\n<strong>1. Ценовой демпинг (-15.8%)</strong>\nPool Hall Pro снизил стоимость вечерних часов до 800₽. Это ниже вашей цены на 12%.\n\n<strong>2. Рекламная экспансия</strong>\nЗапущено 3 новых таргетированных кампании в Instagram с бюджетом ~150K₽/мес.\n\n<strong>3. Рост рейтинга (+0.2 за месяц)</strong>\nОтмечена программа сбора отзывов — +12 отзывов на Google Maps.',
+    text: 'На основе анализа <strong>69 параметров по 22 компаниям</strong> выделяю <strong>Billiard-Group</strong> как главного конкурента:\n\n<strong>1. Масштаб (лидер рынка)</strong>\n15 000 SKU vs ~2 000 у Weekend. 8–10 салонов в 7 городах + СНГ vs 2 у Weekend.\n\n<strong>2. Аудит-балл: 26/40 (лучший)</strong>\nWeekend набрал 12/40 — отставание в 2+ раза.\n\n<strong>3. Уязвимости Billiard-Group:</strong>\n• Устаревший дизайн (7/10)\n• Перегруженный каталог\n• Слабый видеоконтент',
     time: '14:33',
     recommendations: [
-      'Акцент на premium-сегмент и уникальные услуги',
-      'Запуск программы лояльности для удержания постоянных клиентов',
-      'Расширение доп. услуг (bar, events, leagues)',
+      'Атаковать через современный UX и дизайн — наше потенциальное преимущество',
+      'Подключить рассрочку (у B-Group уже есть)',
+      'Развивать видеоконтент — Weekend (93 ролика) проигрывает Luza (670+)',
     ],
   },
   {
     id: 'msg-3',
     role: 'user',
-    text: 'Сравни наши цены по всем категориям с топ-3 конкурентами',
+    text: 'Какие фичи сайта есть у конкурентов, но нет у Weekend?',
     time: '14:35',
   },
   {
     id: 'msg-4',
     role: 'ai',
-    text: '<strong>Ценовой анализ: Weekend Бильярд vs Топ-3 конкурента</strong>\n\n<strong>Дневное время (до 17:00):</strong>\n• Weekend: 600₽/час — <strong>среднее по рынку</strong>\n• Pool Hall Pro: 550₽ (-8.3%)\n• Shark Lounge: 650₽ (+8.3%)\n• Бильярд-Сити: 600₽ (=)\n\n<strong>Вечернее время (после 17:00):</strong>\n• Weekend: 900₽/час — <strong>выше среднего на 5%</strong>\n• Pool Hall Pro: 800₽ (-11.1%)\n• Shark Lounge: 950₽ (+5.5%)\n• Бильярд-Сити: 850₽ (-5.5%)\n\n<strong>Выходные:</strong>\n• Weekend: 1000₽/час — <strong>на уровне рынка</strong>\n• Pool Hall Pro: 950₽ (-5%)\n• Shark Lounge: 1100₽ (+10%)\n• Бильярд-Сити: 1000₽ (=)',
+    text: '<strong>Фичи, которых нет у Weekend, но есть у конкурентов:</strong>\n\n• <strong>Рассрочка/кредит</strong> — Старт, Б.№1, Б-Проф, B-Group (4 из 22)\n• <strong>Онлайн-чат</strong> — 8 конкурентов (JivoSite, Яндекс)\n• <strong>Видеообзоры в карточках</strong> — Старт, B-Group, 8futов, Б-Проф\n• <strong>3D-конфигуратор</strong> — Старт (лучший), Б-Проф, БС91, TablePlay\n• <strong>«Купить в 1 клик»</strong> — 7 конкурентов\n• <strong>Кросс-селл</strong> — Старт (лучший), 6 других\n• <strong>Лид-магнит / квиз</strong> — Б-Проф, БС91, TablePlay, Start-Line',
     time: '14:36',
     recommendations: [
-      'Оптимальная точка вечерней цены: 850₽/час',
-      'Увеличить спред между днём и вечером для стимуляции дневного потока',
+      'Приоритет внедрения: Рассрочка → Чат → «Купить в 1 клик» → Кросс-селл',
+      'Рассрочка — критически важна при чеке 40–500K₽',
     ],
   },
 ];
 
 /* ============================================================
-   MOCK DATA — Insight Cards
+   REAL DATA — Insight Cards (из CSV)
    ============================================================ */
 
 type InsightType = 'threat' | 'opportunity' | 'trend' | 'recommendation' | 'forecast' | 'comparison';
@@ -118,11 +120,11 @@ const insightCards: InsightCard[] = [
     type: 'threat',
     typeLabel: 'Угроза',
     icon: <IconAlertTriangle size={14} />,
-    title: 'Ценовое давление усиливается',
-    description: 'Pool Hall Pro и Бильярд-Сити снизили цены на 10-15%. Ваша позиция под давлением в сегменте «вечерние часы».',
+    title: 'Billiard-Group: лидер рынка (26/40)',
+    description: '15K SKU, 300 брендов, 8–10 салонов, гарантия до 25 лет. Рассрочка, кешбэк, бот-эксперт. Weekend (12/40) отстаёт в 2 раза.',
     impact: 'high',
-    impactLabel: 'Высокое',
-    confidence: 87,
+    impactLabel: 'Критическое',
+    confidence: 95,
     date: 'Сегодня',
   },
   {
@@ -130,65 +132,89 @@ const insightCards: InsightCard[] = [
     type: 'opportunity',
     typeLabel: 'Возможность',
     icon: <IconRocket size={14} />,
-    title: 'Рынок корпоративов не занят',
-    description: 'Ни один конкурент не предлагает пакетные корпоративные программы. Потенциал: +200K₽/мес.',
+    title: 'Рассрочка — конкурентный разрыв',
+    description: 'Только 4 из 22 компаний предлагают рассрочку. Weekend не в их числе. При среднем чеке 40–500K₽ — критически важная фича конверсии.',
     impact: 'high',
     impactLabel: 'Высокое',
-    confidence: 92,
+    confidence: 100,
     date: 'Сегодня',
   },
   {
     id: 'ins-3',
-    type: 'trend',
-    typeLabel: 'Тренд',
-    icon: <IconTrendingUp size={14} />,
-    title: 'Рост запросов «бильярд + бар»',
-    description: 'За последний месяц поисковые запросы по сочетанию «бильярд + бар» выросли на 34% в регионе.',
-    impact: 'medium',
-    impactLabel: 'Среднее',
-    confidence: 78,
-    date: 'Вчера',
+    type: 'threat',
+    typeLabel: 'Угроза',
+    icon: <IconAlertTriangle size={14} />,
+    title: 'SEO-катастрофа: 4 страницы 404',
+    description: '/kontakty/, /dostavka/, /oplata/, /garantiya/ — все 404. Нет canonical, нет Schema. robots.txt блокирует пагинацию. Но 10+ конкурентов в похожей ситуации.',
+    impact: 'high',
+    impactLabel: 'Критическое',
+    confidence: 100,
+    date: 'Сегодня',
   },
   {
     id: 'ins-4',
     type: 'recommendation',
     typeLabel: 'Рекомендация',
     icon: <IconLightbulb size={14} />,
-    title: 'Запустите программу лояльности',
-    description: '68% клиентов конкурентов ищут скидки и бонусы. Программа «каждый 5-й час бесплатно» может увеличить retention на 22%.',
+    title: 'Внедрить онлайн-чат (15 минут)',
+    description: '8 конкурентов уже используют чат (Jivo, Яндекс, Bitrix24). Weekend — нет. Стандарт рынка при высоком чеке. JivoSite бесплатен на старте.',
     impact: 'medium',
     impactLabel: 'Среднее',
-    confidence: 85,
-    date: 'Вчера',
+    confidence: 95,
+    date: 'Сегодня',
   },
   {
     id: 'ins-5',
-    type: 'forecast',
-    typeLabel: 'Прогноз',
-    icon: <IconCrystalBall size={14} />,
-    title: 'Q3 2026: усиление конкуренции',
-    description: 'На основе трендов, ожидается открытие 1-2 новых бильярдных клубов. Рекомендуется укрепить позиции до осени.',
-    impact: 'high',
-    impactLabel: 'Высокое',
-    confidence: 71,
-    date: '2 дня назад',
+    type: 'trend',
+    typeLabel: 'Тренд',
+    icon: <IconTrendingUp size={14} />,
+    title: '3D-конфигуратор — набирающий тренд',
+    description: 'Ф-ка Старт (лучший), Billiard-Prof, БС 1991, TablePlay — у всех есть. Weekend отстаёт от тренда в 4+ компаниях.',
+    impact: 'medium',
+    impactLabel: 'Среднее',
+    confidence: 88,
+    date: 'Вчера',
   },
   {
     id: 'ins-6',
     type: 'comparison',
     typeLabel: 'Сравнение',
     icon: <IconScale size={14} />,
-    title: 'Ваш рейтинг vs конкуренты',
-    description: 'Средний рейтинг Weekend: 4.6/5 (Google). Выше Pool Hall Pro (4.3) и Бильярд-Сити (4.2), но ниже Shark Lounge (4.7).',
-    impact: 'low',
-    impactLabel: 'Низкое',
-    confidence: 95,
+    title: 'Weekend vs рынок: UX 4/10, дизайн 4/10',
+    description: 'Средний UX рынка: 4.9. Средний дизайн: 5.1. Лидеры UX: B-Group (8), Ф-ка Старт (8), Бильярд.ру (7). Weekend — ниже среднего.',
+    impact: 'medium',
+    impactLabel: 'Среднее',
+    confidence: 92,
+    date: '2 дня назад',
+  },
+  {
+    id: 'ins-7',
+    type: 'opportunity',
+    typeLabel: 'Возможность',
+    icon: <IconRocket size={14} />,
+    title: 'Luza.ru — медиа-гигант с уязвимостями',
+    description: '37.9K YouTube, 670+ видео. Но: фейковый Schema-рейтинг (OutOfStock + поддельная оценка). Weekend может перехватить выдачу, исправив Schema первым.',
+    impact: 'medium',
+    impactLabel: 'Среднее',
+    confidence: 82,
+    date: '3 дня назад',
+  },
+  {
+    id: 'ins-8',
+    type: 'forecast',
+    typeLabel: 'Прогноз',
+    icon: <IconCrystalBall size={14} />,
+    title: 'Дефицит видео — главная слабость Weekend',
+    description: 'Weekend: 93 ролика, 655 подписчиков. Luza: 670+ роликов, 37 900. Ф-ка Старт: 516, 3 590. Видеоконтент — основной драйвер трафика в нише.',
+    impact: 'high',
+    impactLabel: 'Высокое',
+    confidence: 90,
     date: '3 дня назад',
   },
 ];
 
 /* ============================================================
-   MOCK DATA — Reports
+   REAL DATA — Reports
    ============================================================ */
 
 interface Report {
@@ -200,9 +226,9 @@ interface Report {
 }
 
 const reports: Report[] = [
-  { id: 'rpt-1', title: 'Ежемесячный конкурентный отчёт', date: '15.06.2026', type: 'chart', meta: 'Июнь 2026 · Сгенерирован автоматически' },
-  { id: 'rpt-2', title: 'SWOT-анализ: Pool Hall Pro', date: '10.06.2026', type: 'swot', meta: 'Создан вручную' },
-  { id: 'rpt-3', title: 'Ценовой анализ рынка Q2 2026', date: '01.06.2026', type: 'trend', meta: 'Автоматический' },
+  { id: 'rpt-1', title: 'Аудит 22 конкурентов — 69 параметров', date: '19.06.2026', type: 'chart', meta: 'Июнь 2026 · Из CSV' },
+  { id: 'rpt-2', title: 'SWOT-анализ: Billiard-Group', date: '18.06.2026', type: 'swot', meta: 'Автоматический' },
+  { id: 'rpt-3', title: 'SEO-проблемы рынка бильярда', date: '15.06.2026', type: 'trend', meta: 'Автоматический' },
 ];
 
 /* ============================================================
@@ -210,12 +236,12 @@ const reports: Report[] = [
    ============================================================ */
 
 const quickActions = [
-  { icon: <IconTarget size={14} />, label: 'SWOT-анализ' },
-  { icon: <IconChartBar size={14} />, label: 'Ценовой обзор' },
-  { icon: <IconTrendingUp size={14} />, label: 'Прогноз' },
-  { icon: <IconScale size={14} />, label: 'Сравнение' },
-  { icon: <IconTarget size={14} />, label: 'Целевая аудитория' },
-  { icon: <IconLightbulb size={14} />, label: 'Идеи' },
+  { icon: <IconTarget size={14} />, label: 'SWOT B-Group' },
+  { icon: <IconChartBar size={14} />, label: 'Сравнить SEO' },
+  { icon: <IconTrendingUp size={14} />, label: 'Тренды рынка' },
+  { icon: <IconScale size={14} />, label: 'UX-бенчмарк' },
+  { icon: <IconTarget size={14} />, label: 'Фичи сайтов' },
+  { icon: <IconLightbulb size={14} />, label: 'Рекомендации' },
 ];
 
 /* ============================================================
@@ -223,9 +249,9 @@ const quickActions = [
    ============================================================ */
 
 const suggestedPrompts = [
-  'Сравни цены с конкурентами',
-  'Прогноз на Q3 2026',
-  'SWOT-анализ Pool Hall Pro',
+  'Сравни SEO Weekend vs Billiard-Group',
+  'SWOT-анализ Ф-ки Старт',
+  'Кто использует рассрочку?',
 ];
 
 /* ============================================================
@@ -265,11 +291,12 @@ export default function InsightsClient() {
       const aiMsg: ChatMessage = {
         id: `msg-${Date.now()}-ai`,
         role: 'ai',
-        text: '<strong>Анализирую ваш запрос...</strong>\n\nНа основе собранных данных по 5 конкурентам за последние 90 дней, могу предложить следующие выводы.\n\nВ ближайшее время рекомендую обратить внимание на ценовую стратегию в вечернем сегменте и усилить активность в социальных сетях.',
+        text: '<strong>Анализирую ваш запрос...</strong>\n\nНа основе собранных данных по 21 конкуренту (69 параметров из CSV-аудита), могу предложить следующие выводы.\n\nWeekend (12/40) находится в нижней трети рейтинга. Ключевые зоны роста: <strong>рассрочка</strong>, <strong>онлайн-чат</strong>, <strong>восстановление 404 страниц</strong> и <strong>видеоконтент</strong>.',
         time: new Date().toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' }),
         recommendations: [
-          'Подготовить контент-план на следующий месяц',
-          'Провести A/B-тест ценовых предложений',
+          'Срочно: исправить 4 страницы 404 + добавить canonical',
+          'Подключить Тинькофф Рассрочку / Сбер Сплит',
+          'Установить JivoSite (бесплатно на старте)',
         ],
       };
 
@@ -300,9 +327,7 @@ export default function InsightsClient() {
         </div>
         <div className={styles.logoSubtitle}>Competitor Intelligence</div>
 
-        <button className={styles.newReportBtn} id="btn-new-report">
-          <IconPlus size={16} /> Новый отчёт
-        </button>
+        <DatabaseTelemetry />
 
         <div className={styles.sectionLabel}>Навигация</div>
         <nav className={styles.navList} id="nav-main">
@@ -346,6 +371,8 @@ export default function InsightsClient() {
       <main className={styles.mainContent}>
         <div className={ins.page}>
 
+          <StyleSwitcher />
+
           {/* Header */}
           <div className={ins.header}>
             <div className={ins.headerLeft}>
@@ -353,7 +380,7 @@ export default function InsightsClient() {
                 <IconSparkles size={28} className={ins.pageTitleIcon} />
                 AI Инсайты
               </h1>
-              <p className={ins.pageSubtitle}>Стратегический анализ вашей конкурентной среды · Июнь 2026</p>
+              <p className={ins.pageSubtitle}>Стратегический анализ конкурентной среды · 69 параметров × 22 компании · Июнь 2026</p>
             </div>
             <div className={ins.headerActions}>
               <button className={ins.actionBtn} id="btn-export">
@@ -445,7 +472,7 @@ export default function InsightsClient() {
                   <span className={ins.chatContextClose}>×</span>
                 </div>
                 <div className={ins.chatContextChip}>
-                  Pool Hall Pro
+                  Billiard-Group
                   <span className={ins.chatContextClose}>×</span>
                 </div>
                 <button className={ins.chatContextAdd}>

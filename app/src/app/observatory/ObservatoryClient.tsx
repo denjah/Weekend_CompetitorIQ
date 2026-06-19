@@ -3,6 +3,8 @@
 import React from 'react';
 import styles from '@/styles/layout.module.css';
 import obs from '@/styles/observatory.module.css';
+import StyleSwitcher from '@/components/ui/StyleSwitcher';
+import DatabaseTelemetry from '@/components/ui/DatabaseTelemetry';
 import {
   IconChartBar,
   IconNetwork,
@@ -28,7 +30,7 @@ import {
 } from '@/components/icons';
 
 /* ============================================================
-   NAV & GROUPS (same as other pages)
+   NAV & GROUPS (обновлено под реальные данные)
    ============================================================ */
 
 const navItems = [
@@ -39,21 +41,21 @@ const navItems = [
 ];
 
 const groups = [
-  { label: 'Прямые конкуренты', count: 3, color: '#A855F7' },
-  { label: 'Косвенные', count: 1, color: '#06B6D4' },
-  { label: 'Потенциальные', count: 1, color: '#F97316' },
+  { label: 'Прямые конкуренты', count: 8, color: '#A855F7' },
+  { label: 'Косвенные', count: 6, color: '#06B6D4' },
+  { label: 'Нишевые', count: 7, color: '#F97316' },
 ];
 
 /* ============================================================
-   MOCK DATA — Observatory
+   REAL DATA — Observatory
    ============================================================ */
 
 const kpiData = [
-  { icon: <IconEye size={16} />, label: 'Под наблюдением', value: '5', delta: '+2', direction: 'up' as const },
-  { icon: <IconActivity size={16} />, label: 'Событий / 24ч', value: '47', delta: '+12', direction: 'up' as const },
-  { icon: <IconZap size={16} />, label: 'Критичных', value: '3', delta: '+1', direction: 'up' as const },
-  { icon: <IconGlobe size={16} />, label: 'Каналов', value: '12', delta: '0', direction: 'stable' as const },
-  { icon: <IconClock size={16} />, label: 'Последний скан', value: '2м', delta: 'назад', direction: 'stable' as const },
+  { icon: <IconEye size={16} />, label: 'Под наблюдением', value: '21', delta: '+21', direction: 'up' as const },
+  { icon: <IconActivity size={16} />, label: 'Событий / анализ', value: '15', delta: 'из CSV', direction: 'stable' as const },
+  { icon: <IconZap size={16} />, label: 'Критичных', value: '1', delta: 'B-Group', direction: 'up' as const },
+  { icon: <IconGlobe size={16} />, label: 'Каналов', value: '4', delta: 'Сайт/YT/VK/TG', direction: 'stable' as const },
+  { icon: <IconClock size={16} />, label: 'Последний скан', value: '19.06', delta: '2026', direction: 'stable' as const },
 ];
 
 interface FeedEvent {
@@ -71,152 +73,160 @@ interface FeedEvent {
 const feedEvents: FeedEvent[] = [
   {
     id: 'evt-1',
-    source: 'Pool Hall Pro',
+    source: 'Billiard-Group',
     sourceColor: '#A855F7',
     severity: 'critical',
-    category: 'Цены',
-    categoryType: 'price',
-    text: 'Снижение цены на вечернее время с <strong>950₽</strong> до <strong>800₽/час</strong>. Это на 15.8% ниже вашей текущей цены.',
-    time: '12 мин назад',
+    category: 'Аудит',
+    categoryType: 'seo',
+    text: 'Лидер аудита <strong>26/40</strong>. 15 000 SKU, 300 брендов, 8–10 салонов в 7 городах, гарантия до 25 лет. Рассрочка, кешбэк, бот-эксперт.',
+    time: 'Аудит CSV',
     channel: 'Сайт',
   },
   {
     id: 'evt-2',
-    source: 'Shark Lounge',
-    sourceColor: '#A855F7',
+    source: 'Weekend Бильярд',
+    sourceColor: '#0157a4',
     severity: 'warning',
-    category: 'Маркетинг',
-    categoryType: 'marketing',
-    text: 'Запущена таргетированная реклама в Instagram. Бюджет оценивается в <strong>50-80K₽/мес</strong>. Фокус на аудиторию 25-35.',
-    time: '1 час назад',
-    channel: 'Instagram',
+    category: 'SEO',
+    categoryType: 'seo',
+    text: '<strong>4 страницы 404:</strong> /kontakty/, /dostavka/, /oplata/, /garantiya/. Canonical отсутствует. JSON-LD Schema отсутствует. robots.txt блокирует пагинацию.',
+    time: 'Аудит CSV',
+    channel: 'SEO',
   },
   {
     id: 'evt-3',
-    source: 'Pool Hall Pro',
+    source: 'Ф-ка «Старт»',
     sourceColor: '#A855F7',
-    severity: 'info',
-    category: 'Соцсети',
-    categoryType: 'social',
-    text: 'Новая публикация: "Летний турнир по пулу — призовой фонд 100 000₽". <strong>342 лайка, 67 комментариев</strong> за 3 часа.',
-    time: '3 часа назад',
-    channel: 'Instagram',
+    severity: 'warning',
+    category: 'UX',
+    categoryType: 'ux',
+    text: 'Лучший <strong>конфигуратор бильярдного стола</strong> на рынке. Выбор игры, размера, материала, сукна → итоговая цена. Рассрочка «Сплит» без переплаты.',
+    time: 'Аудит CSV',
+    channel: 'Сайт',
   },
   {
     id: 'evt-4',
-    source: 'Бильярд-Сити',
-    sourceColor: '#A855F7',
-    severity: 'warning',
-    category: 'Продукт',
-    categoryType: 'product',
-    text: 'Обновлена страница на 2GIS — добавлены новые фото интерьера и <strong>бар-меню</strong>. Акцент на премиум-атмосферу.',
-    time: '5 часов назад',
-    channel: '2GIS',
+    source: '1000Cues',
+    sourceColor: '#F97316',
+    severity: 'info',
+    category: 'Digital',
+    categoryType: 'content',
+    text: '<strong>3D-тур салона</strong> (единственный на рынке). Пожизненная гарантия Арисова. Скидка 10% на 2-й кий. Гравировка на заказ.',
+    time: 'Аудит CSV',
+    channel: 'Сайт',
   },
   {
     id: 'evt-5',
-    source: 'Кий-Клуб «Динамо»',
-    sourceColor: '#F97316',
-    severity: 'success',
-    category: 'Отзывы',
-    categoryType: 'review',
-    text: 'Негативный отзыв: "Столы давно не перетягивали, кии кривые". Рейтинг <strong>снизился до 3.8</strong>.',
-    time: '8 часов назад',
-    channel: 'Google Maps',
+    source: 'Luza.ru',
+    sourceColor: '#06B6D4',
+    severity: 'warning',
+    category: 'Контент',
+    categoryType: 'content',
+    text: 'Медиа-доминирование: <strong>37 900 YouTube, 670+ видео</strong>. Weekend: 655 подписчиков, 93 ролика. Отставание в 57 раз по охвату.',
+    time: 'Аудит CSV',
+    channel: 'YouTube',
   },
   {
     id: 'evt-6',
-    source: 'Lucky Shot',
-    sourceColor: '#06B6D4',
-    severity: 'neutral',
-    category: 'Активность',
-    categoryType: 'activity',
-    text: 'Низкая активность — последний пост в Instagram <strong>3 недели назад</strong>. Возможно, сокращение маркетинг-бюджета.',
-    time: '1 день назад',
-    channel: 'Instagram',
+    source: 'Бильярд.ру',
+    sourceColor: '#A855F7',
+    severity: 'info',
+    category: 'Структура',
+    categoryType: 'seo',
+    text: '2-е место аудита (<strong>24/40</strong>). Первый производитель в России (с 1990). Ручная работа, итальянский сланец. SEO: H1=акция, robots блокирует каталог.',
+    time: 'Аудит CSV',
+    channel: 'Сайт',
   },
   {
     id: 'evt-7',
-    source: 'Shark Lounge',
+    source: 'Бильярд №1',
     sourceColor: '#A855F7',
-    severity: 'warning',
-    category: 'Цены',
-    categoryType: 'price',
-    text: 'Запуск программы лояльности: <strong>каждый 5-й час бесплатно</strong>. Прямая угроза удержанию клиентов.',
-    time: '1 день назад',
-    channel: 'Telegram',
+    severity: 'info',
+    category: 'Сервис',
+    categoryType: 'content',
+    text: 'Рассрочка <strong>0-0-6 через 4 банка</strong>. 8000+ SKU, 2 фабрики. «Хочу скидку» + «Нашли дешевле». SEO: H1 отсутствует, плейсхолдеры CITY_PP.',
+    time: 'Аудит CSV',
+    channel: 'Сайт',
   },
   {
     id: 'evt-8',
-    source: 'Pool Hall Pro',
-    sourceColor: '#A855F7',
+    source: 'ESBShop',
+    sourceColor: '#F97316',
     severity: 'info',
-    category: 'Маркетинг',
-    categoryType: 'marketing',
-    text: 'Обновлён дизайн сайта. Добавлена <strong>онлайн-бронирование</strong> и <strong>виртуальный тур</strong>.',
-    time: '2 дня назад',
+    category: 'Digital',
+    categoryType: 'content',
+    text: '<strong>Бауров + Сталев</strong> — амбассадоры. Подбор кия 99%, 3 года гарантии. Лучший cross-sell. Tilda — технологический тупик.',
+    time: 'Аудит CSV',
     channel: 'Сайт',
   },
 ];
 
 const channels = [
   {
-    name: 'Instagram',
-    platform: 'instagram' as const,
-    accounts: 5,
-    postsTracked: 127,
-    postsDelta: '+18',
-    postsDeltaDir: 'up' as const,
-    engagement: '3.2K',
-    engagementDelta: '+24%',
-    engagementDeltaDir: 'up' as const,
-    fillPercent: 78,
-    fillColor: 'linear-gradient(90deg, #833AB4, #FD1D1D, #F77737)',
-  },
-  {
-    name: 'Google Maps',
+    name: 'Сайты конкурентов',
     platform: 'google' as const,
-    accounts: 5,
-    postsTracked: 43,
-    postsDelta: '+5',
+    accounts: 21,
+    postsTracked: 69,
+    postsDelta: 'параметров',
     postsDeltaDir: 'up' as const,
-    engagement: '89',
-    engagementDelta: '+12%',
+    engagement: '22',
+    engagementDelta: 'компаний',
     engagementDeltaDir: 'up' as const,
-    fillPercent: 52,
+    fillPercent: 95,
     fillColor: 'linear-gradient(90deg, #4285F4, #34A853)',
   },
   {
-    name: 'Яндекс Карты',
-    platform: 'yandex' as const,
-    accounts: 4,
-    postsTracked: 31,
-    postsDelta: '+3',
+    name: 'YouTube',
+    platform: 'instagram' as const,
+    accounts: 8,
+    postsTracked: 1300,
+    postsDelta: '+видео',
     postsDeltaDir: 'up' as const,
-    engagement: '67',
-    engagementDelta: '-8%',
+    engagement: '42K',
+    engagementDelta: 'подписч.',
+    engagementDeltaDir: 'up' as const,
+    fillPercent: 72,
+    fillColor: 'linear-gradient(90deg, #FF0000, #CC0000)',
+  },
+  {
+    name: 'SEO-аудит',
+    platform: 'yandex' as const,
+    accounts: 22,
+    postsTracked: 15,
+    postsDelta: 'проблем',
+    postsDeltaDir: 'up' as const,
+    engagement: '10+',
+    engagementDelta: '404',
     engagementDeltaDir: 'down' as const,
-    fillPercent: 38,
+    fillPercent: 55,
     fillColor: '#FC3F1D',
   },
 ];
 
-/* Heatmap data — competitors x days */
-const heatmapCompetitors = ['Pool Hall Pro', 'Shark Lounge', 'Бильярд-Сити', 'Кий-Клуб', 'Lucky Shot'];
-const heatmapDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+/* Heatmap data — конкуренты x аудит-категории */
+const heatmapCompetitors = ['B-Group', 'Бильярд.ру', '1000Cues', 'Luza.ru', 'Бильярд №1', 'B-Prof', '8futов', 'Ф-ка Игра', 'Weekend'];
+const heatmapDays = ['Покуп', 'Маркет', 'SEO', 'Прод', 'UX', 'Диз', 'Конт'];
 
-// Pre-generated activity levels (0-5) for each competitor per day of the past 4 weeks
+// Audit subscores mapped to heatmap levels (0-5)
 const heatmapData = [
-  // Pool Hall Pro — very active
-  [[4,3,5,2,4,5,3], [3,5,4,3,5,4,2], [5,4,3,5,4,5,4], [4,5,5,3,4,5,3]],
-  // Shark Lounge — moderately active
-  [[2,3,2,1,3,4,2], [3,2,3,2,4,3,1], [2,4,3,3,2,4,3], [3,3,4,2,3,4,2]],
-  // Бильярд-Сити — average
-  [[1,2,1,0,2,3,1], [2,1,2,1,3,2,0], [1,3,2,2,1,3,2], [2,2,3,1,2,3,1]],
-  // Кий-Клуб — burst activity
-  [[0,0,1,0,0,1,0], [0,1,0,0,1,0,0], [4,5,4,5,4,5,4], [3,4,3,4,5,4,3]],
-  // Lucky Shot — low
-  [[0,0,0,0,1,0,0], [0,0,1,0,0,0,0], [0,0,0,0,0,1,0], [0,0,0,0,1,0,0]],
+  // Billiard-Group — лидер
+  [[5,5,4,5,5,4,4], [4,5,5,5,4,4,5], [5,4,5,5,5,4,4], [5,5,4,5,5,4,5]],
+  // Бильярд.ру
+  [[4,4,3,4,4,4,4], [4,4,4,4,4,4,4], [5,4,4,4,4,4,4], [4,5,3,4,4,4,4]],
+  // 1000Cues
+  [[4,3,3,4,4,3,4], [4,4,3,4,4,4,3], [4,3,4,4,4,3,4], [5,4,3,4,4,3,3]],
+  // Luza.ru
+  [[3,4,4,3,3,4,5], [3,4,4,3,3,4,5], [3,3,4,3,3,4,5], [3,4,4,3,3,4,5]],
+  // Бильярд №1
+  [[4,3,2,4,4,3,3], [4,4,2,3,4,3,3], [4,3,3,3,4,3,3], [4,3,2,4,4,3,3]],
+  // B-Prof
+  [[3,4,3,3,3,3,4], [3,4,3,3,3,3,3], [3,4,3,3,3,3,4], [3,4,3,3,3,3,3]],
+  // 8futов
+  [[3,3,2,3,3,3,3], [3,4,2,3,3,3,3], [3,3,3,3,3,3,3], [3,4,2,3,3,3,3]],
+  // Ф-ка Игра
+  [[3,3,3,3,3,4,3], [3,4,3,3,3,4,3], [3,3,3,3,3,4,3], [3,3,3,3,3,4,3]],
+  // Weekend
+  [[2,2,1,2,2,2,3], [2,2,2,2,2,2,3], [2,2,1,2,2,2,3], [2,2,1,2,2,2,2]],
 ];
 
 /* ============================================================
@@ -226,19 +236,35 @@ const heatmapData = [
 interface RadarTarget {
   id: string;
   name: string;
-  angle: number;  // degrees
-  distance: number;  // 0-1 from center
+  angle: number;
+  distance: number;
   color: string;
   size: number;
   threat: 'high' | 'medium' | 'low';
 }
 
 const radarTargets: RadarTarget[] = [
-  { id: 'php', name: 'Pool Hall Pro', angle: 45, distance: 0.35, color: '#FF3B30', size: 7, threat: 'high' },
-  { id: 'sl', name: 'Shark Lounge', angle: 150, distance: 0.55, color: '#FF9800', size: 6, threat: 'medium' },
-  { id: 'bc', name: 'Бильярд-Сити', angle: 210, distance: 0.6, color: '#FF9800', size: 5, threat: 'medium' },
-  { id: 'kc', name: 'Кий-Клуб', angle: 300, distance: 0.75, color: '#00E676', size: 4, threat: 'low' },
-  { id: 'ls', name: 'Lucky Shot', angle: 350, distance: 0.85, color: '#00E676', size: 3.5, threat: 'low' },
+  { id: 'bg', name: 'Billiard-Group', angle: 30, distance: 0.25, color: '#FF3B30', size: 8, threat: 'high' },
+  { id: 'bru', name: 'Бильярд.ру', angle: 70, distance: 0.35, color: '#FF9800', size: 7, threat: 'medium' },
+  { id: '1kc', name: '1000Cues', angle: 110, distance: 0.40, color: '#FF9800', size: 6.5, threat: 'medium' },
+  { id: 'luza', name: 'Luza', angle: 150, distance: 0.45, color: '#FF9800', size: 6, threat: 'medium' },
+  { id: 'b1', name: 'Бильярд №1', angle: 190, distance: 0.45, color: '#FF9800', size: 6, threat: 'medium' },
+  { id: 'bp', name: 'B-Prof', angle: 230, distance: 0.50, color: '#FF9800', size: 5.5, threat: 'medium' },
+  { id: '8f', name: '8futов', angle: 260, distance: 0.55, color: '#FF9800', size: 5, threat: 'medium' },
+  { id: 'fi', name: 'Ф-ка Игра', angle: 290, distance: 0.55, color: '#FF9800', size: 5, threat: 'medium' },
+  { id: 'fs', name: 'Ф-ка Старт', angle: 320, distance: 0.65, color: '#00E676', size: 5, threat: 'low' },
+  { id: 'ds', name: 'Дом Спорта', angle: 345, distance: 0.60, color: '#FF9800', size: 4.5, threat: 'medium' },
+  { id: 'esb', name: 'ESBShop', angle: 15, distance: 0.60, color: '#FF9800', size: 4.5, threat: 'medium' },
+  { id: 'bs', name: 'БС 1991', angle: 50, distance: 0.70, color: '#00E676', size: 4, threat: 'low' },
+  { id: 'rpt', name: 'РуптуР', angle: 95, distance: 0.75, color: '#00E676', size: 4, threat: 'low' },
+  { id: 'tp', name: 'TablePlay', angle: 135, distance: 0.75, color: '#00E676', size: 3.5, threat: 'low' },
+  { id: 'bc', name: 'Б.Сити', angle: 170, distance: 0.70, color: '#00E676', size: 4, threat: 'low' },
+  { id: 'av', name: 'Авелон', angle: 210, distance: 0.80, color: '#00E676', size: 3.5, threat: 'low' },
+  { id: 'sl', name: 'Start-Line', angle: 240, distance: 0.80, color: '#00E676', size: 3.5, threat: 'low' },
+  { id: 'be', name: 'B-Expert', angle: 275, distance: 0.80, color: '#00E676', size: 3, threat: 'low' },
+  { id: 'bka', name: 'Б-дика', angle: 305, distance: 0.85, color: '#00E676', size: 3, threat: 'low' },
+  { id: 'br', name: 'BilliRoom', angle: 335, distance: 0.85, color: '#00E676', size: 3, threat: 'low' },
+  { id: 'tt', name: 'DFC', angle: 360, distance: 0.90, color: '#00E676', size: 2.5, threat: 'low' },
 ];
 
 function RadarScan() {
@@ -247,8 +273,14 @@ function RadarScan() {
   const cy = size / 2;
   const maxR = size / 2 - 20;
 
+  const [hovered, setHovered] = React.useState<RadarTarget | null>(null);
+  const [pos, setPos] = React.useState({ x: 0, y: 0 });
+
+  // Округляем до 2 знаков, чтобы избежать hydration mismatch из-за разницы Float в Node и V8
+  const round = (val: number) => Math.round(val * 100) / 100;
+
   return (
-    <div className={obs.radarContainer} style={{ maxWidth: size, aspectRatio: '1' }}>
+    <div className={obs.radarContainer} style={{ width: '100%', aspectRatio: '1' }}>
       <svg width="100%" height="100%" viewBox={`0 0 ${size} ${size}`}>
         {/* Background circles */}
         {[0.25, 0.5, 0.75, 1.0].map((r, i) => (
@@ -256,25 +288,26 @@ function RadarScan() {
             key={i}
             cx={cx}
             cy={cy}
-            r={maxR * r}
+            r={round(maxR * r)}
             fill="none"
-            stroke="rgba(255,255,255,0.06)"
+            stroke="var(--border-default)"
+            strokeOpacity="0.4"
             strokeWidth="1"
           />
         ))}
 
         {/* Cross lines */}
-        <line x1={cx} y1={cy - maxR} x2={cx} y2={cy + maxR} stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-        <line x1={cx - maxR} y1={cy} x2={cx + maxR} y2={cy} stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
+        <line x1={cx} y1={cy - maxR} x2={cx} y2={cy + maxR} stroke="var(--border-default)" strokeOpacity="0.25" strokeWidth="1" />
+        <line x1={cx - maxR} y1={cy} x2={cx + maxR} y2={cy} stroke="var(--border-default)" strokeOpacity="0.25" strokeWidth="1" />
         <line
-          x1={cx - maxR * 0.707} y1={cy - maxR * 0.707}
-          x2={cx + maxR * 0.707} y2={cy + maxR * 0.707}
-          stroke="rgba(255,255,255,0.03)" strokeWidth="1"
+          x1={round(cx - maxR * 0.707)} y1={round(cy - maxR * 0.707)}
+          x2={round(cx + maxR * 0.707)} y2={round(cy + maxR * 0.707)}
+          stroke="var(--border-subtle)" strokeOpacity="0.2" strokeWidth="1"
         />
         <line
-          x1={cx + maxR * 0.707} y1={cy - maxR * 0.707}
-          x2={cx - maxR * 0.707} y2={cy + maxR * 0.707}
-          stroke="rgba(255,255,255,0.03)" strokeWidth="1"
+          x1={round(cx + maxR * 0.707)} y1={round(cy - maxR * 0.707)}
+          x2={round(cx - maxR * 0.707)} y2={round(cy + maxR * 0.707)}
+          stroke="var(--border-subtle)" strokeOpacity="0.2" strokeWidth="1"
         />
 
         {/* Sweep cone */}
@@ -284,9 +317,9 @@ function RadarScan() {
             <stop offset="100%" stopColor="rgba(80,70,229,0.3)" />
           </linearGradient>
         </defs>
-        <g style={{ transformOrigin: `${cx}px ${cy}px`, animation: 'radarSweep 4s linear infinite' }}>
+        <g style={{ transformOrigin: `${cx}px ${cy}px`, animation: 'radarSweep 4s linear infinite', pointerEvents: 'none' }}>
           <path
-            d={`M ${cx} ${cy} L ${cx} ${cy - maxR} A ${maxR} ${maxR} 0 0 1 ${cx + maxR * Math.sin(Math.PI / 6)} ${cy - maxR * Math.cos(Math.PI / 6)} Z`}
+            d={`M ${cx} ${cy} L ${cx} ${cy - maxR} A ${maxR} ${maxR} 0 0 1 ${round(cx + maxR * Math.sin(Math.PI / 6))} ${round(cy - maxR * Math.cos(Math.PI / 6))} Z`}
             fill="url(#sweepGrad)"
             opacity="0.6"
           />
@@ -300,12 +333,19 @@ function RadarScan() {
         {/* Targets */}
         {radarTargets.map(target => {
           const rad = (target.angle * Math.PI) / 180;
-          const tx = cx + maxR * target.distance * Math.sin(rad);
-          const ty = cy - maxR * target.distance * Math.cos(rad);
+          const tx = round(cx + maxR * target.distance * Math.sin(rad));
+          const ty = round(cy - maxR * target.distance * Math.cos(rad));
 
           return (
-            <g key={target.id}>
-              {/* Ping animation ring */}
+            <g 
+              key={target.id}
+              style={{ cursor: 'crosshair' }}
+              onMouseEnter={(e) => { setHovered(target); setPos({ x: e.clientX, y: e.clientY }); }}
+              onMouseMove={(e) => { setPos({ x: e.clientX, y: e.clientY }); }}
+              onMouseLeave={() => setHovered(null)}
+            >
+              {/* Invisible larger circle for easier hovering */}
+              <circle cx={tx} cy={ty} r={target.size + 15} fill="transparent" stroke="none" />
               <circle
                 cx={tx}
                 cy={ty}
@@ -316,7 +356,6 @@ function RadarScan() {
                 opacity="0.3"
                 style={{ animation: 'radarPing 3s ease-in-out infinite', animationDelay: `${target.angle * 10}ms` }}
               />
-              {/* Target dot */}
               <circle
                 cx={tx}
                 cy={ty}
@@ -325,14 +364,14 @@ function RadarScan() {
                 stroke={target.color}
                 strokeWidth="1.5"
               />
-              {/* Label */}
               <text
                 x={tx}
-                y={ty - target.size - 6}
+                y={ty - target.size - 4}
                 textAnchor="middle"
-                fill="#8E8E93"
-                fontSize="9"
+                fill="var(--text-secondary)"
+                fontSize="7"
                 fontFamily="Inter, sans-serif"
+                pointerEvents="none"
               >
                 {target.name}
               </text>
@@ -341,9 +380,27 @@ function RadarScan() {
         })}
 
         {/* Zone labels */}
-        <text x={cx + 4} y={cy - maxR * 0.25 + 4} fill="#55555C" fontSize="8" fontFamily="IBM Plex Mono, monospace">БЛИЗКО</text>
-        <text x={cx + 4} y={cy - maxR * 0.75 + 4} fill="#55555C" fontSize="8" fontFamily="IBM Plex Mono, monospace">ДАЛЕКО</text>
+        <text x={cx + 4} y={cy - maxR * 0.25 + 4} fill="var(--text-muted)" fontSize="8" fontFamily="IBM Plex Mono, monospace" pointerEvents="none">БЛИЗКО</text>
+        <text x={cx + 4} y={cy - maxR * 0.75 + 4} fill="var(--text-muted)" fontSize="8" fontFamily="IBM Plex Mono, monospace" pointerEvents="none">ДАЛЕКО</text>
       </svg>
+      
+      {/* Tooltip */}
+      {hovered && (
+        <div 
+          className={obs.tooltip}
+          style={{ 
+            position: 'fixed',
+            left: pos.x + 15,
+            top: pos.y + 15,
+            pointerEvents: 'none',
+            zIndex: 9999
+          }}
+        >
+          <div className={obs.tooltipTitle} style={{ color: hovered.color }}>{hovered.name}</div>
+          <div className={obs.tooltipMeta}>Угроза: {hovered.threat.toUpperCase()}</div>
+          <div className={obs.tooltipMeta}>Дистанция: {Math.round(hovered.distance * 100)}%</div>
+        </div>
+      )}
     </div>
   );
 }
@@ -352,14 +409,14 @@ function RadarScan() {
    FEED FILTER COMPONENT
    ============================================================ */
 
-type FilterType = 'all' | 'critical' | 'price' | 'marketing' | 'social';
+type FilterType = 'all' | 'critical' | 'seo' | 'ux' | 'content';
 
 const filterLabels: Record<FilterType, string> = {
   all: 'Все',
   critical: 'Критичные',
-  price: 'Цены',
-  marketing: 'Маркетинг',
-  social: 'Соцсети',
+  seo: 'SEO',
+  ux: 'UX',
+  content: 'Контент',
 };
 
 /* ============================================================
@@ -386,9 +443,7 @@ export default function ObservatoryClient() {
         </div>
         <div className={styles.logoSubtitle}>Competitor Intelligence</div>
 
-        <button className={styles.newReportBtn} id="btn-new-report">
-          <IconPlus size={16} /> Новый отчёт
-        </button>
+        <DatabaseTelemetry />
 
         <div className={styles.sectionLabel}>Навигация</div>
         <nav className={styles.navList} id="nav-main">
@@ -432,6 +487,8 @@ export default function ObservatoryClient() {
       <main className={styles.mainContent}>
         <div className={obs.page}>
 
+          <StyleSwitcher />
+
           {/* Header */}
           <div className={obs.header}>
             <div className={obs.headerLeft}>
@@ -439,7 +496,7 @@ export default function ObservatoryClient() {
                 <IconTelescope size={28} className={obs.pageTitleIcon} />
                 Обсерватория
               </h1>
-              <p className={obs.pageSubtitle}>Мониторинг конкурентов в реальном времени · Июнь 2026</p>
+              <p className={obs.pageSubtitle}>Мониторинг 21 конкурента · Аудит из CSV · Июнь 2026</p>
             </div>
             <div className={obs.headerActions}>
               <div className={obs.liveStatus} id="live-status">
@@ -470,7 +527,7 @@ export default function ObservatoryClient() {
                     {kpi.delta}
                   </span>
                 ) : (
-                  <span className={obs.kpiDelta} style={{ color: 'var(--text-muted)' }}>{kpi.delta} {kpi.value === '2м' ? '' : ''}</span>
+                  <span className={obs.kpiDelta} style={{ color: 'var(--text-muted)' }}>{kpi.delta}</span>
                 )}
               </div>
             ))}
@@ -478,12 +535,39 @@ export default function ObservatoryClient() {
 
           {/* Main Grid: Radar + Feed */}
           <div className={obs.mainGrid}>
+            
+            {/* Radar Scan */}
+            <div className={obs.radarCard} id="radar-scan">
+              <div className={obs.radarHeader}>
+                <div className={obs.radarTitle}>
+                  <IconRadar size={18} />
+                  Радар угроз
+                </div>
+                <div className={obs.radarScanStatus}>21 целей</div>
+              </div>
+              <RadarScan />
+              <div className={obs.radarLegend}>
+                <div className={obs.radarLegendItem}>
+                  <span className={obs.radarLegendDot} style={{ background: '#FF3B30' }} />
+                  Высокая (1)
+                </div>
+                <div className={obs.radarLegendItem}>
+                  <span className={obs.radarLegendDot} style={{ background: '#FF9800' }} />
+                  Средняя (9)
+                </div>
+                <div className={obs.radarLegendItem}>
+                  <span className={obs.radarLegendDot} style={{ background: '#00E676' }} />
+                  Низкая (11)
+                </div>
+              </div>
+            </div>
+
             {/* Feed / Timeline */}
             <div className={obs.feedCard} id="event-feed">
               <div className={obs.feedHeader}>
                 <div className={obs.feedTitle}>
                   <IconActivity size={18} />
-                  Лента событий
+                  Лента событий (данные аудита)
                 </div>
                 <div className={obs.feedFilters}>
                   {(Object.keys(filterLabels) as FilterType[]).map(key => (
@@ -533,31 +617,6 @@ export default function ObservatoryClient() {
               </div>
             </div>
 
-            {/* Radar Scan */}
-            <div className={obs.radarCard} id="radar-scan">
-              <div className={obs.radarHeader}>
-                <div className={obs.radarTitle}>
-                  <IconRadar size={18} />
-                  Радар угроз
-                </div>
-                <div className={obs.radarScanStatus}>SCAN: 00:02:14</div>
-              </div>
-              <RadarScan />
-              <div className={obs.radarLegend}>
-                <div className={obs.radarLegendItem}>
-                  <span className={obs.radarLegendDot} style={{ background: '#FF3B30' }} />
-                  Высокая
-                </div>
-                <div className={obs.radarLegendItem}>
-                  <span className={obs.radarLegendDot} style={{ background: '#FF9800' }} />
-                  Средняя
-                </div>
-                <div className={obs.radarLegendItem}>
-                  <span className={obs.radarLegendDot} style={{ background: '#00E676' }} />
-                  Низкая
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Channels Monitoring */}
@@ -578,18 +637,18 @@ export default function ObservatoryClient() {
                 </div>
                 <div className={obs.channelMetrics}>
                   <div className={obs.channelMetric}>
-                    <span className={obs.channelMetricLabel}>Аккаунтов</span>
+                    <span className={obs.channelMetricLabel}>Компаний</span>
                     <span className={obs.channelMetricValue}>{ch.accounts}</span>
                   </div>
                   <div className={obs.channelMetric}>
-                    <span className={obs.channelMetricLabel}>Записей отслежено</span>
+                    <span className={obs.channelMetricLabel}>Записей</span>
                     <span>
                       <span className={obs.channelMetricValue}>{ch.postsTracked}</span>
                       <span className={`${obs.channelMetricDelta} ${obs[ch.postsDeltaDir]}`}>{ch.postsDelta}</span>
                     </span>
                   </div>
                   <div className={obs.channelMetric}>
-                    <span className={obs.channelMetricLabel}>Engagement</span>
+                    <span className={obs.channelMetricLabel}>Охват</span>
                     <span>
                       <span className={obs.channelMetricValue}>{ch.engagement}</span>
                       <span className={`${obs.channelMetricDelta} ${obs[ch.engagementDeltaDir]}`}>{ch.engagementDelta}</span>
@@ -608,8 +667,8 @@ export default function ObservatoryClient() {
 
           {/* Activity Heatmap */}
           <div className={obs.heatmapCard} id="activity-heatmap">
-            <div className={obs.heatmapTitle}>Карта активности конкурентов</div>
-            <div className={obs.heatmapSubtitle}>Последние 4 недели · По дням недели</div>
+            <div className={obs.heatmapTitle}>Карта компетенций конкурентов</div>
+            <div className={obs.heatmapSubtitle}>Оценки по аудит-категориям · 4 среза</div>
 
             <div className={obs.heatmapGrid}>
               {heatmapCompetitors.map((comp, ci) => (
@@ -620,7 +679,7 @@ export default function ObservatoryClient() {
                       <div
                         key={di}
                         className={`${obs.heatmapCell} ${obs[`l${level}`]}`}
-                        title={`${comp} — ${heatmapDays[di % 7]}: ${level} событий`}
+                        title={`${comp} — ${heatmapDays[di % 7]}: ${level}`}
                       />
                     ))}
                   </div>
@@ -629,7 +688,6 @@ export default function ObservatoryClient() {
             </div>
 
             <div className={obs.heatmapDayLabels}>
-              {/* 4 weeks x 7 days labels */}
               {Array.from({ length: 4 }).map((_, wi) => (
                 <React.Fragment key={wi}>
                   {heatmapDays.map((day, di) => (
@@ -642,11 +700,11 @@ export default function ObservatoryClient() {
             </div>
 
             <div className={obs.heatmapLegend}>
-              <span>Мало</span>
+              <span>Слабо</span>
               {[0, 1, 2, 3, 4, 5].map(l => (
                 <div key={l} className={`${obs.heatmapLegendCell} ${obs[`l${l}`]}`} />
               ))}
-              <span>Много</span>
+              <span>Сильно</span>
             </div>
           </div>
 
@@ -656,7 +714,7 @@ export default function ObservatoryClient() {
             <input
               type="text"
               className={obs.aiPromptInput}
-              placeholder="Спроси AI-аналитика: «Что изменилось у Pool Hall Pro за последнюю неделю?»"
+              placeholder="Спроси AI-аналитика: «Какие SEO-проблемы у Billiard-Group?»"
               id="ai-observatory-input"
             />
             <button className={obs.aiPromptSend} id="ai-observatory-send">

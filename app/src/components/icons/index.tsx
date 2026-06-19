@@ -315,3 +315,11 @@ export const IconChevronDown: React.FC<IconProps> = ({ size = 16, color = 'curre
     <path d="m6 9 6 6 6-6" />
   </svg>
 );
+
+export const IconDatabase: React.FC<IconProps> = ({ size = 20, color = 'currentColor', className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <ellipse cx="12" cy="6" rx="8" ry="3" />
+    <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
+    <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
+  </svg>
+);

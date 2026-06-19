@@ -2,101 +2,159 @@
   "competitorId": "weekend-billiard",
   "isOurBusiness": true,
   "ratings": {
-    "overall": 4.5,
-    "trend": "+0.3",
+    "overall": 4.8,
+    "trend": "+0.2",
     "trendDirection": "up",
-    "totalReviews": 210,
-    "newReviewsThisMonth": 15,
+    "totalReviews": 850,
+    "newReviewsThisMonth": 25,
     "platforms": {
-      "googleMaps": { "rating": 4.6, "reviews": 118, "trend": "+0.2" },
-      "twogis": { "rating": 4.4, "reviews": 65, "trend": "+0.3" },
-      "yandexMaps": { "rating": 4.3, "reviews": 27, "trend": "+0.2" }
+      "googleMaps": {
+        "rating": 4.7,
+        "reviews": 250,
+        "trend": "up"
+      },
+      "twogis": {
+        "rating": 4.9,
+        "reviews": 400,
+        "trend": "stable"
+      },
+      "yandexMaps": {
+        "rating": 4.8,
+        "reviews": 200,
+        "trend": "up"
+      }
     },
     "distribution": {
-      "5": 45,
-      "4": 30,
-      "3": 15,
-      "2": 7,
-      "1": 3
+      "1": 2,
+      "2": 3,
+      "3": 10,
+      "4": 15,
+      "5": 70
     },
-    "sentimentScore": 68,
-    "sentimentTrend": "+5"
+    "sentimentScore": 88,
+    "sentimentTrend": "+3%"
   },
   "pricing": {
     "currency": "RUB",
     "pricePerHour": {
-      "current": 900,
-      "previous": 900,
+      "current": 1500,
+      "previous": 1500,
       "delta": 0,
       "deltaDirection": "stable",
-      "lastChanged": "2026-03-01"
+      "lastChanged": "2026-01-10T00:00:00Z"
     },
     "priceSegments": {
-      "morning": { "label": "Утро (10:00–14:00)", "price": 550, "previous": 550 },
-      "afternoon": { "label": "День (14:00–19:00)", "price": 700, "previous": 700 },
-      "evening": { "label": "Вечер (19:00–23:00)", "price": 900, "previous": 900 },
-      "night": { "label": "Ночь (23:00–02:00)", "price": 800, "previous": 800 },
-      "weekend": { "label": "Выходные", "price": 1000, "previous": 1000 }
+      "morning": {
+        "label": "Утро",
+        "price": 1000,
+        "previous": 1000
+      },
+      "evening": {
+        "label": "Вечер",
+        "price": 2000,
+        "previous": 2000
+      }
     },
     "priceHistory": [
-      { "month": "2026-01", "evening": 850 },
-      { "month": "2026-02", "evening": 850 },
-      { "month": "2026-03", "evening": 900 },
-      { "month": "2026-04", "evening": 900 },
-      { "month": "2026-05", "evening": 900 },
-      { "month": "2026-06", "evening": 900 }
+      {
+        "month": "Янв",
+        "evening": 2000
+      },
+      {
+        "month": "Фев",
+        "evening": 2000
+      }
     ],
-    "priceIndex": 1.0,
-    "priceIndexLabel": "Рыночный уровень"
+    "priceIndex": 100,
+    "priceIndexLabel": "Average",
+    "promotions": []
   },
   "activity": {
     "level": "medium",
     "levelLabel": "Средняя",
-    "score": 55,
+    "score": 65,
     "socialMedia": {
       "instagram": {
-        "followers": 5600,
-        "followersGrowth": "+180",
-        "postsThisMonth": 8,
-        "avgEngagement": 3.2,
-        "lastPost": "2026-06-17"
+        "followers": 3000,
+        "followersGrowth": "+1%",
+        "postsThisMonth": 5,
+        "avgEngagement": 2.5,
+        "lastPost": "2026-06-10T10:00:00Z"
       },
       "vk": {
-        "members": 3800,
-        "membersGrowth": "+90",
-        "postsThisMonth": 5,
-        "avgEngagement": 2.4,
-        "lastPost": "2026-06-15"
+        "followers": 2000,
+        "followersGrowth": "+0%",
+        "postsThisMonth": 4,
+        "avgEngagement": 1.8,
+        "lastPost": "2026-06-12T12:00:00Z"
       }
-    }
+    },
+    "advertising": {
+      "activeCampaigns": 1,
+      "estimatedBudget": 30000,
+      "platforms": [
+        "Yandex"
+      ],
+      "lastDetected": "2026-06-19T00:00:00Z"
+    },
+    "websiteUpdates": {
+      "lastUpdate": "2026-05-01T00:00:00Z",
+      "updatesThisMonth": 0,
+      "changesDetected": []
+    },
+    "activityHeatmap": {}
   },
   "marketPosition": {
-    "qualityScore": 7.5,
-    "priceLevel": 7.0,
-    "marketShareEstimate": 18,
-    "quadrant": "high-quality-mid-price"
+    "qualityScore": 85,
+    "priceLevel": 75,
+    "marketShareEstimate": 15,
+    "quadrant": "Challenger"
   },
   "radarMetrics": {
-    "price": 6.0,
-    "quality": 7.5,
-    "service": 7.0,
-    "location": 7.5,
-    "assortment": 7.0,
-    "atmosphere": 7.2,
-    "marketing": 5.5,
-    "loyalty": 6.0
+    "price": 7,
+    "quality": 9,
+    "service": 8,
+    "location": 8,
+    "assortment": 7,
+    "atmosphere": 8,
+    "marketing": 5,
+    "loyalty": 8
+  },
+  "swot": {
+    "strengths": [
+      "Эксклюзивные бренды (Rasson)",
+      "Хороший сервис"
+    ],
+    "weaknesses": [
+      "Устаревший дизайн",
+      "Нет рассрочки"
+    ],
+    "opportunities": [
+      "Развитие B2B сегмента",
+      "Внедрение современного сайта"
+    ],
+    "threats": [
+      "Сильные позиции B-Group"
+    ]
   },
   "businessInfo": {
-    "foundedYear": 2020,
-    "tablesCount": 14,
-    "tableTypes": { "russian": 6, "pool": 5, "snooker": 3 },
-    "area_sqm": 520,
-    "workingHours": "10:00–02:00",
-    "hasBar": true,
-    "hasKitchen": true,
+    "foundedYear": 2005,
+    "tablesCount": 0,
+    "tableTypes": {
+      "russian": 0,
+      "pool": 0,
+      "snooker": 0
+    },
+    "area_sqm": 800,
+    "workingHours": "10:00 - 21:00",
+    "hasBar": false,
+    "hasKitchen": false,
     "hasParking": true,
     "hasWifi": true,
-    "additionalServices": ["бар", "кухня", "турниры", "обучение", "корпоративы"],
-    "employeeCount": 16
+    "additionalServices": [
+      "Delivery",
+      "Installation"
+    ],
+    "employeeCount": 40
   }
 }

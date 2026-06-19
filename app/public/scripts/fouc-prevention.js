@@ -1,0 +1,1 @@
+(function(){try{var s=localStorage.getItem('ciq-style')||localStorage.getItem('ciq-default-style')||'01';var t=localStorage.getItem('ciq-theme')||'dark';document.documentElement.setAttribute('data-style',s);document.documentElement.setAttribute('data-theme',t);}catch(e){}})();

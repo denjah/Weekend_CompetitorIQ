@@ -3,7 +3,7 @@
    Version: 1.0.0
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Golos+Text:wght@400;500;600;700&display=swap');
 
 /* --- Design Tokens --- */
 :root {
@@ -80,6 +80,237 @@
   --transition-fast: 0.15s ease;
   --transition-default: 0.2s ease;
   --transition-slow: 0.3s ease;
+}
+
+/* ============================================================
+   STYLE 01 — Midnight Command (LIGHT)
+   ============================================================ */
+[data-style="01"][data-theme="light"] {
+  --bg-app: #F8F9FA;
+  --bg-sidebar: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-alt: #F1F3F5;
+  --bg-surface-hover: #E9ECEF;
+  --bg-input: #F1F3F5;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-default: rgba(0, 0, 0, 0.15);
+  --text-primary: #1A1A2E;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --accent-primary: #5046E5;
+  --accent-primary-glow: rgba(80, 70, 229, 0.2);
+  --accent-primary-dim: rgba(80, 70, 229, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-glow-primary: 0 0 20px rgba(80, 70, 229, 0.15);
+}
+
+/* ============================================================
+   STYLE 02 — Aurora Luxe (DARK) — Ethereal Glass
+   Fonts: Manrope + JetBrains Mono
+   ============================================================ */
+[data-style="02"][data-theme="dark"] {
+  /* Backgrounds — deep OLED */
+  --bg-app: #050508;
+  --bg-sidebar: #0A0A10;
+  --bg-surface: rgba(255, 255, 255, 0.04);
+  --bg-surface-alt: rgba(255, 255, 255, 0.06);
+  --bg-surface-hover: rgba(255, 255, 255, 0.09);
+  --bg-input: rgba(255, 255, 255, 0.03);
+
+  /* Borders — ethereal glass */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.12);
+
+  /* Typography */
+  --text-primary: #F0F0F5;
+  --text-secondary: #8B8B99;
+  --text-muted: #50505C;
+
+  /* Accents — violet → cyan gradient */
+  --accent-primary: #7C3AED;
+  --accent-primary-glow: rgba(124, 58, 237, 0.4);
+  --accent-primary-dim: rgba(124, 58, 237, 0.12);
+  --accent-cyan: #06B6D4;
+  --accent-gradient: linear-gradient(135deg, #7C3AED, #06B6D4);
+
+  /* Status */
+  --status-success: #34D399;
+  --status-warning: #FBBF24;
+  --status-critical: #F43F5E;
+
+  /* Geometry — softer, larger */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  /* Shadows — glows */
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 8px 24px rgba(124, 58, 237, 0.15), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-glow-primary: 0 0 30px rgba(124, 58, 237, 0.35);
+
+  /* Fonts */
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Transitions — spring-like */
+  --transition-fast: 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  --transition-default: 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  --transition-slow: 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* STYLE 02 — Aurora Luxe (LIGHT) */
+[data-style="02"][data-theme="light"] {
+  --bg-app: #FAFBFE;
+  --bg-sidebar: #FFFFFF;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-alt: rgba(240, 242, 255, 0.8);
+  --bg-surface-hover: rgba(230, 232, 250, 0.9);
+  --bg-input: rgba(240, 242, 255, 0.6);
+  --border-subtle: rgba(124, 58, 237, 0.08);
+  --border-default: rgba(124, 58, 237, 0.15);
+  --text-primary: #1A1030;
+  --text-secondary: #6B6380;
+  --text-muted: #9B95AA;
+  --accent-primary: #7C3AED;
+  --accent-primary-glow: rgba(124, 58, 237, 0.2);
+  --accent-primary-dim: rgba(124, 58, 237, 0.06);
+  --accent-cyan: #0891B2;
+  --accent-gradient: linear-gradient(135deg, #7C3AED, #06B6D4);
+  --status-success: #059669;
+  --status-warning: #D97706;
+  --status-critical: #E11D48;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-card: 0 1px 3px rgba(124, 58, 237, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 8px 24px rgba(124, 58, 237, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 16px 48px rgba(124, 58, 237, 0.1);
+  --shadow-glow-primary: 0 0 24px rgba(124, 58, 237, 0.12);
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --transition-fast: 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+  --transition-default: 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  --transition-slow: 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* ============================================================
+   STYLE 03 — Obsidian Noir (DARK) — Editorial Luxury
+   Fonts: Golos Text + IBM Plex Mono
+   ============================================================ */
+[data-style="03"][data-theme="dark"] {
+  /* Backgrounds — true black, no blue */
+  --bg-app: #0C0C0C;
+  --bg-sidebar: #111111;
+  --bg-surface: #141414;
+  --bg-surface-alt: #1A1A1A;
+  --bg-surface-hover: #222222;
+  --bg-input: #101010;
+
+  /* Borders — sharp, clean */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.14);
+
+  /* Typography */
+  --text-primary: #EEEEEE;
+  --text-secondary: #888888;
+  --text-muted: #555555;
+
+  /* Accents — neon magenta + gold */
+  --accent-primary: #FF3366;
+  --accent-primary-glow: rgba(255, 51, 102, 0.4);
+  --accent-primary-dim: rgba(255, 51, 102, 0.12);
+  --accent-cyan: #FFD700;
+  --accent-gradient: linear-gradient(135deg, #FF3366, #FFD700);
+
+  /* Status */
+  --status-success: #00E676;
+  --status-warning: #FF9800;
+  --status-critical: #FF1744;
+
+  /* Geometry — sharper, structural */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Shadows — minimal, structural */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 4px 16px rgba(255, 51, 102, 0.1), 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-glow-primary: 0 0 24px rgba(255, 51, 102, 0.3);
+
+  /* Fonts */
+  --font-body: 'Golos Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Fira Code', monospace;
+
+  /* Transitions */
+  --transition-fast: 0.12s ease-out;
+  --transition-default: 0.2s ease-out;
+  --transition-slow: 0.3s ease-out;
+}
+
+/* STYLE 03 — Obsidian Noir (LIGHT) — Warm cream */
+[data-style="03"][data-theme="light"] {
+  --bg-app: #F5F0EB;
+  --bg-sidebar: #FFFDF9;
+  --bg-surface: #FFFFFF;
+  --bg-surface-alt: #F0EBE5;
+  --bg-surface-hover: #E8E2DB;
+  --bg-input: #F0EBE5;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-default: rgba(0, 0, 0, 0.12);
+  --text-primary: #1A1410;
+  --text-secondary: #6B5E52;
+  --text-muted: #9C8E82;
+  --accent-primary: #CC2952;
+  --accent-primary-glow: rgba(204, 41, 82, 0.2);
+  --accent-primary-dim: rgba(204, 41, 82, 0.06);
+  --accent-cyan: #B8860B;
+  --accent-gradient: linear-gradient(135deg, #CC2952, #B8860B);
+  --status-success: #16A34A;
+  --status-warning: #CA8A04;
+  --status-critical: #DC2626;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 4px 12px rgba(204, 41, 82, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-glow-primary: 0 0 20px rgba(204, 41, 82, 0.1);
+  --font-body: 'Golos Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Fira Code', monospace;
+  --transition-fast: 0.12s ease-out;
+  --transition-default: 0.2s ease-out;
+  --transition-slow: 0.3s ease-out;
+}
+
+/* --- Font family overrides for themed styles --- */
+[data-style="02"] body {
+  font-family: var(--font-body);
+}
+[data-style="02"] .font-mono,
+[data-style="02"] [class*="kpiValue"],
+[data-style="02"] [class*="Mono"] {
+  font-family: var(--font-mono);
+}
+[data-style="03"] body {
+  font-family: var(--font-body);
+}
+[data-style="03"] .font-mono,
+[data-style="03"] [class*="kpiValue"],
+[data-style="03"] [class*="Mono"] {
+  font-family: var(--font-mono);
+}
+
+/* --- Theme transition --- */
+html[data-style] * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* --- Reset & Base --- */
