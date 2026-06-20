@@ -28,6 +28,7 @@ import {
   IconCheck,
   IconChevronRight,
   IconArrowUp,
+  IconShoppingBag,
 } from '@/components/icons';
 
 /* ============================================================
@@ -39,6 +40,7 @@ const navItems = [
   { id: 'graph', label: 'Граф связей', icon: <IconNetwork size={20} />, active: false },
   { id: 'observatory', label: 'Обсерватория', icon: <IconTelescope size={20} />, active: false },
   { id: 'insights', label: 'Инсайты', icon: <IconSparkles size={20} />, active: true },
+  { id: 'ozon', label: 'Ozon Анализ', icon: <IconShoppingBag size={20} />, active: false },
 ];
 
 const groups = [

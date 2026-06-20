@@ -32,3 +32,5 @@ pnpm-debug.log*
 .agents/
 OZON_AGENT/
 
+# Media exports
+

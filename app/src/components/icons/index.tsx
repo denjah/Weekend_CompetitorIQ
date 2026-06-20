@@ -323,3 +323,29 @@ export const IconDatabase: React.FC<IconProps> = ({ size = 20, color = 'currentC
     <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
   </svg>
 );
+
+export const IconShoppingBag: React.FC<IconProps> = ({ size = 20, color = 'currentColor', className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+    <line x1="3" y1="6" x2="21" y2="6" />
+    <path d="M16 10a4 4 0 0 1-8 0" />
+  </svg>
+);
+
+export const IconGrid: React.FC<IconProps> = ({ size = 20, color = 'currentColor', className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="3" y="3" width="7" height="7" />
+    <rect x="14" y="3" width="7" height="7" />
+    <rect x="14" y="14" width="7" height="7" />
+    <rect x="3" y="14" width="7" height="7" />
+  </svg>
+);
+
+export const IconPackage: React.FC<IconProps> = ({ size = 20, color = 'currentColor', className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="m7.5 4.27 9 5.15" />
+    <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+    <path d="m3.3 7 8.7 5 8.7-5" />
+    <path d="M12 22V12" />
+  </svg>
+);

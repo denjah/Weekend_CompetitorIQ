@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { IconDatabase } from '@/components/icons';
+import { IconDatabase, IconShoppingBag } from '@/components/icons';
 
 export default function DatabaseTelemetry() {
   return (
@@ -42,6 +42,33 @@ export default function DatabaseTelemetry() {
           <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>12 AI</span>
         </div>
       </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-primary)', fontSize: '12px', fontWeight: 600, marginTop: '8px' }}>
+        <IconShoppingBag size={14} color="#005BFF" />
+        OZON Парсинг
+      </div>
+      
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>БРЕНДОВ</span>
+          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>6</span>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>КАРТОЧЕК</span>
+          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>41</span>
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>ОТЗЫВОВ</span>
+          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>418</span>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>HI-RES МЕДИА</span>
+          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>205</span>
+        </div>
+      </div>
       
       <div style={{ 
         display: 'flex', 
@@ -51,8 +78,11 @@ export default function DatabaseTelemetry() {
         paddingTop: '12px', 
         borderTop: '1px solid var(--border-subtle)' 
       }}>
-        <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>ОБЪЁМ ДАННЫХ</span>
-        <span style={{ fontSize: '12px', color: 'var(--status-success)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>3.4 GB</span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>STORAGE (ХРАНИЛИЩЕ)</span>
+          <span style={{ fontSize: '9px', color: 'var(--text-muted)', opacity: 0.7 }}>App + DB + Media</span>
+        </div>
+        <span style={{ fontSize: '13px', color: 'var(--status-success)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>1.0 GB</span>
       </div>
     </div>
   );

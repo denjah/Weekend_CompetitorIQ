@@ -15,6 +15,7 @@ import {
   IconArrowDown,
   IconMinus,
   IconSend,
+  IconShoppingBag,
 } from '@/components/icons';
 
 const navItems = [
@@ -22,6 +23,7 @@ const navItems = [
   { id: 'graph', label: 'Граф связей', icon: <IconNetwork size={20} />, active: true },
   { id: 'observatory', label: 'Обсерватория', icon: <IconTelescope size={20} />, active: false },
   { id: 'insights', label: 'Инсайты', icon: <IconSparkles size={20} />, active: false },
+  { id: 'ozon', label: 'Ozon Анализ', icon: <IconShoppingBag size={20} />, active: false },
 ];
 
 const groups = [

@@ -88,8 +88,8 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
       .attr("stroke", d => {
         if (d.type === 'price_competition') return "var(--status-warning)";
         if (d.type === 'direct_substitution') return "var(--status-critical)";
-        if (d.type === 'shared_platform') return "rgba(255,255,255,0.1)";
-        return "rgba(255,255,255, 0.2)";
+        if (d.type === 'shared_platform') return "var(--border-subtle)";
+        return "var(--border-default)";
       })
       .attr("stroke-width", d => {
         if (d.type === 'price_competition') return 3;
@@ -121,7 +121,7 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
           .attr("x", -d.size / 2)
           .attr("y", -d.size / 2)
           .attr("rx", 8)
-          .attr("fill", "#1B1B22")
+          .attr("fill", "var(--bg-surface-alt)")
           .attr("stroke", d.color)
           .attr("stroke-width", 2);
       } else if (d.type === 'audience') {
@@ -138,14 +138,14 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
         
         g.append("polygon")
           .attr("points", hexPoints)
-          .attr("fill", "#1B1B22")
+          .attr("fill", "var(--bg-surface-alt)")
           .attr("stroke", d.color)
           .attr("stroke-width", 2);
       } else {
         // Circles for competitors/self
         g.append("circle")
           .attr("r", d.size / 2)
-          .attr("fill", "#1B1B22")
+          .attr("fill", "var(--bg-surface-alt)")
           .attr("stroke", d.color)
           .attr("stroke-width", d.type === 'self' ? 3 : 2)
           .attr("stroke-dasharray", d.type === 'potential' ? "4,4" : "none")
