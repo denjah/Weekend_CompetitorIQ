@@ -138,6 +138,27 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     return generateInsights(allProducts, matrixRows, realOzonData.kpi?.avgBuyout ?? 95);
   }, [allProducts, matrixRows]);
 
+  // Compute KPI from real exported JSON
+  const kpi = useMemo(() => {
+    const rawData = require('../../../data/ozon/products-export.json') as import('../model/types').ExportedProduct[];
+    const totalRev = rawData.reduce((acc, p) => acc + p.revenue, 0);
+    const totalSales = rawData.reduce((acc, p) => acc + p.sales, 0);
+    const uniqueBrands = new Set(rawData.map(p => p.brand)).size;
+    const avgBuyout = rawData.reduce((acc, p) => acc + p.buyoutPercent, 0) / (rawData.length || 1);
+    const asp = totalSales > 0 ? totalRev / totalSales : 0;
+
+    return {
+      totalRevenue: totalRev,
+      totalOrdered: totalSales,
+      avgBuyout,
+      asp,
+      avgVelocity: 0,
+      avgRating: 4.8, // Mock as parser doesn't have rating yet
+      totalBrands: uniqueBrands,
+      totalSKUs: rawData.length
+    };
+  }, []);
+
   return {
     isLoading,
     error,
@@ -146,16 +167,7 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     products: filteredProducts,
     matrixRows,
     insights,
-    kpi: realOzonData.kpi ?? {
-      totalRevenue: 0,
-      totalOrdered: 0,
-      avgBuyout: 95,
-      asp: 0,
-      avgVelocity: 0,
-      avgRating: 0,
-      totalBrands: 0,
-      totalSKUs: 0
-    },
+    kpi,
     availableSizes: realOzonData.availableSizes ?? [],
     reviewsData: reviewsData,
   };

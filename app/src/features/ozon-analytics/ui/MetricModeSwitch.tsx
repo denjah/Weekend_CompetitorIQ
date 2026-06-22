@@ -2,19 +2,19 @@
 
 import React from 'react';
 import styles from '@/styles/ozon.module.css';
-import { useOzonFilters } from '../hooks/useOzonFilters';
+import { useGlobalFilters } from '../model/useGlobalFilters';
+import { MetricMode } from '../model/types';
 
-const METRIC_OPTIONS = [
+const METRIC_OPTIONS: { value: MetricMode; label: string }[] = [
   { value: 'revenue', label: 'Выручка' },
   { value: 'units', label: 'Штуки' },
-  { value: 'sharePercent', label: 'Доля (%)' },
-  { value: 'velocity', label: 'Velocity' },
-  { value: 'asp', label: 'Средний чек' },
-  { value: 'buyoutPercent', label: 'Выкуп (%)' },
-] as const;
+  { value: 'asp', label: 'Ср.цена' },
+  { value: 'buyoutPercent', label: 'Доля выкупа' },
+  { value: 'funnel', label: 'Воронка+Реклама' },
+];
 
 export function MetricModeSwitch() {
-  const { metricMode, setMetricMode } = useOzonFilters();
+  const { metricMode, setMetricMode } = useGlobalFilters();
 
   return (
     <div className={styles.metricSwitcher}>

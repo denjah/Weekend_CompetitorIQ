@@ -22,10 +22,8 @@ import {
 } from '@/components/icons';
 import { useOzonAnalytics } from '../hooks/useOzonAnalytics';
 import { OzonKpiGrid } from './OzonKpiGrid';
-import { OzonFiltersBar } from './OzonFiltersBar';
-import { MetricModeSwitch } from './MetricModeSwitch';
-import { SizeHeatmapMatrix } from './SizeHeatmapMatrix';
-import { OzonOverviewSection } from './OzonOverviewSection';
+import { GlobalFiltersBar } from './GlobalFiltersBar';
+import { SalesMatrix } from './SalesMatrix';
 import { ContentAnalysisSection } from './ContentAnalysisSection';
 import { BrandDrilldownSection } from './BrandDrilldownSection';
 import { InsightsSection } from './InsightsSection';
@@ -58,14 +56,12 @@ const groups = [
    TAB DEFINITIONS
    ============================================================ */
 
-type OzonTab = 'overview' | 'matrix' | 'cards' | 'economics' | 'reviews' | 'content' | 'brands' | 'insights' | 'import';
+type OzonTab = 'cards' | 'economics' | 'reviews' | 'content' | 'brands' | 'insights' | 'import';
 
 const tabs: { id: OzonTab; label: string; icon: React.ReactNode }[] = [
-  { id: 'overview', label: 'Обзор рынка', icon: <IconChartBar size={14} /> },
-  { id: 'matrix', label: 'Матрица размеров', icon: <IconGrid size={14} /> },
   { id: 'cards', label: 'Карточки', icon: <IconPackage size={14} /> },
   { id: 'economics', label: 'Юнит-Экономика', icon: <IconTarget size={14} /> },
-  { id: 'reviews', label: 'Анализ текста', icon: <IconSparkles size={14} /> },
+  { id: 'reviews', label: 'Отзывы', icon: <IconSparkles size={14} /> },
   { id: 'content', label: 'Контент-анализ', icon: <IconTarget size={14} /> },
   { id: 'brands', label: 'Бренды', icon: <IconTrendingUp size={14} /> },
   { id: 'insights', label: 'Инсайты', icon: <IconSparkles size={14} /> },
@@ -77,7 +73,7 @@ const tabs: { id: OzonTab; label: string; icon: React.ReactNode }[] = [
    ============================================================ */
 
 export default function OzonAnalyticsPage() {
-  const [activeTab, setActiveTab] = useState<OzonTab>('overview');
+  const [activeTab, setActiveTab] = useState<OzonTab>('cards');
   const [selectedProduct, setSelectedProduct] = useState<AggregatedProduct | null>(null);
   const data = useOzonAnalytics();
 
@@ -199,11 +195,11 @@ export default function OzonAnalyticsPage() {
               {/* KPI Row */}
               <OzonKpiGrid kpi={data.kpi} />
 
-              {/* Filters */}
-              <OzonFiltersBar
-                brands={data.brands}
-                availableSizes={data.availableSizes}
-              />
+              {/* Top Filters & Interactive Matrix */}
+              <div style={{ marginTop: '24px' }}>
+                <GlobalFiltersBar />
+                <SalesMatrix />
+              </div>
 
               {/* Tab Bar */}
               <div className={ozon.tabBar} id="ozon-tabs">
@@ -237,8 +233,6 @@ export default function OzonAnalyticsPage() {
                     {tabs.find(t => t.id === activeTab)?.label}
                   </div>
                   <span className={ozon.sectionSubtitle}>
-                    {activeTab === 'overview' && `${data.brands.length} брендов · ${data.products.length} SKU`}
-                    {activeTab === 'matrix' && `Матрица брендов × размеров`}
                     {activeTab === 'cards' && `${data.products.length} карточек товаров`}
                     {activeTab === 'economics' && `Юнит-экономика FBO / FBS / rFBS`}
                     {activeTab === 'reviews' && `Семантический анализ отзывов покупателей`}
@@ -249,20 +243,6 @@ export default function OzonAnalyticsPage() {
                   </span>
                 </div>
                 <div className={ozon.sectionBody}>
-                  {activeTab === 'overview' && (
-                    <OzonOverviewSection brands={data.brands} products={data.products} />
-                  )}
-                  {activeTab === 'matrix' && (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                        <MetricModeSwitch />
-                      </div>
-                      <SizeHeatmapMatrix 
-                        matrixRows={data.matrixRows} 
-                        availableSizes={data.availableSizes} 
-                      />
-                    </div>
-                  )}
                   {activeTab === 'cards' && (
                     <ProductCardsTable products={data.products} onRowClick={setSelectedProduct} />
                   )}

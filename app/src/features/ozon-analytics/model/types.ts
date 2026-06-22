@@ -3,6 +3,12 @@ export type WorkScheme = 'FBS' | 'FBO' | 'Crossborder';
 export type CompetitorType = 'direct' | 'indirect' | 'potential' | 'niche';
 export type SnapshotSource = 'parser' | 'manual' | 'import' | 'api';
 
+export type Seller = {
+  id: string;
+  name: string;
+  marketplace: Marketplace;
+};
+
 export type Brand = {
   id: string;
   name: string;
@@ -108,7 +114,34 @@ export type AggregatedProduct = {
   questions: number;
 };
 
-export type MetricMode = 'revenue' | 'units' | 'sharePercent' | 'velocity' | 'asp' | 'buyoutPercent';
+export type MetricMode = 'revenue' | 'units' | 'sharePercent' | 'velocity' | 'asp' | 'buyoutPercent' | 'funnel';
+
+export type GroupingMode = 'competitor' | 'brand';
+export type DrilldownLevel = 1 | 2 | 3;
+
+export type FunnelMetrics = {
+  impressions: number;
+  cardViews: number;
+  ctr: number;
+  addToCartPercent: number;
+  drr: number;
+};
+
+export type ExportedProduct = {
+  id: string;
+  name: string;
+  url: string;
+  seller: string;
+  brand: string;
+  sizeText: string;
+  feetCategory: string;
+  exactSize?: string;
+  revenue: number;
+  sales: number;
+  price: number;
+  buyoutPercent: number;
+  funnel: FunnelMetrics;
+};
 
 export type SizeMatrixCell = {
   brandId: string;
@@ -122,6 +155,10 @@ export type SizeMatrixCell = {
   revenue: number;
   velocity: number;
   sharePercent: number; // доля этого размера внутри бренда (от 0 до 100)
+};
+
+export type MatrixCellExpanded = SizeMatrixCell & {
+  funnel?: FunnelMetrics;
 };
 
 export type SizeMatrixRow = {
