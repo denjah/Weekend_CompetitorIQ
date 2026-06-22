@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import React, { useState } from 'react';
@@ -32,8 +33,8 @@ const groups = [
   { label: 'Нишевые', count: 7, color: '#F97316' },
 ];
 
-export default function KnotClient({ graphData }: { graphData: unknown }) {
-  const [selectedNode, setSelectedNode] = useState<unknown | null>(null);
+export default function KnotClient({ graphData }: { graphData: any }) {
+  const [selectedNode, setSelectedNode] = useState<any | null>(null);
 
   const getBadgeType = (type: string) => {
     switch (type) {
@@ -210,4 +211,6 @@ export default function KnotClient({ graphData }: { graphData: unknown }) {
     </div>
   );
 }
+
+
 

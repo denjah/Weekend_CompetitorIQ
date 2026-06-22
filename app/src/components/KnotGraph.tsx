@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -52,7 +53,7 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
 
     // Zoom setup
     const zoomGroup = svg.append("g");
-    const zoom = d3.zoom<SVGSVGElement, unknown>()
+    const zoom = d3.zoom<SVGSVGElement, any>()
       .scaleExtent([0.2, 4])
       .on("zoom", (e) => {
         zoomGroup.attr("transform", e.transform);
@@ -74,7 +75,7 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
         .distance(120)
         .strength(d => d.strength)
       )
-      .force("charge", d3.forceMunknownBody().strength(-800))
+      .force("charge", d3.forceManyBody().strength(-800))
       .force("collide", d3.forceCollide<NodeData>().radius(d => d.size / 2 + 20).iterations(2))
       .force("x", d3.forceX().strength(0.05))
       .force("y", d3.forceY().strength(0.05));
@@ -105,7 +106,7 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
       .selectAll("g")
       .data(nodes)
       .join("g")
-      .call(d3.drag<unknown, NodeData>()
+      .call(d3.drag<any, NodeData>()
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended));
@@ -255,18 +256,18 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
         .attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
-    function dragstarted(event: unknown, d: NodeData) {
+    function dragstarted(event: any, d: NodeData) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
       d.fy = d.y;
     }
 
-    function dragged(event: unknown, d: NodeData) {
+    function dragged(event: any, d: NodeData) {
       d.fx = event.x;
       d.fy = event.y;
     }
 
-    function dragended(event: unknown, d: NodeData) {
+    function dragended(event: any, d: NodeData) {
       if (!event.active) simulation.alphaTarget(0);
       d.fx = null;
       d.fy = null;
@@ -310,4 +311,6 @@ export default function KnotGraph({ data, onNodeSelect }: KnotGraphProps) {
     </div>
   );
 }
+
+
 

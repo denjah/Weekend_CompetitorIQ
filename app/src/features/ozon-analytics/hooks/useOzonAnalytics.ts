@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useMemo, useState } from 'react';
@@ -18,7 +19,7 @@ import { useEffect } from 'react';
 export function useOzonAnalytics(): OzonAnalyticsData {
   const [isLoading] = useState(false);
   const [error] = useState<string | null>(null);
-  const [reviewsData, setReviewsData] = useState<Record<string, unknown>[]>([]);
+  const [reviewsData, setReviewsData] = useState<any[]>([]);
 
   useEffect(() => {
     fetch('/api/ozon/reviews')
@@ -56,8 +57,8 @@ export function useOzonAnalytics(): OzonAnalyticsData {
         return {
           ...p,
           mainImage: scraped.mainImages[0], // Берем первую Hires-картинку
-          imageUrls: scraped.mainImages
-        };
+          imageUrls: scraped.mainImages as string[]
+        } as AggregatedProduct;
       }
       return p;
     });
@@ -159,4 +160,5 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     reviewsData: reviewsData,
   };
 }
+
 
