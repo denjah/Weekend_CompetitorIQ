@@ -451,3 +451,23 @@ img, svg {
   animation: shimmer 1.5s infinite;
   border-radius: var(--radius-md);
 }
+
+/* ============================================================
+   SVG Charts & Graph Global Fixes (for Dark Themes like Obsidian)
+   ============================================================ */
+[data-theme="dark"] svg text {
+  fill: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] svg path.domain,
+[data-theme="dark"] svg .tick line,
+[data-theme="dark"] svg line.axis,
+[data-theme="dark"] svg .grid-line line {
+  stroke: var(--border-default) !important;
+}
+
+[data-theme="dark"] svg .grid line {
+  stroke: var(--border-subtle) !important;
+  stroke-dasharray: 4;
+}
