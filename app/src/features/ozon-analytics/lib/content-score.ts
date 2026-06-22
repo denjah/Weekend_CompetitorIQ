@@ -63,3 +63,4 @@ export function calcContentScore(
     totalScore: Math.round(totalScore)
   };
 }
+

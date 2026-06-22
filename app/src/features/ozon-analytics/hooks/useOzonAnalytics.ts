@@ -18,7 +18,7 @@ import { useEffect } from 'react';
 export function useOzonAnalytics(): OzonAnalyticsData {
   const [isLoading] = useState(false);
   const [error] = useState<string | null>(null);
-  const [reviewsData, setReviewsData] = useState<any[]>([]);
+  const [reviewsData, setReviewsData] = useState<Record<string, unknown>[]>([]);
 
   useEffect(() => {
     fetch('/api/ozon/reviews')
@@ -159,3 +159,4 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     reviewsData: reviewsData,
   };
 }
+

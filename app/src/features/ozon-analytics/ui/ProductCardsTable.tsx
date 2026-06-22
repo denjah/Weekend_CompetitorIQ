@@ -33,7 +33,7 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
     });
   }, [products, sortField, sortDesc]);
 
-  const SortIcon = ({ field }: { field: SortField }) => {
+  const renderSortIcon = (field: SortField) => {
     if (sortField !== field) return null;
     return <span style={{ fontSize: '10px', marginLeft: '4px' }}>{sortDesc ? '▼' : '▲'}</span>;
   };
@@ -48,21 +48,21 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)' }}>Бренд</th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', textAlign: 'center' }}>Размер</th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer' }} onClick={() => handleSort('price')}>
-                Цена <SortIcon field="price" />
+                Цена {renderSortIcon('price')}
               </th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer' }} onClick={() => handleSort('ordered')}>
-                Заказано <SortIcon field="ordered" />
+                Заказано {renderSortIcon('ordered')}
               </th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)' }}>Выкуп</th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer' }} onClick={() => handleSort('revenue')}>
-                Оборот <SortIcon field="revenue" />
+                Оборот {renderSortIcon('revenue')}
               </th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer' }} onClick={() => handleSort('velocity')}>
-                Velocity <SortIcon field="velocity" />
+                Velocity {renderSortIcon('velocity')}
               </th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)' }}>Схема</th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer', textAlign: 'center' }} onClick={() => handleSort('contentScore')}>
-                Контент <SortIcon field="contentScore" />
+                Контент {renderSortIcon('contentScore')}
               </th>
             </tr>
           </thead>

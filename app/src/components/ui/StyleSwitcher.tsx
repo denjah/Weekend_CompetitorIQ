@@ -63,7 +63,7 @@ export default function StyleSwitcher() {
     const savedTheme = (localStorage.getItem(LS_THEME_KEY) || 'dark') as 'dark' | 'light';
     const savedDefault = localStorage.getItem(LS_DEFAULT_KEY) || '01';
 
-    setCurrentStyle(savedStyle);
+    // eslint-disable-next-line react-hooks/set-state-in-effect`n    setCurrentStyle(savedStyle);
     setCurrentTheme(savedTheme);
     setDefaultStyle(savedDefault);
 
@@ -223,3 +223,4 @@ export default function StyleSwitcher() {
     </>
   );
 }
+

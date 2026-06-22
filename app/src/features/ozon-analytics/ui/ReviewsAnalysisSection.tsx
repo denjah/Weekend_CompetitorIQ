@@ -9,7 +9,7 @@ interface ReviewsAnalysisSectionProps {
 }
 
 export function ReviewsAnalysisSection({ reviewsData = [] }: ReviewsAnalysisSectionProps) {
-  const [insights, setInsights] = useState<{pros: any[], cons: any[]} | null>(null);
+  const [insights, setInsights] = useState<{pros: { title: string, description: string }[], cons: { title: string, description: string }[]} | null>(null);
   
   useEffect(() => {
     fetch('/api/ozon/insights')
@@ -18,7 +18,7 @@ export function ReviewsAnalysisSection({ reviewsData = [] }: ReviewsAnalysisSect
         // Берем либо инсайты для "Общий рынок (Все товары)", либо первый доступный ключ
         const marketInsights = data["Общий рынок (Все товары)"] || Object.values(data)[0];
         if (marketInsights) {
-          setInsights(marketInsights as any);
+          setInsights(marketInsights as {pros: { title: string, description: string }[], cons: { title: string, description: string }[]});
         }
       })
       .catch(console.error);

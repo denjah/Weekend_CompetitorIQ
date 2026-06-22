@@ -49,7 +49,7 @@ export function calculateGlobalKpis(metricsList: VariantMetrics[]) {
   let totalRevenue = 0;
   let totalVelocitySum = 0;
   let totalRatingSum = 0;
-  let totalContentScoreSum = 0; // if we pass content scores here, or calculate separately
+  const totalContentScoreSum = 0; // if we pass content scores here, or calculate separately
   
   metricsList.forEach(m => {
     const redeemed = calcRedeemedUnits(m.orderedUnits, m.buyoutPercent);
@@ -77,3 +77,4 @@ export function calculateGlobalKpis(metricsList: VariantMetrics[]) {
     avgRating
   };
 }
+

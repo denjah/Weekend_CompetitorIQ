@@ -17,7 +17,7 @@ export function Brand3DBarChart({ data }: Props) {
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
-    setMounted(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect`n    setMounted(true);
   }, []);
 
   if (!data || data.length === 0) return null;
@@ -163,3 +163,4 @@ export function Brand3DBarChart({ data }: Props) {
     </div>
   );
 }
+
