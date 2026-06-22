@@ -13,7 +13,7 @@ export function ImportSourcesSection() {
             <span style={{ fontSize: '12px', padding: '4px 8px', backgroundColor: '#10B98120', color: '#10B981', borderRadius: '4px' }}>Активен</span>
           </div>
           <p style={{ margin: 0, fontSize: '14px', color: 'var(--text-secondary)' }}>
-            Ежедневный парсинг топ-100 товаров по запросу "бильярдный стол". Последний запуск: сегодня в 03:00.
+            Ежедневный парсинг топ-100 товаров по запросу &quot;бильярдный стол&quot;. Последний запуск: сегодня в 03:00.
           </p>
         </div>
 
@@ -43,4 +43,5 @@ export function ImportSourcesSection() {
     </div>
   );
 }
+
 

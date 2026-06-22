@@ -11,7 +11,7 @@ export function calcContentScore(
   else if (content.imageUrls.length > 0) photosScore += (content.imageUrls.length / 5) * 60;
 
   // 2. Video (0-100, weight 15%)
-  let videoScore = content.hasVideo ? 100 : 0;
+  const videoScore = content.hasVideo ? 100 : 0;
 
   // 3. Title (0-100, weight 15%)
   let titleScore = 0;
@@ -63,4 +63,5 @@ export function calcContentScore(
     totalScore: Math.round(totalScore)
   };
 }
+
 

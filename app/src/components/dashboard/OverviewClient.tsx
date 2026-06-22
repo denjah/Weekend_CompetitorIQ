@@ -435,7 +435,7 @@ function RadarChart() {
       return;
     }
     
-    let angle = Math.atan2(y - cy, x - cx);
+    const angle = Math.atan2(y - cy, x - cx);
     let angleOffset = angle + Math.PI / 2;
     if (angleOffset < 0) angleOffset += Math.PI * 2;
     const axes = radarData.length;
@@ -872,3 +872,4 @@ export default function OverviewPage() {
     </div>
   );
 }
+
