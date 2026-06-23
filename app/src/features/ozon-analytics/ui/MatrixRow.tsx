@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from '@/styles/sales-matrix.module.css';
-import { FEET_COLUMNS, MatrixRowData } from '../model/useExportedMatrix';
+import { FEET_COLUMNS, MatrixRowData, MatrixCellData } from '../model/useExportedMatrix';
 import { useMatrixDrilldown } from '../model/useMatrixDrilldown';
 import { useGlobalFilters } from '../model/useGlobalFilters';
 import { MatrixDrilldownLevel3 } from './MatrixDrilldownLevel3';
@@ -20,7 +20,7 @@ export function MatrixRow({ row, isLevel2 = false, maxRevenue, maxSales }: Props
 
   const isExpanded = expandedRows.has(row.id);
 
-  const renderCellValue = (cell: any) => {
+  const renderCellValue = (cell: MatrixCellData) => {
     switch (metricMode) {
       case 'revenue': return `${cell.revenue.toLocaleString('ru-RU')} ₽`;
       case 'units': return `${cell.sales} шт`;
@@ -55,7 +55,7 @@ export function MatrixRow({ row, isLevel2 = false, maxRevenue, maxSales }: Props
     }
   };
 
-  const getHeatmapColor = (cell: any) => {
+  const getHeatmapColor = (cell: MatrixCellData) => {
     if (metricMode === 'funnel' || cell.products.length === 0) return 'transparent';
     let intensity = 0;
     if (metricMode === 'revenue' && maxRevenue > 0) {

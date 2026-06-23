@@ -21,7 +21,6 @@ export function BrandDonutChart({ data }: { data: BrandStat[] }) {
     return displayData.reduce((sum, item) => sum + item.revenue, 0);
   }, [displayData]);
 
-  if (displayData.length === 0) return null;
 
   const size = 320;
   const cx = size / 2;
@@ -29,31 +28,38 @@ export function BrandDonutChart({ data }: { data: BrandStat[] }) {
   const radius = 120;
   const strokeWidth = 50;
 
-  let currentAngle = -Math.PI / 2; // start at top
+  const slices = useMemo(() => {
+    let currentAngle = -Math.PI / 2; // start at top
+    const result = [];
+    for (let i = 0; i < displayData.length; i++) {
+      const item = displayData[i];
+      const percentage = totalRevenue > 0 ? item.revenue / totalRevenue : 0;
+      const angle = percentage * 2 * Math.PI;
+      const color = item.color || `hsl(${(i * 60) % 360}, 70%, 50%)`;
+      
+      const startX = cx + Math.cos(currentAngle) * radius;
+      const startY = cy + Math.sin(currentAngle) * radius;
+      
+      const newAngle = currentAngle + angle;
+      
+      const endX = cx + Math.cos(newAngle) * radius;
+      const endY = cy + Math.sin(newAngle) * radius;
+      
+      const largeArcFlag = angle > Math.PI ? 1 : 0;
+      
+      // Path for the donut slice
+      const d = `
+        M ${startX} ${startY}
+        A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY}
+      `;
 
-  const slices = displayData.map((item, i) => {
-    const percentage = totalRevenue > 0 ? item.revenue / totalRevenue : 0;
-    const angle = percentage * 2 * Math.PI;
-    const color = item.color || `hsl(${(i * 60) % 360}, 70%, 50%)`;
-    
-    const startX = cx + Math.cos(currentAngle) * radius;
-    const startY = cy + Math.sin(currentAngle) * radius;
-    
-    currentAngle += angle;
-    
-    const endX = cx + Math.cos(currentAngle) * radius;
-    const endY = cy + Math.sin(currentAngle) * radius;
-    
-    const largeArcFlag = angle > Math.PI ? 1 : 0;
-    
-    // Path for the donut slice
-    const d = `
-      M ${startX} ${startY}
-      A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY}
-    `;
+      result.push({ item, d, color, percentage, index: i });
+      currentAngle = newAngle;
+    }
+    return result;
+  }, [displayData, totalRevenue, cx, cy, radius]);
 
-    return { item, d, color, percentage, index: i };
-  });
+  if (displayData.length === 0) return null;
 
   return (
     <div style={{
@@ -87,7 +93,6 @@ export function BrandDonutChart({ data }: { data: BrandStat[] }) {
             const currentRadius = isHovered ? radius + 10 : radius;
             
             // Recalculate path if hovered to scale out slightly
-            let pathD = slice.d;
             if (isHovered) {
               // we just scale the stroke-width and pop it out slightly via CSS
             }

@@ -40,7 +40,7 @@ export function OzonOverviewSection({ brands, products }: Props) {
             ].map(type => (
               <button
                 key={type.id}
-                onClick={() => setChartType(type.id as any)}
+                onClick={() => setChartType(type.id as '3d-cloud' | 'treemap' | '3d-bars' | 'bars')}
                 style={{
                   padding: '6px 12px',
                   border: 'none',

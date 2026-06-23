@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import rawDataImport from '../../../data/ozon/products-export.json';
 import { generateInsights } from '../lib/insight-rules';
 import { useOzonFilters } from './useOzonFilters';
 import {
@@ -14,7 +15,6 @@ import {
 } from '../model/types';
 import { realOzonData } from '../model/real-data-dashboard';
 
-import { useEffect } from 'react';
 
 export function useOzonAnalytics(): OzonAnalyticsData {
   const [isLoading] = useState(false);
@@ -140,7 +140,7 @@ export function useOzonAnalytics(): OzonAnalyticsData {
 
   // Compute KPI from real exported JSON
   const kpi = useMemo(() => {
-    const rawData = require('../../../data/ozon/products-export.json') as import('../model/types').ExportedProduct[];
+    const rawData = rawDataImport as import('../model/types').ExportedProduct[];
     const totalRev = rawData.reduce((acc, p) => acc + p.revenue, 0);
     const totalSales = rawData.reduce((acc, p) => acc + p.sales, 0);
     const uniqueBrands = new Set(rawData.map(p => p.brand)).size;
