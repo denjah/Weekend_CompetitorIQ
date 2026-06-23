@@ -22,6 +22,7 @@ import {
 } from '@/components/icons';
 import { useOzonAnalytics } from '../hooks/useOzonAnalytics';
 import { OzonKpiGrid } from './OzonKpiGrid';
+import { OzonOverviewSection } from './OzonOverviewSection';
 import { GlobalFiltersBar } from './GlobalFiltersBar';
 import { SalesMatrix } from './SalesMatrix';
 import { ContentAnalysisSection } from './ContentAnalysisSection';
@@ -194,6 +195,10 @@ export default function OzonAnalyticsPage() {
             <>
               {/* KPI Row */}
               <OzonKpiGrid kpi={data.kpi} />
+
+              <div style={{ marginTop: '24px' }}>
+                <OzonOverviewSection brands={data.brands} products={data.products} />
+              </div>
 
               {/* Top Filters & Interactive Matrix */}
               <div style={{ marginTop: '24px' }}>

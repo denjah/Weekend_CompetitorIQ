@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '@/styles/ozon.module.css';
 import { AggregatedProduct, Brand } from '../model/types';
 import { formatCurrency, formatNumber } from '../lib/formatters';
 import { Brand3DPointCloud } from './Brand3DPointCloud';
+import { BrandTreemap } from './BrandTreemap';
+import { Brand3DBarChart } from './Brand3DBarChart';
+import { BrandHorizontalBarChart } from './BrandHorizontalBarChart';
 
 interface Props {
   brands: Brand[];
@@ -10,6 +13,8 @@ interface Props {
 }
 
 export function OzonOverviewSection({ brands, products }: Props) {
+  const [chartType, setChartType] = useState<'3d-cloud' | 'treemap' | '3d-bars' | 'bars'>('3d-cloud');
+
   // Вычисляем топ брендов по выручке
   const brandStats = brands.map(brand => {
     const brandProducts = products.filter(p => p.brandId === brand.id);
@@ -21,9 +26,45 @@ export function OzonOverviewSection({ brands, products }: Props) {
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '24px' }}>
-      <div className={styles.sectionCard} style={{ padding: '24px', background: 'var(--surface)', overflow: 'hidden' }}>
-        <h3 style={{ margin: '0 0 16px 0', fontSize: '16px' }}>Топ Брендов по Выручке</h3>
-        <Brand3DPointCloud data={brandStats} />
+      <div className={styles.sectionCard} style={{ padding: '24px', background: 'var(--surface)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+          <h3 style={{ margin: '0', fontSize: '16px' }}>Топ Брендов по Выручке</h3>
+          
+          {/* Chart View Switcher */}
+          <div style={{ display: 'flex', gap: '4px', background: 'var(--surface-alt)', padding: '4px', borderRadius: '8px' }}>
+            {[
+              { id: '3d-cloud', label: '3D Cloud' },
+              { id: 'treemap', label: 'Treemap' },
+              { id: '3d-bars', label: '3D Bars' },
+              { id: 'bars', label: 'Bars' }
+            ].map(type => (
+              <button
+                key={type.id}
+                onClick={() => setChartType(type.id as any)}
+                style={{
+                  padding: '6px 12px',
+                  border: 'none',
+                  borderRadius: '4px',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  background: chartType === type.id ? 'var(--primary)' : 'transparent',
+                  color: chartType === type.id ? '#fff' : 'var(--text-secondary)',
+                  transition: 'all 0.2s'
+                }}
+              >
+                {type.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          {chartType === '3d-cloud' && <Brand3DPointCloud data={brandStats} />}
+          {chartType === 'treemap' && <BrandTreemap data={brandStats} />}
+          {chartType === '3d-bars' && <Brand3DBarChart data={brandStats} />}
+          {chartType === 'bars' && <BrandHorizontalBarChart data={brandStats} />}
+        </div>
       </div>
 
       <div className={styles.sectionCard} style={{ padding: '24px', background: 'var(--surface)' }}>

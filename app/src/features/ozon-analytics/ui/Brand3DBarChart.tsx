@@ -63,7 +63,7 @@ export function Brand3DBarChart({ data }: Props) {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              background: `linear-gradient(to top, ${color}88, ${color})`,
+              background: `linear-gradient(to top, color-mix(in srgb, ${color} 50%, transparent), ${color})`,
               transform: 'translateZ(20px)',
               border: `1px solid ${color}`,
               borderBottom: 'none',
@@ -110,7 +110,7 @@ export function Brand3DBarChart({ data }: Props) {
               position: 'absolute',
               width: '40px',
               height: '100%',
-              background: `linear-gradient(to top, ${color}66, ${color}cc)`,
+              background: `linear-gradient(to top, color-mix(in srgb, ${color} 40%, transparent), color-mix(in srgb, ${color} 80%, transparent))`,
               transform: 'translateX(-20px) rotateY(-90deg)',
               borderLeft: `1px solid ${color}`,
             }} />
@@ -119,7 +119,7 @@ export function Brand3DBarChart({ data }: Props) {
               position: 'absolute',
               width: '40px',
               height: '100%',
-              background: `linear-gradient(to top, ${color}44, ${color}99)`,
+              background: `linear-gradient(to top, color-mix(in srgb, ${color} 25%, transparent), color-mix(in srgb, ${color} 60%, transparent))`,
               transform: 'translateX(20px) rotateY(90deg)',
               borderRight: `1px solid ${color}`,
             }} />
@@ -128,7 +128,7 @@ export function Brand3DBarChart({ data }: Props) {
               position: 'absolute',
               width: '40px',
               height: '40px',
-              background: `${color}ff`,
+              background: `${color}`,
               transform: 'translateY(-20px) rotateX(90deg)',
               border: `1px solid ${color}`,
             }} />
