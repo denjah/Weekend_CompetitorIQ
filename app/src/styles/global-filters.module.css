@@ -3,8 +3,8 @@
   align-items: center;
   gap: 16px;
   padding: 16px 24px;
-  background: rgba(25, 25, 30, 0.6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
@@ -16,15 +16,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--bg-surface-alt);
   padding: 4px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
 }
 
 .filterLabel {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-left: 8px;
@@ -33,7 +33,7 @@
 .toggleButton {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   padding: 6px 16px;
   border-radius: 8px;
   font-size: 13px;
@@ -43,14 +43,14 @@
 }
 
 .toggleButton:hover {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
 }
 
 .toggleButton.active {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
-  box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.3);
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 1px var(--border-default);
 }
 
 .dropdownContainer {
@@ -61,9 +61,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 13px;
@@ -72,16 +72,16 @@
 }
 
 .dropdownTrigger:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--bg-surface-hover);
+  border-color: var(--border-default);
 }
 
 .dropdownMenu {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  background: #1e1e24;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 8px;
   min-width: 200px;
@@ -99,25 +99,25 @@
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   font-size: 13px;
   transition: background 0.15s;
 }
 
 .dropdownItem:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
 }
 
 .dropdownItem.active {
-  background: rgba(56, 189, 248, 0.1);
-  color: #38bdf8;
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
 }
 
 .searchInput {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 13px;
@@ -127,29 +127,29 @@
 }
 
 .searchInput:focus {
-  border-color: #38bdf8;
+  border-color: var(--border-default);
 }
 
 .checkbox {
   width: 16px;
   height: 16px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .checkbox.checked {
-  background: #38bdf8;
-  border-color: #38bdf8;
+  background: var(--accent-primary, #005BFF);
+  border-color: var(--accent-primary, #005BFF);
 }
 
 .checkbox.checked::after {
   content: '';
   width: 4px;
   height: 8px;
-  border-right: 2px solid #000;
-  border-bottom: 2px solid #000;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   transform: rotate(45deg) translateY(-1px);
 }

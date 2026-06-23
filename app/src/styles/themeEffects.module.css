@@ -243,6 +243,7 @@
 :global([data-style="02"]) :global([class*="chartCard"]),
 :global([data-style="02"]) :global([class*="kpiCard"]),
 :global([data-style="02"]) :global([class*="tableCard"]),
+:global([data-style="02"]) :global([class*="sectionCard"]),
 :global([data-style="02"]) :global([class*="alertsCard"]),
 :global([data-style="02"]) :global([class*="aiPrompt"]) {
   backdrop-filter: blur(20px);
@@ -254,6 +255,7 @@
 :global([data-style="02"][data-theme="light"]) :global([class*="chartCard"]),
 :global([data-style="02"][data-theme="light"]) :global([class*="kpiCard"]),
 :global([data-style="02"][data-theme="light"]) :global([class*="tableCard"]),
+:global([data-style="02"][data-theme="light"]) :global([class*="sectionCard"]),
 :global([data-style="02"][data-theme="light"]) :global([class*="alertsCard"]),
 :global([data-style="02"][data-theme="light"]) :global([class*="aiPrompt"]) {
   backdrop-filter: blur(16px);

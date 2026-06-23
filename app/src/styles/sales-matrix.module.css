@@ -1,11 +1,10 @@
 .container {
   width: 100%;
   overflow-x: auto;
-  background: rgba(20, 20, 25, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  backdrop-filter: blur(16px);
-  margin-top: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-md);
 }
 
 .table {
@@ -18,15 +17,15 @@
 .th {
   position: sticky;
   top: 0;
-  background: #1e1e24;
+  background: var(--bg-surface-alt);
   padding: 16px;
   text-align: right;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-subtle);
   z-index: 10;
 }
 
@@ -39,12 +38,12 @@
 
 /* Rows */
 .row {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-subtle);
   transition: background 0.2s;
 }
 
 .row:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-surface-hover);
 }
 
 .cell {
@@ -60,7 +59,7 @@
   text-align: left;
   background: inherit;
   z-index: 5;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid var(--border-subtle);
 }
 
 /* Heatmap base */
@@ -85,17 +84,17 @@
   width: 24px;
   height: 24px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-surface-alt);
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   cursor: pointer;
   margin-right: 12px;
   transition: all 0.2s;
 }
 
 .expander:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
 }
 
 .expander.expanded {
@@ -108,12 +107,12 @@
   display: flex;
   align-items: center;
   font-weight: 500;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 /* Drill-down Levels */
 .drilldownRowLevel2 {
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--bg-surface-alt);
 }
 
 .drilldownRowLevel2 .cell:first-child {
@@ -121,7 +120,7 @@
 }
 
 .drilldownRowLevel3 {
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--bg-surface-hover);
 }
 
 .drilldownRowLevel3 .cell {
@@ -137,8 +136,8 @@
 }
 
 .productCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
   padding: 12px;
   text-align: left;
@@ -149,14 +148,14 @@
 }
 
 .productCard:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--bg-surface-hover);
+  border-color: var(--border-default);
 }
 
 .productTitle {
   font-size: 13px;
   font-weight: 500;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
   line-height: 1.4;
   display: -webkit-box;
@@ -174,13 +173,14 @@
   justify-content: space-between;
   align-items: center;
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
 }
 
 .productBadge {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-surface-alt);
   padding: 2px 6px;
   border-radius: 4px;
+  border: 1px solid var(--border-subtle);
 }
 
 /* Funnel Cell */
@@ -195,19 +195,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--bg-surface-alt);
   border-radius: 4px;
   padding: 4px;
+  border: 1px solid var(--border-subtle);
 }
 
 .funnelLabel {
   font-size: 9px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
   text-transform: uppercase;
 }
 
 .funnelValue {
   font-size: 12px;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
 }

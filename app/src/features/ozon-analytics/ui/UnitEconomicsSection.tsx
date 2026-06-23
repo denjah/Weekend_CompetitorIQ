@@ -19,7 +19,7 @@ export function UnitEconomicsSection() {
       </div>
 
       <div style={{ overflowX: 'auto', paddingBottom: '16px' }}>
-        <table className={styles.table}>
+        <table className={styles.matrixTable}>
           <thead>
             <tr>
               <th rowSpan={2}>SKU / Название</th>
