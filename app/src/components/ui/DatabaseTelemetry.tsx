@@ -43,32 +43,7 @@ export default function DatabaseTelemetry() {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-primary)', fontSize: '12px', fontWeight: 600, marginTop: '8px' }}>
-        <IconShoppingBag size={14} color="#005BFF" />
-        OZON Парсинг
-      </div>
-      
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>БРЕНДОВ</span>
-          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>6</span>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>КАРТОЧЕК</span>
-          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>41</span>
-        </div>
-      </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>ОТЗЫВОВ</span>
-          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>418</span>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>HI-RES МЕДИА</span>
-          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>205</span>
-        </div>
-      </div>
       
       <div style={{ 
         display: 'flex', 
