@@ -567,7 +567,7 @@ function AuditBarChart() {
 
       // Label
       ctx.font = '9px Inter, sans-serif';
-      ctx.fillStyle = bar.name === 'Weekend' ? '#FFFFFF' : '#8E8E93';
+      ctx.fillStyle = bar.name === 'Weekend' ? '#0157a4' : '#8E8E93';
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
       ctx.save();
